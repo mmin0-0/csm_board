@@ -24,6 +24,7 @@
     "swiper": "^11.2.5"
   },
   "devDependencies": {
+    "@vanilla-extract/babel-plugin": "^1.2.0",
     "@vanilla-extract/next-plugin": "^2.4.10"
   }
 }

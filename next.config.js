@@ -1,8 +1,23 @@
-const { VanillaExtractPlugin } = require('@vanilla-extract/webpack-plugin');
+const {
+  createVanillaExtractPlugin
+} = require('@vanilla-extract/next-plugin');
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async redirects() {
+    return [{
+      source: '/',
+      destination: '/home',
+      permanent: true
+    }]
+  },
   webpack: (config) => {
-    config.plugins.push(new VanillaExtractPlugin());
+    config.plugins.push(createVanillaExtractPlugin());
     return config;
   },
+  experimental: {
+    esmExternals: false,
+  },
 };
+
+module.exports = nextConfig;
