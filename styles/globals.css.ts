@@ -5,9 +5,43 @@ import './reset.css';
 export const vars = createGlobalTheme(':root', {
   colors: {
     black: '#111111',
-    white: '#ffffff'
+    white: '#ffffff',
+    light: '#f2f2f2',
+    gray01: '#999999',
+    gray02: '#f4f8fd',
+    mainColor: '#369fff',
+    mainActive: '#006ed3',
+    mainFilter: 'invert(52%) sepia(46%) saturate(1966%) hue-rotate(186deg) brightness(100%) contrast(103%)',
+    mainShadow: 'rgba(200,200,200, 0.4) 0px 3px 20px 0px',
+    orange: '#ff993a',
+    orangeRGB: '255,153,58',
+    green: '#8ac53e',
+    greenRGB: '138,197,62',
+    yellow: '#ffd143',
+    yellowRGB: '255,209,67',
+    blueRGB: '54,159,255' , 
+    error: '#FE4545',
+  },
+  fontSize: {
+    small: '1.4rem',
+    regular: '1.6rem',
+    medium: '1.8rem',
+    large: '2rem',
+    xlarge: '2.4rem'
+  },
+  fontWeight: {
+    normal: '400',
+    medium: '500',
+    semiBold: '600',
+    bold: '700'
   }
 });
+
+export const media = {
+  xs: 'screen and (max-width: 420px)',
+  sm: 'screen and (max-width: 768px)',
+  lg: 'screen and (max-width: 1200px)'
+};
 
 globalStyle("*", {
   boxSizing: "border-box",
@@ -19,7 +53,8 @@ globalStyle('html',{
 
 globalStyle("body", {
   fontFamily: 'Pretendard',
-  fontSize: '1.6rem',
+  fontSize: vars.fontSize.regular,
+  fontWeight: vars.fontWeight.normal,
   lineHeight: 1,
   letterSpacing: '-0.02em'
 });
