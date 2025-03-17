@@ -1,1 +1,0 @@
-import { createGlobalTheme, createGlobalThemeContract } from "@vanilla-extract/css";
