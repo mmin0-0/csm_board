@@ -37,7 +37,7 @@ export const vars = createGlobalTheme(':root', {
   },
   fontColor: {
     primary:'#111111',
-    secondary: '#79b928',
+    secondary: '#369fff',
     white: '#ffffff',
     error: '#bd2c3d',
   },

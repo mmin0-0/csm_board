@@ -1,4 +1,5 @@
 import { vars } from "@/styles/globals.css";
+import { style } from "@vanilla-extract/css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { recipe } from "@vanilla-extract/recipes";
 import { border, radius, transition } from "@/styles/utils.css";
@@ -87,4 +88,8 @@ export const button = recipe({
     }
   }, 
   defaultVariants: {color: 'primary', size: 'small'}
+});
+
+export const BtnWrapStyle = style({
+
 });

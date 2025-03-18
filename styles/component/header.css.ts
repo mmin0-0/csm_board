@@ -1,38 +1,25 @@
 import { style } from '@vanilla-extract/css';
 import { media, vars } from '@/styles/globals.css';
-import { blank, border, flexBox, position, radius, spacing, transition } from '../utils.css';
+import { blank, flexBox, position, size } from '@/styles/utils.css';
 
-export const HeaderWrap = style({
-  color: vars.colors.black
-});
+export const HeaderWrap = style([
+  size({width: '100%', height: '6rem'}),
+  blank.px(2,2),
+  position('absolute', {top: '0'}),
+  {
+    zIndex: 9,
+    background: vars.colors.gray02
+  }
+]);
+
 export const HeaderInner = style([
-  {color: vars.colors.error},
   flexBox({
     direction: 'row',
     justify: 'space-between',
     align: 'center'
-  }),
-  {
-    '@media': {
-      [media.lg]: {
-        background: vars.colors.gray01,
-      },
-    }
-  }
+  })
 ]);
 
-export const box = style([
-  radius('50%'),
-  border({
-    width: '1px',
-    color: vars.colors.black
-  }),
-  transition('all'),
-  spacing.my(2, 4),
-  blank.pl(2),
-  {
-    width: '2rem',
-    height: '2rem',
-    background: vars.colors.error
-  }
+export const HeaderInfo = style([
+
 ]);
