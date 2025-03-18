@@ -6,6 +6,7 @@ export default function Header(){
     <div className={style.HeaderWrap}>
       <div className={style.HeaderInner}>
         <Typography as="strong" weight='bold'>test</Typography>
+        <div className={style.box}></div>
       </div>
     </div>
   )
