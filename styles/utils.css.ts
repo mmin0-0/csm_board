@@ -84,4 +84,56 @@ export const size = ({width, height}:SizeProps) => style({
   ...(height ? {height: height} : ''),
 });
 
-type BackgroundProps
+type BackgroundProps = {
+  folder: string;
+  img: string;
+  type: string;
+  repeat: string;
+  size: string;
+  x?: string;
+  y?: string;
+};
+export const background = ({folder, img, type, repeat, size, x, y}:BackgroundProps) => style({
+  backgroundImage: `url(/images/${folder}/${img}.${type})`,
+  backgroundRepeat: repeat,
+  backgroundSize: size,
+  backgroundPosition: `${x} ${y}`
+});
+
+type UnitValue = number | string;
+const spacingValue = (property: string, value: UnitValue) => ({
+  [property]: typeof value === 'number' ? `${value}rem` :  value
+});
+
+export const spacing = {
+  mt: (value: UnitValue) => style(spacingValue('marginTop', value)),
+  mb: (value: UnitValue) => style(spacingValue('marginBottom', value)),
+  ml: (value: UnitValue) => style(spacingValue('marginLeft', value)),
+  mr: (value: UnitValue) => style(spacingValue('marginRight', value)),
+  my: (top: UnitValue, bottom: UnitValue) => style({
+    ...spacingValue('marginTop', top),
+    ...spacingValue('marginBottom', bottom),
+  }),
+  mx: (left: UnitValue, right: UnitValue) => style({
+    ...spacingValue('marginLeft', left),
+    ...spacingValue('marginRight', right),
+  }),
+  m: (value: UnitValue) => style(spacingValue('margin', value)),
+  mc: style({margin: '0 auto'}),
+};
+
+export const blank = {
+  pt: (value: UnitValue) => style(spacingValue('paddingTop', value)),
+  pb: (value: UnitValue) => style(spacingValue('paddingBottom', value)),
+  pl: (value: UnitValue) => style(spacingValue('paddingLeft', value)),
+  pr: (value: UnitValue) => style(spacingValue('paddingRight', value)),
+  py: (top: UnitValue, bottom: UnitValue) => style({
+    ...spacingValue('paddingTop', top),
+    ...spacingValue('paddingBottom', bottom),
+  }),
+  px: (left: UnitValue, right: UnitValue) => style({
+    ...spacingValue('paddingLeft', left),
+    ...spacingValue('paddingRight', right),
+  }),
+  p: (value: UnitValue) => style(spacingValue('padding', value)),
+};
