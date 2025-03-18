@@ -4,3 +4,6 @@ import { vars } from '@/styles/globals.css';
 export const HeaderWrap = style({
   color: vars.colors.black
 });
+export const HeaderInner = style({
+  color: vars.colors.black
+});

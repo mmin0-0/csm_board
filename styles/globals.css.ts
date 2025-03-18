@@ -34,6 +34,18 @@ export const vars = createGlobalTheme(':root', {
     medium: '500',
     semiBold: '600',
     bold: '700'
+  },
+  fontColor: {
+    primary:'#111111',
+    secondary: '#79b928',
+    white: '#ffffff',
+    error: '#bd2c3d',
+  },
+  txtHeight: {
+    normal: '1',
+    regular: '1.2',
+    medium: '1.4',
+    large: '1.6'
   }
 });
 
