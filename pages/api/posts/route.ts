@@ -1,15 +1,14 @@
-import { connectDB } from "@/util/database";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { connectDB } from '@/util/database';
+import { NextResponse } from 'next/server';
 
-export async function GET(){
-  try{
+export const GET = async () => {
+  try {
     const db = (await connectDB).db('csm_board');
-    let result = await db.collection('post').find().toArray();
+    const posts = await db.collection('post').find().toArray();
 
-    return NextResponse.json({result})
-  } catch(error){
-    console.error("Database access error:", error);
-    return NextResponse.json({ error: error });
+    return NextResponse.json(posts, { status: 200 });
+  } catch (error) {
+    console.error('❌ API 요청 실패:', error);
+    return NextResponse.json({ error: 'Unable to fetch data' }, { status: 500 });
   }
-}
+};
