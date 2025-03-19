@@ -7,8 +7,11 @@ export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <div className={style.Wrapper}>
       <Header />
-      <Nav />
-      <div className={style.Container}>{children}</div>
+      <div className={style.Container}>
+        <Nav />
+        
+        {children}
+      </div>
     </div>
   )
 }

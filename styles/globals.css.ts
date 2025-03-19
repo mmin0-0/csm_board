@@ -12,7 +12,7 @@ export const vars = createGlobalTheme(':root', {
     mainColor: '#369fff',
     mainActive: '#006ed3',
     mainFilter: 'invert(52%) sepia(46%) saturate(1966%) hue-rotate(186deg) brightness(100%) contrast(103%)',
-    mainShadow: 'rgba(200,200,200, 0.4) 0px 3px 20px 0px',
+    shadow: 'rgba(200,200,200, 0.4) 0px 3px 20px 0px',
     orange: '#ff993a',
     orangeRGB: '255,153,58',
     green: '#8ac53e',

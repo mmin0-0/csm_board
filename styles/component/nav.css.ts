@@ -1,15 +1,22 @@
 import { composeStyles, globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/styles/globals.css';
-import { blank, flexBox, position, size, spacing, transition } from '@/styles/utils.css';
+import { blank, flexBox, position, size, transition } from '@/styles/utils.css';
 
 export const NavWrap = style([
+  size({height: '4rem'}),
   {
     display: 'flex',
     border: '1px solid #000'
   }
 ]);
 export const NavMenu = style([
+  flexBox({
+    direction: 'row',
+    align: 'center'
+  }),
+  {
 
+  }
 ]);
 export const Menu = style([
   position('relative'),
@@ -26,7 +33,6 @@ export const Menu = style([
     color: vars.colors.gray01,
     textTransform: 'capitalize',
     selectors: {
-      '&:not(:first-child)': {marginTop: '1rem'},
       '&:hover, &:active': {color: vars.colors.black}
     }
   }

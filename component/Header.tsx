@@ -1,7 +1,9 @@
 import * as style from '@/styles/component/header.css';
+import Link from 'next/link';
+import { LoginButton, LogoutButton, RegisterButton } from '@/component/SingButton';
 import { Typography } from '@/component/Typography';
 import { ButtonWrap } from '@/component/Button';
-import { LoginButton, LogoutButton, RegisterButton } from '@/component/SingButton';
+import { ImgWrap } from '@/component/ImgWrap';
 
 export default function Header() {
   const user = {
@@ -11,27 +13,29 @@ export default function Header() {
   return (
     <div className={style.HeaderWrap}>
       <div className={style.HeaderInner}>
-        {
-          user ? (
-            <Typography as="h4" size="large" weight="medium">
-              <Typography as="strong" size="large" color="secondary" weight="semiBold">홍길동</Typography>,
-              welcome back!
-            </Typography>
-          ) : (
-            <Typography as="h4" size="large" weight="medium">
-              Hello, welcome <Typography as="strong" size="large" color="secondary" weight="semiBold">CSㆍM</Typography>
-            </Typography>
-          )
-        }
-        <div>
+        <Link href="/">
+          <ImgWrap src="logo.png" alt="CSM" />
+        </Link>
+        <div className={style.HeaderInfo}>
           {
             user ? (
-              <LogoutButton />
+              <>
+                <Typography as="h4" size="large" weight="medium">
+                  <Typography as="strong" size="large" color="secondary" weight="semiBold">{user.name}</Typography>,
+                  welcome back!
+                </Typography>
+                <LogoutButton />
+              </>
             ) : (
-              <ButtonWrap>
-                <LoginButton />
-                <RegisterButton />
-              </ButtonWrap>
+              <>
+                <Typography as="h4" size="large" weight="medium">
+                  Hello, welcome <Typography as="strong" size="large" color="secondary" weight="semiBold">CSㆍM</Typography>
+                </Typography>
+                <ButtonWrap>
+                  <LoginButton />
+                  <RegisterButton />
+                </ButtonWrap>
+              </>
             )
           }
         </div>

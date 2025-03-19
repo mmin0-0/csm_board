@@ -1,5 +1,7 @@
 export default function Board(){
   return(
-    <>게시글 페이지</>
+    <main>
+      게시글 페이지
+    </main>
   )
 }

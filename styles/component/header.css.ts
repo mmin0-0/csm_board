@@ -1,14 +1,13 @@
 import { style } from '@vanilla-extract/css';
 import { vars } from '@/styles/globals.css';
-import { blank, flexBox, position, size } from '@/styles/utils.css';
+import { blank, flexBox, size } from '@/styles/utils.css';
 
 export const HeaderWrap = style([
   size({width: '100%', height: '6rem'}),
   blank.px(2,2),
-  position('sticky', {top: '0'}),
   {
     zIndex: 9,
-    background: vars.colors.gray02
+    background: vars.colors.white
   }
 ]);
 
@@ -18,5 +17,13 @@ export const HeaderInner = style([
     direction: 'row',
     justify: 'space-between',
     align: 'center'
+  })
+]);
+
+export const HeaderInfo = style([
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    gap: '1rem'
   })
 ]);

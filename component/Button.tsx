@@ -10,7 +10,7 @@ interface BtnWrapProps {
   gap?: string;
 };
 
-export const ButtonWrap = ({ className, children, direction="row", align="center", gap="1rem" }: BtnWrapProps) => {
+export const ButtonWrap = ({ className, children, direction="row", align="center", gap=".6rem" }: BtnWrapProps) => {
   const gapStyle:CSSProperties = gap ? {gap} : {};
   return <div
     className={clsx(

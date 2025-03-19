@@ -6,9 +6,6 @@ import NavMenu from '@/component/NavMenu';
 export default function Nav(){
   return (
     <div className={style.NavWrap}>
-      <Link href="/">
-        <ImgWrap src="logo.png" alt="CSM" />
-      </Link>
       <nav className={style.NavMenu}>
         <NavMenu />
       </nav>
