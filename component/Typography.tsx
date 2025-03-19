@@ -3,6 +3,15 @@ import { ElementType, ReactNode } from 'react';
 import clsx from 'clsx';
 import { baseTxtStyle, textSize, textWeight, textColor, textLineHeight } from '@/styles/component/typography.css'; 
 
+type TitWrapProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export const TitWrap = ({children, className}:TitWrapProps) => {
+  return <div className={className}>{children}</div>
+};
+
 interface TxtStyleProps {
   size?: keyof typeof vars.fontSize;
   weight?: keyof typeof vars.fontWeight;

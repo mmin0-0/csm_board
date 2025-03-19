@@ -2,7 +2,7 @@ import { globalStyle, style } from '@vanilla-extract/css';
 import { blank, size } from '@/styles/utils.css';
 import { vars } from '../globals.css';
 
-// 공동 컴포넌트트
+// 공동 컴포넌트
 export const Wrapper = style([
   size({width: '100dvw', height: '100dvh'}),
 ]);
@@ -20,6 +20,7 @@ globalStyle(`${Container} main`, {
   overflowY: 'auto',
   padding: '2rem'
 });
+export const ContWrap = style([]);
 
 // 이미지
 export const ImageWrap = style({});
