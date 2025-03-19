@@ -1,21 +1,23 @@
-import { MouseEventHandler, ReactNode } from "react";
+import { CSSProperties, MouseEventHandler, ReactNode } from "react";
 import clsx from "clsx";
-import { button } from "@/styles/component/button.css";
+import { button, btnWrap } from "@/styles/component/button.css";
 
 interface BtnWrapProps {
   className?: string;
   children: ReactNode;
-  direction?: string;
-  align?: string;
+  direction?: 'row' | 'column';
+  align?: 'start' | 'center' | 'end';
+  gap?: string;
 };
 
-export const BtnWrap = ({ className, children, direction, align }: BtnWrapProps) => {
+export const ButtonWrap = ({ className, children, direction="row", align="center", gap="1rem" }: BtnWrapProps) => {
+  const gapStyle:CSSProperties = gap ? {gap} : {};
   return <div
-    className={
-      className
-    }
-    direction={direction}
-    align={align}
+    className={clsx(
+      className,
+      btnWrap({direction, align}),
+    )}
+    style={gapStyle}
   >{children}</div>
 };
 

@@ -13,6 +13,7 @@ export const HeaderWrap = style([
 ]);
 
 export const HeaderInner = style([
+  size({height: '100%'}),
   flexBox({
     direction: 'row',
     justify: 'space-between',

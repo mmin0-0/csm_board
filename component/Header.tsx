@@ -1,6 +1,6 @@
 import * as style from '@/styles/component/header.css';
 import { Typography } from '@/component/Typography';
-import { Button } from '@/component/Button';
+import { ButtonWrap } from '@/component/Button';
 import { LoginButton, LogoutButton, RegisterButton } from '@/component/SingButton';
 
 export default function Header() {
@@ -28,10 +28,10 @@ export default function Header() {
             user ? (
               <LogoutButton />
             ) : (
-              <>
+              <ButtonWrap>
                 <LoginButton />
                 <RegisterButton />
-              </>
+              </ButtonWrap>
             )
           }
         </div>
