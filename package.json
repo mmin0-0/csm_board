@@ -12,6 +12,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@next/bundle-analyzer": "^15.2.3",
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/dynamic": "^2.1.0",
     "@vanilla-extract/recipes": "^0.5.1",
@@ -28,6 +29,7 @@
     "@types/react-dom": "^18.3.5",
     "@vanilla-extract/next-plugin": "^2.3.2",
     "@vanilla-extract/webpack-plugin": "^2.3.18",
+    "style-loader": "^4.0.0",
     "typescript": "^5"
   }
 }
