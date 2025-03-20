@@ -1,7 +1,7 @@
-import { vars } from "@/styles/globals.css";
+import { vars } from "@/app/styles/globals.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { recipe } from "@vanilla-extract/recipes";
-import { border, radius, transition } from "@/styles/utils.css";
+import { border, radius, transition } from '@/app/styles/utils.css';
 
 const blank = {
   'space-1': '.8rem 1.2rem',

@@ -1,5 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
-import * as layers from './layers.css';
+import * as layers from '@/app/styles/layers.css';
 
 /**
  * 'display' 속성만 제외한 모든 "User-Agent-StyleSheet" 스타일을 제거합니다.

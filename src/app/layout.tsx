@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import '@/app/styles/globals.css';
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import * as style from '@/app/styles/component/layout.css';
+import Header from "@/app/_component/Header";
+import Nav from "@/app/_component/Nav";
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -14,7 +17,13 @@ export default function RootLayout({children}:Props) {
   return (
     <html lang="ko">
       <body>
-        {children}
+        <div className={style.Wrapper}>
+          <Header />
+          <div className={style.Container}>
+            <Nav />
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

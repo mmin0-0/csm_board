@@ -1,6 +1,6 @@
 import { composeStyles, globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '@/styles/globals.css';
-import { blank, flexBox, position, size, transition } from '@/styles/utils.css';
+import { vars } from '@/app/styles/globals.css';
+import { blank, flexBox, position, size, transition } from '@/app/styles/utils.css';
 
 export const NavWrap = style([
   size({height: '4rem'}),

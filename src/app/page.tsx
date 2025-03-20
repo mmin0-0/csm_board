@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import MainRouter from "@/app/_component/MainRouter";
 
 export default function Page() {
-  redirect('/home');
+  return <MainRouter />
 }

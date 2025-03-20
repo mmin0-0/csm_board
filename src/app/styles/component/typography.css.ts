@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { vars } from '@/styles/globals.css';
+import { vars } from '@/app/styles/globals.css';
 
 export const baseTxtStyle = style({wordBreak: 'keep-all'});
 

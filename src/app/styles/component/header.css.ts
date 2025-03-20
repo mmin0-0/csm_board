@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '@/styles/globals.css';
-import { blank, flexBox, size } from '@/styles/utils.css';
+import { vars } from '@/app/styles/globals.css';
+import { blank, flexBox, size } from '@/app/styles/utils.css';
 
 export const HeaderWrap = style([
   size({width: '100%', height: '6rem'}),

@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { blank, size } from '@/styles/utils.css';
-import { vars } from '../globals.css';
+import { blank, size } from '@/app/styles/utils.css';
+import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
 export const Wrapper = style([

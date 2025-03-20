@@ -1,6 +1,6 @@
 import { createGlobalTheme, globalFontFace, globalStyle } from "@vanilla-extract/css";
-import './layers.css';
-import './reset.css';
+import '@/app/styles/layers.css';
+import '@/app/styles/reset.css';
 
 export const vars = createGlobalTheme(':root', {
   colors: {
