@@ -1,4 +1,5 @@
 import * as style from '@/app/styles/component/header.css';
+console.log(style)
 import Link from 'next/link';
 import { LoginButton, LogoutButton, RegisterButton } from '@/app/_component/SingButton';
 import { Typography } from '@/app/_component/Typography';

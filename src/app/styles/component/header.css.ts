@@ -1,3 +1,4 @@
+import "@vanilla-extract/css/disableRuntimeStyles";
 import { style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
 import { blank, flexBox, size } from '@/app/styles/utils.css';
