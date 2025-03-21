@@ -8,7 +8,7 @@ import { faHouse, faBookOpen, faPen } from "@fortawesome/free-solid-svg-icons";
 export default function NavMenu (){
   const path = usePathname() || '';
   const navMenuList = [
-    {title: 'home', path: '/', icon: faHouse},
+    {title: 'home', path: '/home', icon: faHouse},
     {title: 'board', path: '/board', icon: faBookOpen},
     {title: 'write', path: '/write', icon: faPen},
   ]

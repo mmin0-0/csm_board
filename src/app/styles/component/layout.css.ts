@@ -32,7 +32,7 @@ globalStyle(`${ImageWrap} img`, {maxWidth: '100%'});
 // table
 export const TableWrap = style({});
 globalStyle(`${TableWrap} table`, {
-  tableLayout: 'fixed',
+  // tableLayout: 'fixed',
   width: '100%',
   textAlign: 'center',
 });

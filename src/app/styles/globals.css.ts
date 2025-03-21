@@ -1,4 +1,4 @@
-import { createGlobalTheme, globalFontFace, globalStyle } from "@vanilla-extract/css";
+import { createGlobalTheme, globalFontFace, globalStyle, style } from "@vanilla-extract/css";
 import '@/app/styles/layers.css';
 import '@/app/styles/reset.css';
 
@@ -40,6 +40,7 @@ export const vars = createGlobalTheme(':root', {
     primary:'#111111',
     secondary: '#369fff',
     white: '#ffffff',
+    gray: '#999999',
     error: '#bd2c3d',
   },
   txtHeight: {
@@ -76,4 +77,15 @@ globalFontFace('Pretendard', {
   src: 'url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff")',
   fontWeight: '400',
   fontStyle: 'normal'
+});
+
+export const hide = style({
+  position: 'absolute',
+  width: 1,
+  height: 1,
+  padding: 0,
+  border: 0,
+  margin: '-1px',
+  overflow: 'hidden',
+  clipPath: 'polygon(0 0, 0 0, 0 0)'
 });
