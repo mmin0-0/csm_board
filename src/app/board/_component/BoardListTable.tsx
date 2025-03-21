@@ -1,12 +1,12 @@
 'use client';
 import { useRouter } from "next/navigation";
-import * as style from '@/app/styles/pages/board.css';
 import { Post as IPost } from "@/model/Post";
-import { TableWrap, Th, Td } from "@/app/styles/component/layout.css";
+import { TableWrap, Th, Td, Tr, TextAlignLeft } from "@/app/styles/component/layout.css";
 import { Typography } from "@/app/_component/Typography";
+import clsx from "clsx";
 
 type Props = { posts: IPost[] };
-export default function BoardTable({ posts }: Props) {
+export default function BoardListTable({ posts }: Props) {
   const router = useRouter();
   const thead = ['No.', '제목', '작성자', 'Date'];
   const sortedData = posts.sort((a, b) => {
@@ -38,7 +38,7 @@ export default function BoardTable({ posts }: Props) {
         </thead>
         <tbody>
           {sortedData.map((post, idx) => (
-            <tr key={idx} onClick={() => router.push(`/board/${post._id}`)}>
+            <tr key={idx} onClick={() => router.push(`/board/${post._id}`)} className={Tr}>
               <td>
                 <div className={Td}>
                   {post.postType === 'general' ? (
@@ -48,7 +48,7 @@ export default function BoardTable({ posts }: Props) {
                   )}
                 </div>
               </td>
-              <td><div className={Td}>{post.title}</div></td>
+              <td><div className={clsx(Td, TextAlignLeft)}>{post.title}</div></td>
               <td><div className={Td}>관리자</div></td>
               <td><div className={Td}>00-00-00</div></td>
             </tr>

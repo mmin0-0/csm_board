@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { blank, size } from '@/app/styles/utils.css';
+import { blank, border, size, spacing, transition } from '@/app/styles/utils.css';
 import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
@@ -20,6 +20,9 @@ globalStyle(`${Container} main`, {
   overflowY: 'auto',
   padding: '2rem'
 });
+export const TitleWrap = style([
+  spacing.mb(3),
+]);
 export const ContWrap = style([]);
 
 // 이미지
@@ -28,5 +31,34 @@ globalStyle(`${ImageWrap} img`, {maxWidth: '100%'});
 
 // table
 export const TableWrap = style({});
-export const Th = style({});
-export const Td = style({});
+globalStyle(`${TableWrap} table`, {
+  tableLayout: 'fixed',
+  width: '100%',
+  textAlign: 'center',
+});
+globalStyle(`${TableWrap} thead > tr:first-child`, {
+  borderTop: `2px solid ${vars.colors.mainColor}`
+});
+export const Tr = style([
+  transition('background'),
+  border({
+    width: '1px',
+    type: 'solid',
+    color: vars.colors.light,
+    direction: 'top'
+  }),
+  {
+    cursor: 'pointer',
+    selectors: {
+      '&:hover': {background: `rgba(${vars.colors.mainRGB}, .25)`}
+    }
+  }
+]);
+globalStyle(`table ${Tr}:last-child`, {borderBottom: `1px solid ${vars.colors.light}`});
+export const Th = style([blank.p('.8rem .8rem')]);
+export const Td = style([blank.p('.8rem .8rem')]);
+
+// text align
+export const TextAlignLeft = style({textAlign: 'left'});
+export const TextAlignCenter = style({textAlign: 'center'});
+export const TextAlignRight = style({textAlign: 'right'});
