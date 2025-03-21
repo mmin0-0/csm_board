@@ -25,3 +25,8 @@ export const ContWrap = style([]);
 // 이미지
 export const ImageWrap = style({});
 globalStyle(`${ImageWrap} img`, {maxWidth: '100%'});
+
+// table
+export const TableWrap = style({});
+export const Th = style({});
+export const Td = style({});

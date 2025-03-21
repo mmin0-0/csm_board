@@ -101,6 +101,18 @@ globalStyle('table', {
   },
 });
 
+globalStyle('caption', {
+  '@layer': {
+    [layers.reset]: {
+      width: '1px',
+      height: '1px',
+      margin: '-1px',
+      overflow: 'hidden',
+      clipPath: 'polygon(0 0, 0 0, 0 0)'
+    },
+  },
+});
+
 /**
  * 사파리 브라우저에서 user-select:none을 적용할 때 발생할 수 있는 문제를 방지하고, 텍스트 입력 요소가 정상적으로 동작
  * Safari - solving issue when using user-select:none on the <body> text input
