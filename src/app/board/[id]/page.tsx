@@ -8,10 +8,11 @@ import BoardTable from '@/app/board/[id]/_component/BoardTable';
 import Comment from '@/app/board/[id]/_component/Comment';
 import PostActions from "@/app/board/[id]/_component/PostActions";
 
-export default async function Detail({ params }: any) {
+type Props = { params: { id: string } };
+export default async function Detail(props:Props) {
   const db = (await connectDB).db('csm_board');
   const data = await db.collection('post').findOne({
-    _id: new ObjectId(params.id)
+    _id: new ObjectId(props.params.id)
   });
 
   if (!data) {
@@ -23,7 +24,9 @@ export default async function Detail({ params }: any) {
     author: data.author,
     title: data.title,
     content: data.content,
+    file: data.file,
     postType: data.postType,
+    createAt: data.createAt,
   };
 
   return (

@@ -3,5 +3,7 @@ export type Post = {
   author: string;
   title: string;
   content: string;
+  file?: string;
   postType: string;
+  createAt: Date;
 };

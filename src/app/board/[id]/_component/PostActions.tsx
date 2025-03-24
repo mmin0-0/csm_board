@@ -1,11 +1,12 @@
 'use client';
 import { Button, ButtonWrap } from "@/app/_component/Button";
+import { Post as IPost } from "@/model/Post";
 import { useRouter } from "next/navigation";
 
-type Props = {post: {_id: string}};
+type Props = {post: IPost};
 export default function PostActions({post}:Props){
   const router = useRouter();
-  const handleModify = () => {router.push(`/edit/${post._id.toString()}`)};
+  const handleModify = () => {router.push(`/edit/${post._id}`)};
   const handleDelete = () => {};
 
   return (
