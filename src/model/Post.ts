@@ -1,5 +1,7 @@
+import { ObjectId } from "mongodb";
+
 export type Post = {
-  _id: string;
+  _id: ObjectId;
   author: string;
   title: string;
   content: string;

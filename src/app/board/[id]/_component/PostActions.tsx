@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 type Props = {post: IPost};
 export default function PostActions({post}:Props){
   const router = useRouter();
-  const handleModify = () => {router.push(`/edit/${post._id}`)};
+  const handleModify = () => {router.push(`/edit/${post._id.toString()}`)};
   const handleDelete = () => {};
 
   return (

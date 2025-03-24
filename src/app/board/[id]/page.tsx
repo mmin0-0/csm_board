@@ -20,7 +20,7 @@ export default async function Detail(props:Props) {
   }
 
   const post = {
-    _id: data._id.toString(),
+    _id: data._id,
     author: data.author,
     title: data.title,
     content: data.content,
