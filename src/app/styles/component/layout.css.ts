@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { blank, border, size, spacing, transition } from '@/app/styles/utils.css';
+import { blank, border, flexBox, size, spacing, transition } from '@/app/styles/utils.css';
 import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
@@ -22,6 +22,12 @@ globalStyle(`${Container} main`, {
 });
 export const TitleWrap = style([
   spacing.mb(2),
+  flexBox({
+    direction: 'row',
+    justify: 'space-between',
+    align: 'center',
+    gap: '1rem'
+  })
 ]);
 export const ContWrap = style([]);
 

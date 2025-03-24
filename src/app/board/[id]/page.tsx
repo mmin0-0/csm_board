@@ -6,36 +6,39 @@ import { TitWrap, Typography } from "@/app/_component/Typography";
 import { ContWrap, TableWrap, TitleWrap } from "@/app/styles/component/layout.css";
 import BoardTable from '@/app/board/[id]/_component/BoardTable';
 import Comment from '@/app/board/[id]/_component/Comment';
+import PostActions from "@/app/board/[id]/_component/PostActions";
 
 export default async function Detail({ params }: any) {
   const db = (await connectDB).db('csm_board');
-  const post = await db.collection('post').findOne({
+  const data = await db.collection('post').findOne({
     _id: new ObjectId(params.id)
   });
 
-  if (!post) {
+  if (!data) {
     return <main>게시글을 찾을 수 없습니다.</main>
   }
 
-  const convertedPost = {
-    _id: post._id.toString(),
-    title: post.title,
-    content: post.content,
-    postType: post.postType,
+  const post = {
+    _id: data._id.toString(),
+    author: data.author,
+    title: data.title,
+    content: data.content,
+    postType: data.postType,
   };
 
   return (
     <main>
       <TitWrap className={TitleWrap}>
-        <Typography as="h4" weight="bold" size="xlarge">게시판 리스트</Typography>
+        <Typography as="h4" weight="bold" size="xlarge">게시글 조회하기</Typography>
+        <PostActions post={post} />
       </TitWrap>
       <div className={ContWrap}>
         <div className={TableWrap}>
-          <BoardTable post={convertedPost} />
+          <BoardTable post={post} />
         </div>
         <div className={style.BoardCont}>
           <Typography lineHeight="medium">
-            {convertedPost.content.split('\n').map((line:string, idx:number) => (
+            {post.content.split('\n').map((line:string, idx:number) => (
               <Fragment key={idx}>
                 {line}<br />
               </Fragment>

@@ -2,17 +2,6 @@ import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
 import { blank, border, flexBox, position, radius, size, spacing } from '@/app/styles/utils.css';
 
-export const BoardTitWrap = style([
-  flexBox({
-    direction: 'row',
-    justify: 'space-between',
-    align: 'center'
-  })
-]);
-export const WriteLink = style({
-  color: vars.colors.mainColor,
-  textDecoration: 'underline'
-});
 export const BoardCont = style([
   blank.p('1rem'),
   border({
@@ -57,6 +46,7 @@ export const CommentForm = style([
   {display: 'flex'}
 ]);
 globalStyle(`${CommentForm} > div`, {flex: 1});
+globalStyle(`${CommentForm} textarea`, {display: 'block'});
 globalStyle(`${CommentForm} button`, {borderRadius: 0});
 export const CommentList = style([spacing.mt(1)]);
 export const CommentItem = style([
