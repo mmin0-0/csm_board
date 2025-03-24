@@ -2,6 +2,9 @@ import { TitWrap, Typography } from "@/app/_component/Typography";
 import { connectDB } from "@/utils/database";
 import { TitleWrap, ContWrap } from "@/app/styles/component/layout.css";
 import BoardListTable from "@/app/board/_component/BoardListTable";
+import * as style from '@/app/styles/pages/board.css';
+import clsx from "clsx";
+import WriteLinkButton from "@/app/board/_component/WriteLinkButton";
 
 export default async function Board (){
   const db = (await connectDB).db('csm_board');
@@ -16,8 +19,9 @@ export default async function Board (){
 
   return (
     <main>
-      <TitWrap className={TitleWrap}>
+      <TitWrap className={clsx(TitleWrap, style.BoardTitWrap)}>
         <Typography as="h4" weight="bold" size="xlarge">게시판 리스트</Typography>
+        <WriteLinkButton />
       </TitWrap>
       <div className={ContWrap}>
         <BoardListTable posts={posts} />

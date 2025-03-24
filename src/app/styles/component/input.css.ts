@@ -12,9 +12,9 @@ export const FormGroup = style([
 export const InputWrap = style([]);
 globalStyle(`${InputWrap} textarea, ${InputWrap} input[type="text"], ${InputWrap} input[type="file"]`, {
   width: '100%',
-  border: `1px solid ${vars.colors.light}`,
+  border: `1px solid ${vars.colors.gray01}`,
 });
-globalStyle(`${InputWrap} textarea::placeholder, ${InputWrap} input[type="text"]::placeholder, ${InputWrap} input[type="file"]::placeholder`, {color: vars.colors.gray03});
+globalStyle(`${InputWrap} textarea::placeholder, ${InputWrap} input[type="text"]::placeholder, ${InputWrap} input[type="file"]::placeholder`, {color: vars.colors.gray01});
 
 globalStyle(`${InputWrap} input[type="text"], ${InputWrap} input[type="file"]`, {
   padding: '.8rem 1rem'

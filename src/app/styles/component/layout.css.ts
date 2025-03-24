@@ -21,7 +21,7 @@ globalStyle(`${Container} main`, {
   padding: '2rem'
 });
 export const TitleWrap = style([
-  spacing.mb(3),
+  spacing.mb(2),
 ]);
 export const ContWrap = style([]);
 
