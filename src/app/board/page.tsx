@@ -14,6 +14,7 @@ export default async function Board (){
     title: post.title,
     content: post.content,
     postType: post.postType,
+    createAt: post.createAt,
   }));
 
   return (

@@ -20,16 +20,16 @@ export default function Header() {
           {
             user ? (
               <>
-                <Typography as="h4" size="large" weight="medium">
-                  <Typography as="strong" size="large" color="secondary" weight="semiBold">{user.name}</Typography>,
+                <Typography as="h4" size="medium" weight="medium">
+                  <Typography as="strong" size="medium" color="secondary" weight="semiBold">{user.name}</Typography>,
                   welcome back!
                 </Typography>
                 <LogoutButton />
               </>
             ) : (
               <>
-                <Typography as="h4" size="large" weight="medium">
-                  Hello, welcome <Typography as="strong" size="large" color="secondary" weight="semiBold">CSㆍM</Typography>
+                <Typography as="h4" size="medium" weight="medium">
+                  Hello, welcome <Typography as="strong" size="medium" color="secondary" weight="semiBold">CSㆍM</Typography>
                 </Typography>
                 <ButtonWrap>
                   <LoginButton />

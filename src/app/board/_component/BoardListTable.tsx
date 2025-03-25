@@ -50,7 +50,7 @@ export default function BoardListTable({ posts }: Props) {
               </td>
               <td><div className={clsx(Td, TextAlignLeft)}>{post.title}</div></td>
               <td><div className={Td}>관리자</div></td>
-              <td><div className={Td}>00-00-00</div></td>
+              <td><div className={Td}>{post.createAt.split(' ')[0]}</div></td>
             </tr>
           ))}
         </tbody>
