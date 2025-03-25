@@ -21,7 +21,7 @@ export const vars = createGlobalTheme(':root', {
     greenRGB: '138,197,62',
     yellow: '#ffd143',
     yellowRGB: '255,209,67',
-    error: '#FE4545',
+    error: '#F20000',
   },
   fontSize: {
     small: '1.4rem',

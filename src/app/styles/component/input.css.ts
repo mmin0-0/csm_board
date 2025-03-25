@@ -8,6 +8,8 @@ export const FormGroup = style([
     gap: '1.2rem'
   })
 ]);
+export const formControls = style({marginTop: '2rem'});
+globalStyle(`${formControls} > div`, {marginTop: '1rem'});
 
 export const InputWrap = style([]);
 globalStyle(`${InputWrap} textarea, ${InputWrap} input[type="text"], ${InputWrap} input[type="file"]`, {

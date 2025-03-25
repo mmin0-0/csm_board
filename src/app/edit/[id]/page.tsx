@@ -1,8 +1,8 @@
-import { TitWrap, Typography } from "@/app/_component/Typography";
-import { ContWrap, TitleWrap } from "@/app/styles/component/layout.css";
 import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
-import Form from "@/app/edit/[id]/_component/Form";
+import { TitWrap, Typography } from "@/app/_component/Typography";
+import { ContWrap, TitleWrap } from "@/app/styles/component/layout.css";
+import Form from "./_component/Form";
 
 type Props = { params: { id: string } };
 export default async function Edit(props: Props) {
@@ -14,12 +14,12 @@ export default async function Edit(props: Props) {
   }
 
   const post = {
-    _id: data._id,
+    _id: data._id.toString(),
     author: data.author || '',
     title: data.title || '',
     content: data.content || '',
     file: data.file || '',
-    postType: 'general',
+    postType: data.postType || 'general',
     createAt: data.createAt || '',
   };
 

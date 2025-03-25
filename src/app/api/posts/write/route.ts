@@ -18,10 +18,10 @@ export const POST = async(req: NextRequest) => {
     const title = (formData.get("title") as string)?.trim();
     const content = (formData.get("content") as string).trim();
     const postType = 'general';
-    const createAt = formattedDate as string;
+    const createAt = formattedDate;
 
     if (!title || !content) {
-      return NextResponse.json({error: '제목과 내용을 입력해주세요.'}, {status: 400});
+      return NextResponse.json({error: '🚨제목과 내용을 입력해주세요.'}, {status: 400});
     }
 
     const post = { author, title, content, postType, createAt };
