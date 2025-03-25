@@ -1,9 +1,9 @@
 import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 type Props = {params: {id: string}};
-export const GET = async({params}:Props) => {
+export const GET = async(req: NextRequest, {params}:Props) => {
   try {
     const db = (await connectDB).db('csm_board');
     const posts = await db.collection('post').findOne({

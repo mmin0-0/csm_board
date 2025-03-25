@@ -1,7 +1,14 @@
 import { connectDB } from "@/utils/database";
+import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
 export const POST = async(req: NextRequest) => {
+  const session = await getServerSession(authOptions);
+  if(!session){
+    return NextResponse.json({error: '로그인 후 이용 가능합니다:)'}, {status: 401});
+  }
+
   try {
     const db = (await connectDB).db('csm_board');
     const formData = await req.formData();
@@ -13,10 +20,10 @@ export const POST = async(req: NextRequest) => {
     String(now.getHours()).padStart(2, '0') + ':' + 
     String(now.getMinutes()).padStart(2, '0') + ':' + 
     String(now.getSeconds()).padStart(2, '0');
-
-    const author = formData.get("author") as string;
+    
+    const author = session.user?.email;
     const title = (formData.get("title") as string)?.trim();
-    const content = (formData.get("content") as string).trim();
+    const content = (formData.get("content") as string)?.trim();
     const postType = 'general';
     const createAt = formattedDate;
 
@@ -26,6 +33,7 @@ export const POST = async(req: NextRequest) => {
 
     const post = { author, title, content, postType, createAt };
     await db.collection('post').insertOne(post);
+    
     return NextResponse.redirect(new URL('/board', req.url), 302);
   } catch(error){
     return NextResponse.json({ error: 'error' }, { status: 500 });

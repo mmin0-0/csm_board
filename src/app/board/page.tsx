@@ -6,9 +6,9 @@ import WriteLinkButton from "@/app/board/_component/WriteLinkButton";
 
 export default async function Board (){
   const db = (await connectDB).db('csm_board');
-  const result = await db.collection('post').find().toArray();
+  const data = await db.collection('post').find().toArray();
 
-  const posts = result.map(post => ({
+  const posts = data.map(post => ({
     _id: post._id.toString(),
     author: post.author,
     title: post.title,

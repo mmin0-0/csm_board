@@ -1,15 +1,14 @@
 'use client';
 import { Button } from "@/app/_component/Button";
 import { useRouter } from "next/navigation";
+import { signIn, signOut } from "next-auth/react";
 
 export const LoginButton = () => {
-  const onClick = () => {};
-  return <Button onClick={onClick}>로그인</Button>
+  return <Button onClick={() => {signIn()}}>로그인</Button>
 };
 
 export const LogoutButton = () => {
-  const onClick = () => {};
-  return <Button onClick={onClick}>로그아웃</Button>
+  return <Button onClick={() => {signOut()}}>로그아웃</Button>
 };
 
 export const RegisterButton = () => {

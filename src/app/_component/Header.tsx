@@ -4,11 +4,11 @@ import { LoginButton, LogoutButton, RegisterButton } from '@/app/_component/Sing
 import { Typography } from '@/app/_component/Typography';
 import { ButtonWrap } from '@/app/_component/Button';
 import { ImgWrap } from '@/app/_component/ImgWrap';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { getServerSession } from 'next-auth';
 
-export default function Header() {
-  const user = {
-    name: '홍길동'
-  };
+export default async function Header() {
+  const session = await getServerSession(authOptions);
 
   return (
     <div className={style.HeaderWrap}>
@@ -18,10 +18,10 @@ export default function Header() {
         </Link>
         <div className={style.HeaderInfo}>
           {
-            user ? (
+            session ? (
               <>
                 <Typography as="h4" size="medium" weight="medium">
-                  <Typography as="strong" size="medium" color="secondary" weight="semiBold">{user.name}</Typography>,
+                  <Typography as="strong" size="medium" color="secondary" weight="semiBold">{session.user?.name}</Typography>,
                   welcome back!
                 </Typography>
                 <LogoutButton />
