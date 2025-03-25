@@ -17,13 +17,13 @@ export default function BoardTable({ post }: Props) {
         <tbody>
           <tr>
             <th><div className={Th}>No.</div></th>
-            <td><div className={Td}>{post.postType}</div></td>
+            <td><div className={Td}>{post.idx}</div></td>
             <th><div className={Th}>작성일</div></th>
-            <td><div className={Td}>00-00-00</div></td>
+            <td><div className={Td}>{post.createAt.split(' ')[0]}</div></td>
           </tr>
           <tr>
             <th><div className={Th}>작성자</div></th>
-            <td><div className={Td}>관리자</div></td>
+            <td><div className={Td}>{post.author}</div></td>
             <th><div className={Th}>조회수</div></th>
             <td><div className={Td}>1</div></td>
           </tr>

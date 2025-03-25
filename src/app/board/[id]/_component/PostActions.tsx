@@ -9,19 +9,23 @@ export default function PostActions({post}:Props){
   const handleModify = () => {router.push(`/edit/${post._id.toString()}`)};
 
   const handleDelete = async() => {
-    const response = await fetch('/api/posts/delete', {
-      method: 'DELETE',
-      body: post._id.toString()
-    });
-
-    if(response.ok){
-      alert('삭제 되었습니다.');
-      router.push('/board');
-      router.refresh();
-    } else{
-      const error = await response.json();
-      alert(error);
+    try{
+      const response = await fetch('/api/posts/delete', {
+        method: 'DELETE',
+        body: post._id.toString()
+      });
+      if(response.ok){
+        alert('삭제 되었습니다.');
+        router.push('/board');
+        router.refresh();
+      } else{
+        const error = await response.json();
+        alert(error.error || '오류 발생');
+      }
+    } catch(error){
+      alert('네트워크 오류 발생');
     }
+
   };
 
   return (

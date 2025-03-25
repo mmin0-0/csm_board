@@ -15,12 +15,17 @@ export default async function Detail(props:Props) {
     _id: new ObjectId(props.params.id)
   });
 
+  // 날짜 기준으로 정렬(내림차순)
+  const posts = await db.collection('post').find().sort({createAt: 1}).toArray();
+  const postIndex = posts.findIndex((post) => post._id.toString() === data?._id.toString()) + 1;
+
   if (!data) {
     return <main>게시글을 찾을 수 없습니다.</main>
   }
 
   const post = {
     _id: data._id,
+    idx: postIndex,
     author: data.author,
     title: data.title,
     content: data.content,

@@ -6,7 +6,7 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 export const POST = async(req: NextRequest) => {
   const session = await getServerSession(authOptions);
   if(!session){
-    return NextResponse.json({error: '로그인 후 이용 가능합니다:)'}, {status: 401});
+    return NextResponse.json({error: '로그인 후 이용 가능합니다:)'}, {status: 403});
   }
 
   try {
