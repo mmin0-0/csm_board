@@ -23,7 +23,7 @@ export const Eye = style([
 ]);
 globalStyle(`${InputWrap} textarea, ${InputWrap} input[type="text"], ${InputWrap} input[type="file"], ${InputWrap} input[type="password"]`, {
   width: '100%',
-  border: `1px solid ${vars.colors.gray01}`,
+  border: `1px solid ${vars.colors.gray03}`,
 });
 globalStyle(`${InputWrap} textarea::placeholder, ${InputWrap} input[type="text"]::placeholder, ${InputWrap} input[type="file"]::placeholder, ${InputWrap} input[type="password"]::placeholder`, {color: vars.colors.gray01});
 

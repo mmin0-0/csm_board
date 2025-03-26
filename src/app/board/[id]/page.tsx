@@ -53,7 +53,7 @@ export default async function Detail(props:Props) {
             ))}
           </Typography>
         </div>
-        <Comment />
+        <Comment _id={post._id.toString()} />
       </div>
     </main>
   )

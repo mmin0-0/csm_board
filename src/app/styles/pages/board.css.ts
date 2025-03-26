@@ -7,7 +7,7 @@ export const BoardCont = style([
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.light
+    color: vars.colors.gray03
   }),
   {
     borderTop: 0,
@@ -16,9 +16,12 @@ export const BoardCont = style([
 ]);
 export const BoardTable = style([]);
 globalStyle(`${BoardTable} th > div`, {background: `rgba(${vars.colors.mainRGB}, .25)`});
-globalStyle(`${BoardTable} tbody tr`, {borderBottom: `1px solid ${vars.colors.light}`});
-globalStyle(`${BoardTable} tbody tr:first-child`, {borderTop: `1px solid ${vars.colors.light}`});
-globalStyle(`${BoardTable} tbody th, ${BoardTable} tbody td`, {borderRight: `1px solid ${vars.colors.light}`});
+globalStyle(`${BoardTable} tbody tr`, {
+  borderBottom: `1px solid ${vars.colors.gray03}`,
+  borderLeft: `1px solid ${vars.colors.gray03}`
+});
+globalStyle(`${BoardTable} tbody tr:first-child`, {borderTop: `1px solid ${vars.colors.gray03}`});
+globalStyle(`${BoardTable} tbody th, ${BoardTable} tbody td`, {borderRight: `1px solid ${vars.colors.gray03}`});
 globalStyle(`${BoardTable} tbody td > div`, {textAlign: 'left'});
 
 export const CommentWrap = style([spacing.mt(2)]);
@@ -54,7 +57,7 @@ export const CommentItem = style([
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.light,
+    color: vars.colors.gray03,
     direction: 'bottom'
   })
 ]);
@@ -65,4 +68,5 @@ export const CommentUserInfo = style([
     justify: 'space-between'
   })
 ]);
+export const AuthorEmail = style({marginLeft: '.6rem'});
 export const CommentCont = style([spacing.mt(2)]);

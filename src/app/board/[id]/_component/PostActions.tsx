@@ -25,7 +25,6 @@ export default function PostActions({post}:Props){
     } catch(error){
       alert('네트워크 오류 발생');
     }
-
   };
 
   return (

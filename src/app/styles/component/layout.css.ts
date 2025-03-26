@@ -50,7 +50,7 @@ export const Tr = style([
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.light,
+    color: vars.colors.gray03,
     direction: 'top'
   }),
   {
@@ -60,7 +60,7 @@ export const Tr = style([
     }
   }
 ]);
-globalStyle(`table ${Tr}:last-child`, {borderBottom: `1px solid ${vars.colors.light}`});
+globalStyle(`table ${Tr}:last-child`, {borderBottom: `1px solid ${vars.colors.gray03}`});
 export const Th = style([blank.p('.8rem .8rem')]);
 export const Td = style([blank.p('.8rem .8rem')]);
 
