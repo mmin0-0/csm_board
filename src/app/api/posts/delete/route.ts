@@ -2,7 +2,7 @@ import { connectDB } from "@/utils/database";
 import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOptions } from "../../auth/[...nextauth]/route";
+import { authOptions } from "@/utils/authOptions";
 
 export const DELETE = async (req: NextRequest) => {
   const session = await getServerSession(authOptions);

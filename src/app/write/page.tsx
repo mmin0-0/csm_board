@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/utils/authOptions";
 import SignAlert from "@/app/write/_component/SignAlert";
 import { TitWrap, Typography } from "@/app/_component/Typography";
 import { ContWrap, TitleWrap } from "@/app/styles/component/layout.css";
