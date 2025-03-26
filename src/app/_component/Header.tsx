@@ -4,7 +4,7 @@ import { LoginButton, LogoutButton, RegisterButton } from '@/app/_component/Sing
 import { Typography } from '@/app/_component/Typography';
 import { ButtonWrap } from '@/app/_component/Button';
 import { ImgWrap } from '@/app/_component/ImgWrap';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/utils/authOptions';
 import { getServerSession } from 'next-auth';
 
 export default async function Header() {
