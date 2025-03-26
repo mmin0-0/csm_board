@@ -17,13 +17,10 @@ export const DELETE = async (req: NextRequest) => {
     const objectId = new ObjectId(body);
     const target = await db.collection('post').findOne({ _id: objectId });
 
-    if(target?.author !== session.user?.email){
+    const userRole = session.user?.role ?? 'user';
+    if(target?.author !== session.user?.email && userRole !== 'admin'){
       return NextResponse.json({error: '작성자 또는 관리자만 삭제 가능합니다.'}, {status: 403});
     }
-
-    // if (!target) {
-    //   return NextResponse.json({ error: '게시글이 존재하지 않습니다.' }, { status: 404 });
-    // }
 
     await db.collection('post').deleteOne({ _id: objectId });
     return NextResponse.redirect(new URL('/board', req.url), 302);
