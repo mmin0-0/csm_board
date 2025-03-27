@@ -5,10 +5,10 @@ import { TableWrap, TableEmpty, Th, Td, Tr, TextAlignLeft } from "@/app/styles/c
 import { Typography } from "@/app/_component/Typography";
 import clsx from "clsx";
 
-type Props = { posts: IPost[] };
+type Props = { posts: IPost[]} ;
 export default function BoardListTable({ posts }: Props) {
   const router = useRouter();
-  const thead = ['No.', '제목', '작성자', 'Date'];
+  const thead = ['No.', '제목', '작성자', 'Like', 'Date'];
   const sortedData = posts.sort((a, b) => {
     if(a.postType === 'notice' && b.postType !== 'notice'){
       return -1;
@@ -51,6 +51,7 @@ export default function BoardListTable({ posts }: Props) {
               </td>
               <td><div className={clsx(Td, TextAlignLeft)}>{post.title}</div></td>
               <td><div className={Td}>{post.author}</div></td>
+              <td><div className={Td}>{post.postLikeCount}</div></td>
               <td><div className={Td}>{post.createAt.split(' ')[0]}</div></td>
             </tr>
           ))}

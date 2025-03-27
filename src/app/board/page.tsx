@@ -15,6 +15,7 @@ export default async function Board (){
     content: post.content,
     postType: post.postType,
     createAt: post.createAt,
+    postLikeCount: post.postLikeCount,
   }));
 
   return (

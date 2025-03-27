@@ -13,12 +13,10 @@ import { authOptions } from "@/utils/authOptions";
 type Props = { params: { id: string } };
 export default async function Detail(props:Props) {
   const session = await getServerSession(authOptions);
-
   const db = (await connectDB).db('csm_board');
   const data = await db.collection('post').findOne({
     _id: new ObjectId(props.params.id)
   });
-  const postLike = await db.collection('postLike').find({ postId: new ObjectId(props.params.id) }).toArray();
 
   // 날짜 기준으로 정렬(내림차순)
   const posts = await db.collection('post').find().sort({createAt: 1}).toArray();
@@ -48,7 +46,7 @@ export default async function Detail(props:Props) {
       </TitWrap>
       <div className={ContWrap}>
         <div className={TableWrap}>
-          <BoardTable post={post} postLike={postLike} />
+          <BoardTable post={post} />
         </div>
         <div className={style.BoardCont}>
           <Typography lineHeight="medium">

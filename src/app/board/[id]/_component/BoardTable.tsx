@@ -1,13 +1,9 @@
 import { Post as IPost } from "@/model/Post";
 import { TableWrap, Th, Td } from "@/app/styles/component/layout.css";
 import * as style from '@/app/styles/pages/board.css';
-import { PostLike as IPostLike } from "@/model/PostLike";
 
-type Props = { 
-  post: IPost,
-  postLike: IPostLike
-};
-export default function BoardTable({ post, postLike }: Props) {
+type Props = { post: IPost };
+export default function BoardTable({ post }: Props) {
   return (
     <div className={TableWrap}>
       <table className={style.BoardTable}>
@@ -28,8 +24,8 @@ export default function BoardTable({ post, postLike }: Props) {
           <tr>
             <th><div className={Th}>작성자</div></th>
             <td><div className={Td}>{post.author}</div></td>
-            <th><div className={Th}>조회수</div></th>
-            <td><div className={Td}>{postLike.userName?.length}</div></td>
+            <th><div className={Th}>Like</div></th>
+            <td><div className={Td}>{post.postLikeCount}</div></td>
           </tr>
           <tr>
             <th><div className={Th}>제목</div></th>
