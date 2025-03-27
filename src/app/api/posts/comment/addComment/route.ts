@@ -11,7 +11,7 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json();
 
     const now = new Date();
-    const koreaTime = new Date(now.setHours(now.getHours() + 9));
+    const koreaTime = new Date(now.setHours(now.getHours()));
     const formattedDate = koreaTime.getFullYear() + '-' +
       String(koreaTime.getMonth() + 1).padStart(2, '0') + '-' +
       String(koreaTime.getDate()).padStart(2, '0') + ' ' +

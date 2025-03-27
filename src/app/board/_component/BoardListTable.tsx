@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import { Post as IPost } from "@/model/Post";
-import { TableWrap, Th, Td, Tr, TextAlignLeft } from "@/app/styles/component/layout.css";
+import { TableWrap, TableEmpty, Th, Td, Tr, TextAlignLeft } from "@/app/styles/component/layout.css";
 import { Typography } from "@/app/_component/Typography";
 import clsx from "clsx";
 
@@ -21,6 +21,7 @@ export default function BoardListTable({ posts }: Props) {
 
   return (
     <div className={TableWrap}>
+      {sortedData.length > 0 ? (
       <table>
         <caption>게시판 리스트</caption>
         <colgroup>
@@ -49,12 +50,15 @@ export default function BoardListTable({ posts }: Props) {
                 </div>
               </td>
               <td><div className={clsx(Td, TextAlignLeft)}>{post.title}</div></td>
-              <td><div className={Td}>관리자</div></td>
+              <td><div className={Td}>{post.author}</div></td>
               <td><div className={Td}>{post.createAt.split(' ')[0]}</div></td>
             </tr>
           ))}
         </tbody>
       </table>
+      ): (<div className={TableEmpty}>
+        <Typography weight="semiBold">현재 작성된 글이 없습니다.</Typography>
+      </div>)}
     </div>
   )
 }

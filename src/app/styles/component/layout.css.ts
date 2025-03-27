@@ -37,6 +37,14 @@ globalStyle(`${ImageWrap} img`, {maxWidth: '100%'});
 
 // table
 export const TableWrap = style({});
+export const TableEmpty = style([
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    justify: 'center'
+  }),
+  {minHeight: '20rem'}
+]);
 globalStyle(`${TableWrap} table`, {
   // tableLayout: 'fixed',
   width: '100%',
