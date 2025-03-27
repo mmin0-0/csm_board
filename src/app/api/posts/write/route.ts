@@ -26,13 +26,14 @@ export const POST = async(req: NextRequest) => {
     const content = (formData.get("content") as string)?.trim();
     const postType = 'general';
     const createAt = formattedDate;
-    const postLikeCount = 0;
+    const likeUser = [] as string[];
+    const likeCount = 0 as number;
 
     if (!title || !content) {
       return NextResponse.json({error: '🚨제목과 내용을 입력해주세요.'}, {status: 400});
     }
 
-    const post = { author, title, content, postType, createAt, postLikeCount };
+    const post = { author, title, content, postType, createAt, likeUser, likeCount };
     await db.collection('post').insertOne(post);
     
     return NextResponse.redirect(new URL('/board', req.url), 302);

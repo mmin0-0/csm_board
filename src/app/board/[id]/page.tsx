@@ -9,15 +9,29 @@ import Comment from '@/app/board/[id]/_component/Comment';
 import PostActions from "@/app/board/[id]/_component/PostActions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/utils/authOptions";
+import { ButtonWrap } from "@/app/_component/Button";
+import PostLike from "./_component/PostLike";
 
 type Props = { params: { id: string } };
 export default async function Detail(props:Props) {
   const session = await getServerSession(authOptions);
+  let liked = null;
   const db = (await connectDB).db('csm_board');
   const data = await db.collection('post').findOne({
     _id: new ObjectId(props.params.id)
   });
 
+  console.log(session?.user);
+  if(session){ // 좋아요 중복체크
+    if(data?.likeUser.includes(session.user.email)){
+      liked = true;
+    } else{
+      liked = false;
+    }
+  } else{
+    console.log('비로그인');
+  }
+  
   // 날짜 기준으로 정렬(내림차순)
   const posts = await db.collection('post').find().sort({createAt: 1}).toArray();
   const postIndex = posts.findIndex((post) => post._id.toString() === data?._id.toString()) + 1;
@@ -35,14 +49,19 @@ export default async function Detail(props:Props) {
     file: data.file,
     postType: data.postType,
     createAt: data.createAt,
-    postLikeCount: data.postLikeCount,
+    likeUser: data.likeUser,
+    likeCount: data.likeCount,
   };
 
   return (
     <main>
       <TitWrap className={TitleWrap}>
         <Typography as="h4" weight="bold" size="xlarge">게시글 조회하기</Typography>
-        <PostActions post={post} session={session} />
+        {/* <PostActions post={post} session={session} /> */}
+        <ButtonWrap>
+          <PostLike post={post} session={session} liked={liked} />
+          <PostActions post={post} session={session} />
+        </ButtonWrap>
       </TitWrap>
       <div className={ContWrap}>
         <div className={TableWrap}>

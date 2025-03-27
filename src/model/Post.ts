@@ -9,5 +9,6 @@ export type Post = {
   file?: string;
   postType: string;
   createAt: string;
-  postLikeCount?: number;
+  likeUser?: string[];
+  likeCount?: number;
 };

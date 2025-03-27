@@ -40,7 +40,7 @@ export default function PostActions({post, session}:Props){
 
   return (
     <ButtonWrap>
-      <PostLike postId={post._id} userName={session?.user.name} />
+      {/* <PostLike postId={post._id} userName={session?.user.name} /> */}
       <Button color="secondary" onClick={handleModify}>글 수정</Button>
       <Button onClick={handleDelete}>글 삭제</Button>
     </ButtonWrap>

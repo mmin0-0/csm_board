@@ -8,12 +8,6 @@ export default function BoardTable({ post }: Props) {
     <div className={TableWrap}>
       <table className={style.BoardTable}>
         <caption>게시판 조회하기</caption>
-        <colgroup>
-          <col width="25%" />
-          <col width="25%" />
-          <col width="25%" />
-          <col width="25%" />
-        </colgroup>
         <tbody>
           <tr>
             <th><div className={Th}>No.</div></th>

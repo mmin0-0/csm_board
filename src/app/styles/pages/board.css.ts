@@ -14,14 +14,17 @@ export const BoardCont = style([
     minHeight: '10rem',
   }
 ]);
-export const BoardTable = style([]);
+export const BoardTable = style({tableLayout: 'fixed'});
 globalStyle(`${BoardTable} th > div`, {background: `rgba(${vars.colors.mainRGB}, .25)`});
 globalStyle(`${BoardTable} tbody tr`, {
   borderBottom: `1px solid ${vars.colors.gray03}`,
   borderLeft: `1px solid ${vars.colors.gray03}`
 });
 globalStyle(`${BoardTable} tbody tr:first-child`, {borderTop: `1px solid ${vars.colors.gray03}`});
-globalStyle(`${BoardTable} tbody th, ${BoardTable} tbody td`, {borderRight: `1px solid ${vars.colors.gray03}`});
+globalStyle(`${BoardTable} tbody th, ${BoardTable} tbody td`, {
+  borderRight: `1px solid ${vars.colors.gray03}`,
+  width: '25%'
+});
 globalStyle(`${BoardTable} tbody td > div`, {textAlign: 'left'});
 
 export const CommentWrap = style([spacing.mt(2)]);
