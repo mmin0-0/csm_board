@@ -2,10 +2,17 @@
 import { Button, ButtonWrap } from "@/app/_component/Button";
 import { Post as IPost } from "@/model/Post";
 import { useRouter } from "next/navigation";
+import PostLike from "@/app/board/[id]/_component/PostLike";
+import { Session } from "next-auth";
 
-type Props = {post: IPost};
-export default function PostActions({post}:Props){
+type Props = {
+  post: IPost,
+  session: Session | null,
+};
+
+export default function PostActions({post, session}:Props){
   const router = useRouter();
+
   const handleModify = () => {router.push(`/edit/${post._id.toString()}`)};
 
   const handleDelete = async() => {
@@ -27,10 +34,15 @@ export default function PostActions({post}:Props){
     }
   };
 
+  if(!session){
+    return <p>로그인 후 이용 가능합니다.</p>
+  }
+
   return (
     <ButtonWrap>
-      <Button onClick={handleModify}>글 수정</Button>
-      <Button color="secondary" onClick={handleDelete}>글 삭제</Button>
+      <PostLike postId={post._id} userName={session?.user.name} />
+      <Button color="secondary" onClick={handleModify}>글 수정</Button>
+      <Button onClick={handleDelete}>글 삭제</Button>
     </ButtonWrap>
   )
 }

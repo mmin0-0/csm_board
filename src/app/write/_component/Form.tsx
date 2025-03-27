@@ -6,8 +6,10 @@ import { Textarea, TextInput, FileInput } from "@/app/_component/Input";
 import { useEffect, useState } from "react";
 import { Typography } from "@/app/_component/Typography";
 import { useRouter } from "next/navigation";
+import { Session } from "next-auth";
 
-export default function Form() {
+type Props = {session: Session | null};
+export default function Form({session}:Props) {
   const router = useRouter();
   const [message, setMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData | null>(null);
@@ -50,7 +52,7 @@ export default function Form() {
   return (
     <form onSubmit={onSubmit}>
       <div className={FormGroup}>
-        <TextInput id="author" name="author" children="작성자" className={InputLabel} required={true} disabled={true} placeholder="작성자" />
+        <TextInput id="author" name="author" children="작성자" className={InputLabel} required={true} disabled={true} defaultValue={session?.user.name ?? undefined} />
         <TextInput id="title" name="title" children="제목" className={clsx(InputLabel, Essential)} required={true} placeholder="제목을 입력해주세요." />
         <Textarea id="content" name="content" children="글 내용" className={clsx(InputLabel, Essential)} required={true} placeholder="내용을 입력해주세요." />
         <FileInput id="file" children="이미지 파일 첨부" className={InputLabel} required={false} />

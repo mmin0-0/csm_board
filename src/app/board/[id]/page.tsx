@@ -7,13 +7,18 @@ import { ContWrap, TableWrap, TitleWrap } from "@/app/styles/component/layout.cs
 import BoardTable from '@/app/board/[id]/_component/BoardTable';
 import Comment from '@/app/board/[id]/_component/Comment';
 import PostActions from "@/app/board/[id]/_component/PostActions";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/utils/authOptions";
 
 type Props = { params: { id: string } };
 export default async function Detail(props:Props) {
+  const session = await getServerSession(authOptions);
+
   const db = (await connectDB).db('csm_board');
   const data = await db.collection('post').findOne({
     _id: new ObjectId(props.params.id)
   });
+  const postLike = await db.collection('postLike').find({ postId: new ObjectId(props.params.id) }).toArray();
 
   // 날짜 기준으로 정렬(내림차순)
   const posts = await db.collection('post').find().sort({createAt: 1}).toArray();
@@ -32,17 +37,18 @@ export default async function Detail(props:Props) {
     file: data.file,
     postType: data.postType,
     createAt: data.createAt,
+    postLikeCount: data.postLikeCount,
   };
 
   return (
     <main>
       <TitWrap className={TitleWrap}>
         <Typography as="h4" weight="bold" size="xlarge">게시글 조회하기</Typography>
-        <PostActions post={post} />
+        <PostActions post={post} session={session} />
       </TitWrap>
       <div className={ContWrap}>
         <div className={TableWrap}>
-          <BoardTable post={post} />
+          <BoardTable post={post} postLike={postLike} />
         </div>
         <div className={style.BoardCont}>
           <Typography lineHeight="medium">

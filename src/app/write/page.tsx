@@ -18,7 +18,7 @@ export default async function Write() {
         <Typography as="h4" weight="bold" size="xlarge">게시글 작성하기</Typography>
       </TitWrap>
       <div className={ContWrap}>
-        <Form />
+        <Form session={session} />
       </div>
     </main>
   )
