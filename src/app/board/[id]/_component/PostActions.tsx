@@ -33,10 +33,6 @@ export default function PostActions({post, session}:Props){
     }
   };
 
-  if(!session){
-    return <p>로그인 후 이용 가능합니다.</p>
-  }
-
   return (
     <ButtonWrap>
       <Button color="secondary" onClick={handleModify}>글 수정</Button>

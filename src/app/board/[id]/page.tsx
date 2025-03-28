@@ -19,16 +19,11 @@ export default async function Detail(props:Props) {
   const data = await db.collection('post').findOne({
     _id: new ObjectId(props.params.id)
   });
-  let liked:boolean | null = null;
 
-  console.log(session?.user);
-  if(session){ // 좋아요 중복체크
-    if(Array.isArray(data?.likeUser) && data.likeUser.includes(session.user.email)){
-      liked = true;
-    } else{
-      liked = false;
-    }
-  }
+  // let liked:boolean = false;
+  // if(session && data){
+  //   liked = data.likeUser.includes(session.user.email);
+  // }
   
   // 날짜 기준으로 정렬(내림차순)
   const posts = await db.collection('post').find().sort({createAt: 1}).toArray();
@@ -56,7 +51,7 @@ export default async function Detail(props:Props) {
       <TitWrap className={TitleWrap}>
         <Typography as="h4" weight="bold" size="xlarge">게시글 조회하기</Typography>
         <ButtonWrap>
-          <PostLike post={post} session={session} liked={liked} />
+          <PostLike post={post} session={session} />
           <PostActions post={post} session={session} />
         </ButtonWrap>
       </TitWrap>

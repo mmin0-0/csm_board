@@ -28,7 +28,7 @@ interface DefaultButtonProps {
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   color?: "primary" | "secondary" | "disabled";
-  size?: 'small' | 'medium' | 'large';
+  size?: 'auto' | 'small' | 'medium' | 'large';
 };
 
 export const Button = ({ children, type = "button", className, disabled, onClick, color = "primary", size = "small" }: DefaultButtonProps) => {

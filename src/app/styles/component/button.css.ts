@@ -8,6 +8,7 @@ const blank = {
   'space-1': '.8rem 1.2rem',
 };
 const size = {
+  'auto': 'auto',
   'small': '10rem',
   'medium': '20rem',
   'large': '100%'
@@ -82,6 +83,7 @@ export const button = recipe({
   variants: {
     color: colorVariants,
     size: {
+      auto: sprinkles({width: 'auto'}),
       small: sprinkles({width: 'small'}),
       medium: sprinkles({width: 'medium'}),
       large: sprinkles({width: 'large'})
