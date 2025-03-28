@@ -5,6 +5,7 @@ import Lnb from "@/app/_component/Lnb";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import AuthProvider from "@/app/_lib/nextauth/index";
+import Header from "@/app/_component/Header";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Props) {
           <div className={style.Wrapper}>
             <Lnb />
             <div className={style.Container}>
+              <Header />
               {children}
             </div>
           </div>

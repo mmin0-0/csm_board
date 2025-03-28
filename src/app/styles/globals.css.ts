@@ -65,6 +65,7 @@ globalStyle("body", {
   fontFamily: 'Pretendard',
   fontSize: vars.fontSize.regular,
   fontWeight: vars.fontWeight.normal,
+  color: vars.colors.white,
   lineHeight: 1,
   letterSpacing: '-0.02em'
 });

@@ -46,37 +46,7 @@ export default function NavMenu({ session }: Props) {
             </Link>
           )
         })}
-        {/* {navMenuList.map((menu) => {
-          const isActive =
-            (menu.path === '/board' &&
-              (path === '/board' || path.startsWith('/board/') || path.startsWith('/edit'))) || path === menu.path;
-
-          return (
-            <Link
-              key={menu.title}
-              href={menu.path}
-              className={isActive ? style.ActiveMenu : style.Menu}
-            >
-              <FontAwesomeIcon icon={menu.icon} style={{width: '2rem'}} />
-              {menu.title}
-            </Link>
-          )
-        })} */}
       </div>
-      {/* <ButtonWrap direction="column" className={style.SignButtons}>
-        {session ?
-          (
-            <>
-              <Button size="large">Profile</Button>
-              <Button size="large">LogOut</Button>
-            </>
-          ) : (
-            <>
-              <Button size="large">Sign Up</Button>
-              <Button size="large">Login</Button>
-            </>
-          )}
-      </ButtonWrap> */}
     </nav>
   )
 }

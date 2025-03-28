@@ -4,23 +4,22 @@ import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
 export const Wrapper = style([
-  size({width: '100dvw', height: '100dvh'}),
+  size({width: '100dvw'}),
   {
     display: 'flex',
     background: vars.colors.black,
+    overflowX: 'hidden',
   }
 ]);
 export const Container = style([
-  blank.p('2rem'),
-  size({height: 'calc(100% - 6rem)'}),
+  size({width: 'calc(100% - 20rem)'}),
+  spacing.ml(20),
   {
-    background: vars.colors.gray02
+    minHeight: '100dvh',
   }
 ]);
 globalStyle(`${Container} main`, {
-  height: 'calc(100% - 4rem)',
-  background: vars.colors.white,
-  boxShadow: vars.colors.shadow,
+  // height: 'calc(100% - 4rem)',
   overflowY: 'auto',
   padding: '2rem'
 });

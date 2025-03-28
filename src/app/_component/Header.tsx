@@ -1,44 +1,35 @@
+'use client';
 import * as style from '@/app/styles/component/header.css';
-import Link from 'next/link';
-import { LoginButton, LogoutButton, RegisterButton } from '@/app/_component/SingButtons';
 import { Typography } from '@/app/_component/Typography';
-import { ButtonWrap } from '@/app/_component/Button';
-import { ImgWrap } from '@/app/_component/ImgWrap';
-import { authOptions } from '@/utils/authOptions';
-import { getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
+import BackButton from './BackButton';
+import { useEffect, useState } from 'react';
 
-export default async function Header() {
-  const session = await getServerSession(authOptions);
+export default function Header() {
+  const session = useSession();
+  const path = usePathname();
+  const [title, setTitle] = useState<string>('');
 
+  useEffect(()=>{
+    const formattedTitle = path.replace('/', '');
+    setTitle(formattedTitle.charAt(0).toUpperCase() + formattedTitle.slice(1));
+  }, [path]);
+
+  if(path === '/home'){
+    return (
+      <div className={style.HeaderWrap}>
+        <div className={style.HeaderTitle}>
+          <Typography>{session.user.name}</Typography>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className={style.HeaderWrap}>
-      <div className={style.HeaderInner}>
-        <Link href="/">
-          <ImgWrap src="logo.png" alt="CSM" />
-        </Link>
-        <div className={style.HeaderInfo}>
-          {
-            session ? (
-              <>
-                <Typography as="h4" size="medium" weight="medium">
-                  <Typography as="strong" size="medium" color="secondary" weight="semiBold">{session.user?.name}</Typography>,
-                  welcome back!
-                </Typography>
-                <LogoutButton />
-              </>
-            ) : (
-              <>
-                <Typography as="h4" size="medium" weight="medium">
-                  Hello, welcome <Typography as="strong" size="medium" color="secondary" weight="semiBold">CSㆍM</Typography>
-                </Typography>
-                <ButtonWrap>
-                  <LoginButton />
-                  <RegisterButton />
-                </ButtonWrap>
-              </>
-            )
-          }
-        </div>
+      <div className={style.HeaderTitle}>
+        <BackButton />
+        <Typography size="xlarge" weight="semiBold">{title}</Typography>
       </div>
     </div>
   )

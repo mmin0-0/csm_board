@@ -1,23 +1,23 @@
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
-import { blank, flexBox, size } from '@/app/styles/utils.css';
+import { blank, flexBox, position, size } from '@/app/styles/utils.css';
 
 export const HeaderWrap = style([
-  size({width: '100%', height: '6rem'}),
-  blank.px(2,2),
+  size({width: '100%'}),
+  blank.p('2rem 1.6rem'),
+  position('sticky', {top: '0', left: '0'}),
   {
-    zIndex: 9,
-    background: vars.colors.white
+    zIndex: 10,
+    background: vars.colors.black
   }
 ]);
 
-export const HeaderInner = style([
-  size({height: '100%'}),
+export const HeaderTitle = style([
   flexBox({
     direction: 'row',
-    justify: 'space-between',
-    align: 'center'
+    align: 'center',
+    gap: '1rem'
   })
 ]);
 
