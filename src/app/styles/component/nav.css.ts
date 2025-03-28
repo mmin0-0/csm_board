@@ -18,26 +18,3 @@ export const NavMenu = style([
 
   }
 ]);
-export const Menu = style([
-  position('relative'),
-  blank.p('1rem 2rem'),
-  transition('color'),
-  flexBox({
-    direction: 'row',
-    justify: 'flex-start',
-    align: 'center',
-    gap: '1rem'
-  }),
-  {
-    fontWeight: vars.fontWeight.semiBold,
-    color: vars.colors.gray01,
-    textTransform: 'capitalize',
-    selectors: {
-      '&:hover, &:active': {color: vars.colors.black}
-    }
-  }
-]);
-const ActiveMenuStyle = style({color: vars.colors.black});
-globalStyle(`${Menu}:hover > svg, ${Menu}:active > svg, ${ActiveMenuStyle} > svg`, {color: vars.colors.mainColor});
-
-export const ActiveMenu = composeStyles(Menu, ActiveMenuStyle);

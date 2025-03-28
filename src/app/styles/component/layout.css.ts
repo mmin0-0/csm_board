@@ -5,6 +5,10 @@ import { vars } from '@/app/styles/globals.css';
 // 공동 컴포넌트
 export const Wrapper = style([
   size({width: '100dvw', height: '100dvh'}),
+  {
+    display: 'flex',
+    background: vars.colors.black,
+  }
 ]);
 export const Container = style([
   blank.p('2rem'),
@@ -51,14 +55,14 @@ globalStyle(`${TableWrap} table`, {
   textAlign: 'center',
 });
 globalStyle(`${TableWrap} thead > tr:first-child`, {
-  borderTop: `2px solid ${vars.colors.mainColor}`
+  borderTop: `2px solid ${vars.colors.pink}`
 });
 export const Tr = style([
   transition('background'),
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.gray03,
+    color: vars.colors.gray01,
     direction: 'top'
   }),
   {
@@ -68,7 +72,7 @@ export const Tr = style([
     }
   }
 ]);
-globalStyle(`table ${Tr}:last-child`, {borderBottom: `1px solid ${vars.colors.gray03}`});
+globalStyle(`table ${Tr}:last-child`, {borderBottom: `1px solid ${vars.colors.gray01}`});
 export const Th = style([blank.p('.8rem .8rem')]);
 export const Td = style([blank.p('.8rem .8rem')]);
 

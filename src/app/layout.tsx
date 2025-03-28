@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import '@/app/styles/globals.css';
 import * as style from '@/app/styles/component/layout.css';
-import Header from "@/app/_component/Header";
-import Nav from "@/app/_component/Nav";
+import Lnb from "@/app/_component/Lnb";
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import AuthProvider from "@/app/_lib/nextauth/index";
@@ -20,9 +19,8 @@ export default function RootLayout({ children }: Props) {
       <body>
         <AuthProvider>
           <div className={style.Wrapper}>
-            <Header />
+            <Lnb />
             <div className={style.Container}>
-              <Nav />
               {children}
             </div>
           </div>
