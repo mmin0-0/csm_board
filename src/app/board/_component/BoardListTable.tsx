@@ -51,7 +51,7 @@ export default function BoardListTable({ posts }: Props) {
               </td>
               <td><div className={clsx(Td, TextAlignLeft)}>{post.title}</div></td>
               <td><div className={Td}>{post.author}</div></td>
-              <td><div className={Td}>{post.postLikeCount}</div></td>
+              <td><div className={Td}>{post.likeCount}</div></td>
               <td><div className={Td}>{post.createAt.split(' ')[0]}</div></td>
             </tr>
           ))}

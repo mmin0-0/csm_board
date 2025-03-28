@@ -12,59 +12,38 @@ export const POST = async (req: NextRequest) => {
 
     const save = {
       likeUser: session?.user.email, // 좋아요 누른 유저계정
-      postId: new ObjectId(body._id) // 해당글의 id
+      postId: new ObjectId(body._id) // 게시글의 id
     };
 
     const likedPost = await db.collection('post').findOne({_id: new ObjectId(save.postId)});
     const arrUser = {likeUser: session?.user.email}; // 현재 좋아요 누른 유저의 이메일
 
-    // count 증가
+    // post likeCount 증가
     const post = await db.collection('post').updateOne( 
-      { _id: new ObjectId(body.postId) },
-      { $inc: { likeCount: +1 } }
-    );
-    await db.collection('post').updateOne(
-      { _id: new ObjectId(body.postId) },
-      { $set: post }
+      { _id: new ObjectId(likedPost?._id) },
+      { $inc: {likeCount: 1} }
     );
 
-    // 유저 추가
+    // post likeUser 추가
     await db.collection('post').updateOne(
       {_id: new ObjectId(likedPost?._id)},
       {$push: arrUser}
     );
 
-    const newPost = await db.collection('postLike').insertOne(save);
-    const likeCount = await db.collection('post').findOne({_id: new ObjectId(likedPost?._id)});
+    // postLike 업데이트
+    const postLike = await db.collection('postLike').updateOne(
+      {postId: new ObjectId(body._id)},
+      {$addToSet: {likeUser: session?.user.email}},
+      {upsert: true} // 존재하지 않으면 새로 생성
+    );
 
-    return NextResponse.json(newPost, {status: 200});
+    // post 최신데이터 반환
+    const updatedPost = await db.collection('post').findOne({_id: new ObjectId(body._id)});
+    return NextResponse.json({
+      likeUser: updatedPost?.likeUser || [],
+      likeCount: updatedPost?.likeCount || 0,
+    });
 
-    // if (!session || session === null) {
-    //   return NextResponse.json({ error: '로그인이 필요합니다.' }, { status: 400 });
-    // }
-
-    // const result = await db.collection('user_cred').findOne({email: session?.user.email});
-
-    // const isLike = await db.collection('postLike').findOne({ likeUser: session.user.name });
-    // if (isLike) {
-    //   return NextResponse.json({ error: '이미 좋아요를 누른 게시글 입니다.' }, { status: 400 });
-    // }
-
-    // const post = await db.collection('post').updateOne(
-    //   { _id: new ObjectId(body.postId) },
-    //   { $inc: { postLikeCount: +1 } }
-    // );
-
-    // const newPost = await db.collection('post').updateOne(
-    //   { _id: new ObjectId(body.postId) },
-    //   { $set: post }
-    // );
-    // const liked = await db.collection('postLike').insertOne({
-    //   likeUser: body.userName,
-    //   postId: new ObjectId(body.postId),
-    // });
-
-    // return NextResponse.json(liked, { status: 200 });
   } catch (error) {
     console.error("like Error:", error);
     return NextResponse.json({ error: "서버 오류가 발생했습니다." }, { status: 500 });

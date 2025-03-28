@@ -19,7 +19,7 @@ export default function BoardTable({ post }: Props) {
             <th><div className={Th}>작성자</div></th>
             <td><div className={Td}>{post.author}</div></td>
             <th><div className={Th}>Like</div></th>
-            <td><div className={Td}>{post.postLikeCount}</div></td>
+            <td><div className={Td}>{post.likeCount}</div></td>
           </tr>
           <tr>
             <th><div className={Th}>제목</div></th>

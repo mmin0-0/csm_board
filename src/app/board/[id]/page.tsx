@@ -15,21 +15,19 @@ import PostLike from "./_component/PostLike";
 type Props = { params: { id: string } };
 export default async function Detail(props:Props) {
   const session = await getServerSession(authOptions);
-  let liked = null;
   const db = (await connectDB).db('csm_board');
   const data = await db.collection('post').findOne({
     _id: new ObjectId(props.params.id)
   });
+  let liked:boolean | null = null;
 
   console.log(session?.user);
   if(session){ // 좋아요 중복체크
-    if(data?.likeUser.includes(session.user.email)){
+    if(Array.isArray(data?.likeUser) && data.likeUser.includes(session.user.email)){
       liked = true;
     } else{
       liked = false;
     }
-  } else{
-    console.log('비로그인');
   }
   
   // 날짜 기준으로 정렬(내림차순)
@@ -57,7 +55,6 @@ export default async function Detail(props:Props) {
     <main>
       <TitWrap className={TitleWrap}>
         <Typography as="h4" weight="bold" size="xlarge">게시글 조회하기</Typography>
-        {/* <PostActions post={post} session={session} /> */}
         <ButtonWrap>
           <PostLike post={post} session={session} liked={liked} />
           <PostActions post={post} session={session} />
