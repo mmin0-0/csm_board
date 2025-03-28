@@ -64,5 +64,5 @@ export default function PostLike({post, session}:Props){
   };
 
   return <Button onClick={handleLike} size="auto">
-    <FontAwesomeIcon icon={faHeart} style={{color: auto ? '#F20000' : '' }} />{likeCount}</Button>
+    <FontAwesomeIcon icon={faHeart} style={{color: auto ? '#F20000' : '', width: '1.6rem' }} />{likeCount}</Button>
 }
