@@ -20,7 +20,7 @@ export default function Header() {
     return (
       <div className={style.HeaderWrap}>
         <div className={style.HeaderTitle}>
-          <Typography>{session.user.name}</Typography>
+          {/* <Typography>{session.user.name}</Typography> */}
         </div>
       </div>
     )

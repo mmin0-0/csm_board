@@ -8,7 +8,7 @@ import clsx from "clsx";
 type Props = { posts: IPost[]} ;
 export default function BoardListTable({ posts }: Props) {
   const router = useRouter();
-  const thead = ['No.', '제목', '작성자', 'Like', 'Date'];
+  const thead = ['No.', 'title', 'author', 'like', 'date'];
   const sortedData = posts.sort((a, b) => {
     if(a.postType === 'notice' && b.postType !== 'notice'){
       return -1;
@@ -26,7 +26,7 @@ export default function BoardListTable({ posts }: Props) {
         <caption>게시판 리스트</caption>
         <colgroup>
           {thead.map((col, idx) => {
-            const width = col === '제목' ? '*' : '160px';
+            const width = col === 'title' ? '*' : '160px';
             return <col key={idx} width={width} />
           })}
         </colgroup>

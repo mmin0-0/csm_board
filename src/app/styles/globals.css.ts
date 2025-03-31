@@ -14,6 +14,7 @@ export const vars = createGlobalTheme(':root', {
     green: '#1CE15F',
     blue: '#4791FF',
     yellow: '#ECE42E',
+    yellowRGB: '236, 228, 46',
     red: '#F20000',
     mainRGB: '235, 107, 168' , 
     mainFilter: 'invert(58%) sepia(63%) saturate(752%) hue-rotate(294deg) brightness(96%) contrast(93%)',

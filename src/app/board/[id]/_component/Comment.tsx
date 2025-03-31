@@ -56,7 +56,7 @@ export default function Comment({ _id }: Props) {
   return (
     <div className={style.CommentWrap}>
       <Typography as="strong" weight="semiBold" className={style.CommentTit}>
-        댓글 <Typography as="span" color="white" size="small" className={style.CommentNum}>{data.length}</Typography>
+        댓글 <Typography as="span" size="small" className={style.CommentNum}>{data.length}</Typography>
       </Typography>
       <div className={style.CommentForm}>
         <Textarea

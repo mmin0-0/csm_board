@@ -23,12 +23,11 @@ export const Eye = style([
 ]);
 globalStyle(`${InputWrap} textarea, ${InputWrap} input`, {
   width: '100%',
-  border: `1px solid ${vars.colors.gray03}`,
+  border: `1px solid ${vars.colors.darkgray}`,
 });
 globalStyle(`${InputWrap} textarea::placeholder, ${InputWrap} input::placeholder`, {color: vars.colors.gray01});
 globalStyle(`${InputWrap} textarea:disabled, ${InputWrap} input:disabled`, {
-  background: vars.colors.light,
-  color: vars.colors.gray01
+  color: vars.colors.pink
 });
 globalStyle(`${InputWrap} input`, {padding: '.8rem 1rem'});
 globalStyle(`${InputWrap} textarea`, {

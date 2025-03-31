@@ -4,28 +4,30 @@ import { blank, border, flexBox, position, radius, size, spacing } from '@/app/s
 
 export const BoardCont = style([
   blank.p('1rem'),
+  spacing.mt(2),
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.gray03
+    color: vars.colors.darkgray
   }),
-  {
-    borderTop: 0,
-    minHeight: '10rem',
-  }
+  {minHeight: '10rem',}
 ]);
 export const BoardTable = style({tableLayout: 'fixed'});
-globalStyle(`${BoardTable} th > div`, {background: `rgba(${vars.colors.mainRGB}, .25)`});
-globalStyle(`${BoardTable} tbody tr`, {
-  borderBottom: `1px solid ${vars.colors.gray03}`,
-  borderLeft: `1px solid ${vars.colors.gray03}`
+globalStyle(`${BoardTable} tbody tr:not(:last-child)`, {
+  borderBottom: `1px solid ${vars.colors.darkgray}`,
 });
-globalStyle(`${BoardTable} tbody tr:first-child`, {borderTop: `1px solid ${vars.colors.gray03}`});
 globalStyle(`${BoardTable} tbody th, ${BoardTable} tbody td`, {
-  borderRight: `1px solid ${vars.colors.gray03}`,
   width: '25%'
 });
 globalStyle(`${BoardTable} tbody td > div`, {textAlign: 'left'});
+export const Th = style([
+  blank.p('1rem .8rem'),
+  {
+    textTransform: 'capitalize',
+    background: `rgba(${vars.colors.yellowRGB}, .45)`
+  }
+]);
+export const Td = style([blank.p('1rem .8rem')]);
 
 export const CommentWrap = style([spacing.mt(2)]);
 export const CommentTit = style([
@@ -44,7 +46,7 @@ export const CommentNum = style([
     align: 'center',
     justify: 'center'
   }),
-  {background: vars.colors.mainColor,}
+  {background: vars.colors.pink}
 ]);
 export const CommentForm = style([
   spacing.mt(1),
@@ -60,7 +62,7 @@ export const CommentItem = style([
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.gray03,
+    color: vars.colors.darkgray,
     direction: 'bottom'
   })
 ]);

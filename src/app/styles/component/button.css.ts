@@ -34,11 +34,12 @@ const colorVariants = {
   primary: {
     backgroundColor: vars.colors.white,
     color: vars.colors.black,
-    borderColor: vars.colors.pink,
+    borderColor: vars.colors.gray01,
     selectors: {
       "&:hover": { 
         backgroundColor: vars.colors.pink, 
         color: vars.colors.white, 
+        borderColor: vars.colors.pink,
       },
     },
   },
@@ -71,7 +72,7 @@ export const button = recipe({
     border({
       width: '1px',
       type: 'solid',
-      color: vars.colors.pink,
+      color: vars.colors.gray01,
     }),
     radius('2rem'),
     {textAlign: 'center'},
