@@ -18,3 +18,11 @@ export const ImgWrap = ({src, alt, className}:ImgWrapProps) => {
     </div>
   )
 };
+
+export const Image = ({src, alt}:ImgWrapProps) => {
+  const getImageSrc = (src:string) => {
+    return src.startsWith('https') ? src : `/images/${src}`;
+  };
+
+  return <img src={getImageSrc(src)} alt={alt} />
+};

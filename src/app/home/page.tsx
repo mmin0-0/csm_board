@@ -1,9 +1,7 @@
-'use client';
-import { useEffect, useState } from "react";
-import { Post as IPost } from "@/model/Post";
+import { ContWrap } from "@/app/styles/component/layout.css";
+import EventSchedule from "@/app/home/_component/EventSchedule";
 
 export default function Home() {
-  const [ posts, setPosts ] = useState<IPost[]>([]);
   // useEffect(() => {
   //   const fetchPost = async() => {
   //     try {
@@ -22,7 +20,9 @@ export default function Home() {
 
   return (
     <main>
-      메인입니다.
+      <div className={ContWrap}>
+        <EventSchedule />
+      </div>
     </main>
   );
 }
