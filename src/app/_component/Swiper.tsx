@@ -1,7 +1,8 @@
 'use client'
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
 import { Swiper } from "swiper/react";
 import { SwiperProps } from 'swiper/react';
+import SwiperCore from 'swiper';
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { MouseEventHandler } from "react";
 import { Image } from "@/app/_component/ImgWrap";
@@ -9,6 +10,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
+import clsx from "clsx";
+import { SwiperComponent } from "../styles/component/layout.css";
 
 type SwiperBtnsProps = {
   className?: string,
@@ -41,6 +44,7 @@ type Props = {
   navigationId?: string;
   pagination?: any;
   spaceBetween?: number;
+  centeredSlides?: boolean;
   breakpoints?: { [width: number]: SwiperProps };
   progress?: boolean;
   cssMode?: boolean;
@@ -58,23 +62,30 @@ export function CustomSwiper({
   navigationId,
   pagination,
   spaceBetween = 0,
+  centeredSlides = false,
   breakpoints,
   cssMode = false
 }:Props){
+  const swiperRef = useRef<SwiperCore>();
   return (
     <Swiper
       cssMode={false}
-      className={className}
+      onSwiper={(swiper)=> {
+        swiperRef.current = swiper;
+      }}
+      className={clsx(className, SwiperComponent)}
       direction={direction}
       allowTouchMove={false}
       ref={ref}
       slidesPerView={slidesPerView}
       slidesPerGroup={slidesPerGroup}
       loop={loop}
-      autoplay={{
-        delay: autoplayDelay,
-        disableOnInteraction: false,
-      }}
+      observer={true}
+      observeParents={true} 
+      // autoplay={{
+      //   delay: autoplayDelay,
+      //   disableOnInteraction: false,
+      // }}
       pagination={pagination}
       navigation={
         navigationId ? {
@@ -83,6 +94,7 @@ export function CustomSwiper({
         } : false
       }
       spaceBetween={spaceBetween}
+      centeredSlides={centeredSlides}
       breakpoints={breakpoints}
       modules={[Autoplay, Pagination, Navigation]}
     >{children}</Swiper>

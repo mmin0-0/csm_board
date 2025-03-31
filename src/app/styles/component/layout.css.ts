@@ -1,5 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { blank, border, flexBox, radius, size, spacing, transition } from '@/app/styles/utils.css';
+import { blank, border, flexBox, size, spacing, transition } from '@/app/styles/utils.css';
 import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
@@ -38,6 +38,12 @@ export const TitleWrap = style([
   })
 ]);
 export const ContWrap = style([]);
+
+export const SwiperComponent = style({});
+globalStyle(`${SwiperComponent} .swiper-wrapper`, {
+  display: 'flex',
+  // flexDirection: 'row'
+});
 
 // 이미지
 export const ImageWrap = style({});

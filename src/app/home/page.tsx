@@ -1,5 +1,6 @@
 import { ContWrap } from "@/app/styles/component/layout.css";
 import EventSchedule from "@/app/home/_component/EventSchedule";
+import * as style from '@/app/styles/pages/home.css';
 
 export default function Home() {
   // useEffect(() => {
@@ -21,7 +22,9 @@ export default function Home() {
   return (
     <main>
       <div className={ContWrap}>
-        <EventSchedule />
+        <div id="eventList" className={style.EventWrap}>
+          <EventSchedule />
+        </div>
       </div>
     </main>
   );
