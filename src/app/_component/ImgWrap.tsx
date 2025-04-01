@@ -13,7 +13,7 @@ export const ImgWrap = ({src, alt, className}:ImgWrapProps) => {
   };
 
   return (
-    <div className={clsx({className, ImageWrap})}>
+    <div className={clsx(className, ImageWrap)}>
       <img src={getImageSrc(src)} alt={alt} />
     </div>
   )

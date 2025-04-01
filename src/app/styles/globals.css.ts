@@ -18,7 +18,7 @@ export const vars = createGlobalTheme(':root', {
     red: '#F20000',
     mainRGB: '235, 107, 168' , 
     mainFilter: 'invert(58%) sepia(63%) saturate(752%) hue-rotate(294deg) brightness(96%) contrast(93%)',
-    shadow: 'rgba(200,200,200, 0.4) 0px 3px 20px 0px',
+    shadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
   },
   fontSize: {
     small: '1.4rem',
@@ -36,6 +36,7 @@ export const vars = createGlobalTheme(':root', {
   fontColor: {
     primary:'#ffffff',
     secondary: '#F5F5F5',
+    emphasis: '#ECE42E',
     black: '#111111',
     gray: '#908E8F',
     error: '#bd2c3d',

@@ -4,6 +4,8 @@ import { Post as IPost } from "@/model/Post";
 import { TableWrap, TableEmpty, Th, Td, Tr, TextAlignLeft } from "@/app/styles/component/layout.css";
 import { Typography } from "@/app/_component/Typography";
 import clsx from "clsx";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
 
 type Props = { posts: IPost[]} ;
 export default function BoardListTable({ posts }: Props) {
@@ -45,7 +47,7 @@ export default function BoardListTable({ posts }: Props) {
                   {post.postType === 'general' ? (
                     <>{idx + 1}</>
                   ) : (
-                    <Typography color="error">공지</Typography>
+                    <Typography color="emphasis"><FontAwesomeIcon icon={faBullhorn} style={{width: '1.6rem'}} /></Typography>
                   )}
                 </div>
               </td>

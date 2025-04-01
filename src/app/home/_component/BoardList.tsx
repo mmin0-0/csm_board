@@ -18,15 +18,18 @@ export default function BoardList({posts}:Props){
 
   return (
     <>
-      <div className={style.BoardListTabs}>
-        {tabs.map((tab) => <Link 
-        key={tab} 
-        href="#"
-        onClick={() => handleTabClick(tab)}
-        className={clsx(style.BoardTab, activeTab === tab ? 'on' : '')}
-        >{tab}</Link>)}
+      <div className={style.ContTitWrap}>
+        <div>
+          {tabs.map((tab) => <Link 
+          key={tab} 
+          href="#"
+          onClick={() => handleTabClick(tab)}
+          className={clsx(style.BoardTab, activeTab === tab ? 'on' : '')}
+          >{tab}</Link>)}
+        </div>
+        <Link href="/board">View All</Link>
       </div>
-      <div>
+      <div className={clsx(style.ContWrap, style.BoardContWrap)}>
         {(activeTab === 'notice' ? notices : boardPosts).length === 0 ?(
           <div className={style.BoardContEmpty}>게시물이 없습니다.</div>
         ): (

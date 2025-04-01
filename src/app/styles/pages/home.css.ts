@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
-import { blank, border, flexBox, position, radius, size, spacing } from '@/app/styles/utils.css';
+import { blank, border, flexBox, position, radius, size, spacing, transition } from '@/app/styles/utils.css';
 
 // 공통 컴포넌트(주요 콘텐츠)
 export const HomeContent = style([
@@ -8,8 +8,19 @@ export const HomeContent = style([
   radius('2.4rem'),
   {color: vars.colors.black}
 ]);
+export const ContTitWrap = style([
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    justify: 'space-between'
+  })
+]);
+export const ContWrap = style([
+  spacing.mt(1),
+  position('relative')
+]);
 
-// 행사일정
+// 행사일정(swiper)
 export const EventWrap = style([position('relative')]);
 export const EventSwiper = style([
   size({width: '90%'}),
@@ -36,18 +47,10 @@ export const EventListControls = style([
 ]);
 
 // 게시판 테이블
-export const BoardList = style({
-  background: vars.colors.yellow
+export const BoardWrap = style({
+  background: vars.colors.yellow,
+  marginTop: '1.8rem',
 });
-export const BoardListTabs = style([
-  blank.pb(1),
-  border({
-    width: '2px',
-    type: 'solid',
-    color: vars.colors.black,
-    direction: 'bottom'
-  })
-]);
 export const BoardTab = style([
   {
     textTransform: 'capitalize',
@@ -69,6 +72,14 @@ export const BoardTab = style([
   }
 ]);
 globalStyle(`${BoardTab}.on`, {fontWeight: vars.fontWeight.bold});
+export const BoardContWrap = style([
+  border({
+    width: '2px',
+    type: 'solid',
+    color: vars.colors.black,
+    direction: 'top'
+  })
+]);
 export const BoardContEmpty = style([
   flexBox({
     direction: 'row',
@@ -78,7 +89,7 @@ export const BoardContEmpty = style([
   {minHeight: '10rem'}
 ]);
 export const BoardItem = style([
-  blank.p('.6rem .2rem'),
+  blank.p('.6rem .4rem'),
   border({
     width: '1px',
     type: 'solid',
@@ -88,6 +99,55 @@ export const BoardItem = style([
   flexBox({
     direction: 'row',
     align: 'center',
-    justify: 'space-between'
+    justify: 'space-between',
+    gap: '1rem'
   }),
+  {background: vars.colors.white}
 ]);
+globalStyle(`${BoardItem} p`, {
+  overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap'
+});
+globalStyle(`${BoardItem} span`, {whiteSpace: 'nowrap'});
+
+// 강의
+export const LectureWrap = style({
+  background: vars.colors.pink,
+  marginTop: '1.8rem',
+});
+export const LectureList = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gap: '2rem 1rem'
+});
+export const LectureItem = style([
+  blank.p(1),
+  radius('1.2rem'),
+  transition('transform'),
+  border({
+    width: '2px',
+    type: 'solid',
+    color: vars.colors.black
+  }),
+  {
+    display: 'block',
+    background: vars.colors.white,
+    boxShadow: vars.colors.shadow,
+    selectors: {
+      '&:hover': {transform: 'translateY(-8px)'}
+    }
+  }
+]);
+export const LectureImg = style({height: '14rem'});
+globalStyle(`${LectureImg} img`, {
+  height: '100%',
+  width: '100%',
+  objectFit: 'cover'
+});
+export const LectureInfo = style({marginTop: '1rem'});
+globalStyle(`${LectureInfo} strong`, {
+  textTransform: 'capitalize',
+  display: 'block',
+  marginBottom: '.6rem'
+})
