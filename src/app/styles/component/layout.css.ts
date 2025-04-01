@@ -25,7 +25,7 @@ export const BackButtonStyle = style({
   padding: '0 !important'
 });
 globalStyle(`${Container} main`, {
-  overflowY: 'auto',
+  // overflowY: 'auto',
   padding: '2rem'
 });
 export const TitleWrap = style([
@@ -38,6 +38,7 @@ export const TitleWrap = style([
   })
 ]);
 export const ContWrap = style([]);
+export const ContHead = style([spacing.mb('2.6rem')]);
 
 export const SwiperComponent = style({});
 globalStyle(`${SwiperComponent} .swiper-wrapper`, {

@@ -15,8 +15,7 @@ export default function EventSchedule() {
     <>
       <CustomSwiper
         className={style.EventSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
+        slidesPerView={1}
         // centeredSlides={true}
         loop={false}
         direction="horizontal"
@@ -26,7 +25,7 @@ export default function EventSchedule() {
           return <SwiperSlide key={idx} className={style.EventItem}>{event.title}</SwiperSlide>;
         })}
       </CustomSwiper>
-      <SwiperButtons className={style.EventListControls} />
+      {/* <SwiperButtons className={style.EventListControls} /> */}
     </>
   );
 }

@@ -3,6 +3,23 @@ import { vars } from '@/app/styles/globals.css';
 import { blank, border, flexBox, position, radius, size, spacing, transition } from '@/app/styles/utils.css';
 
 // 공통 컴포넌트(주요 콘텐츠)
+export const HomeContWrap = style({
+  display: 'flex',
+  gap: '2rem'
+});
+export const MainContent = style([
+  size({width: 'calc(75% - 1rem)'})
+]);
+export const SubContent = style([
+  size({width: 'calc(25% - 1rem)'}),
+  radius('2rem'),
+  blank.p('2.4rem 3rem'),
+  border({
+    width: '1px',
+    type: 'solid',
+    color: vars.colors.darkgray
+  }),
+]);
 export const HomeContent = style([
   blank.p('2rem 3rem'),
   radius('2.4rem'),
@@ -36,17 +53,20 @@ export const MoreLink = style({
 // 행사일정(swiper)
 export const EventWrap = style([position('relative')]);
 export const EventSwiper = style([
-  size({width: '90%'}),
-  spacing.mc,
-  {
-    overflow: 'hidden',
-    zIndex: 1,
-  }
+  // size({width: '90%'}),
+  // spacing.mc,
+  // {
+  //   overflow: 'hidden',
+  //   zIndex: 1,
+  // }
 ]);
 export const EventItem = style([
   blank.p('1rem'),
   radius('1.2rem'),
-  {background: vars.colors.darkgray}
+  {
+    background: vars.colors.darkgray,
+    width: '100% !important'
+  }
 ]);
 
 export const EventListControls = style([
@@ -199,3 +219,16 @@ export const UserPath = style([
 
 // 모임활동(Leads activity)
 export const LeadsActivityWrap = style({background: vars.colors.green});
+
+// 알림(Notifications)
+export const NotificationsWrap = style({
+  background: vars.colors.white,
+  marginTop: '1.8rem'
+});
+globalStyle(`${NotificationsWrap} > a`, {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between'
+});
+
+// 일정 캘린더(calender custom)
