@@ -20,6 +20,7 @@
     "@vanilla-extract/recipes": "^0.5.1",
     "@vanilla-extract/sprinkles": "^1.6.3",
     "bcrypt": "^5.1.1",
+    "chart.js": "^4.4.8",
     "clsx": "^2.1.1",
     "mongodb": "^5.9.2",
     "next": "^14.2.25",

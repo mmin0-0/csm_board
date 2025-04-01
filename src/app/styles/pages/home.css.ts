@@ -28,7 +28,10 @@ export const ContWrapList = style({
 globalStyle(`${ContWrapList} > div:first-child`, {width: '55%'});
 globalStyle(`${ContWrapList} > div:last-child`, {width: '45%'});
 globalStyle(`${ContWrapList} > div > div:not(:first-child)`, {marginTop: '1.8rem'});
-export const MoreLink = style({fontSize: vars.fontSize.small});
+export const MoreLink = style({
+  fontSize: vars.fontSize.small,
+  fontWeight: vars.fontWeight.medium,
+});
 
 // 행사일정(swiper)
 export const EventWrap = style([position('relative')]);
@@ -56,7 +59,7 @@ export const EventListControls = style([
   {transform: 'translateY(-50%)'}
 ]);
 
-// 게시판 테이블
+// 게시판(Board list)
 export const BoardWrap = style({background: vars.colors.yellow});
 export const BoardTab = style([
   {
@@ -118,7 +121,7 @@ globalStyle(`${BoardItem} p`, {
 });
 globalStyle(`${BoardItem} span`, {whiteSpace: 'nowrap'});
 
-// 강의
+// 강의(Lecture)
 export const LectureWrap = style({background: vars.colors.pink});
 export const LectureList = style({
   display: 'grid',
@@ -156,7 +159,7 @@ globalStyle(`${LectureInfo} strong`, {
   marginBottom: '.6rem'
 });
 
-// 채용
+// 채용(Job Posting)
 export const JobPostingWrap = style({background: vars.colors.blue});
 export const PostingList = style({});
 globalStyle(`${PostingList} > a`, {
@@ -193,3 +196,6 @@ export const UserPath = style([
     color: vars.colors.white
   }
 ]);
+
+// 모임활동(Leads activity)
+export const LeadsActivityWrap = style({background: vars.colors.green});

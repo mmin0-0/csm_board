@@ -6,6 +6,7 @@ import EventSchedule from "@/app/home/_component/EventSchedule";
 import BoardList from "@/app/home/_component/BoardList";
 import Lecture from "@/app/home/_component/Lecture";
 import JobPosting from "@/app/home/_component/JobPosting";
+import LeadsActivity from "@/app/home/_component/LeadsActivity";
 
 export default async function Home() {
   const db = (await connectDB).db("csm_board");
@@ -29,17 +30,12 @@ export default async function Home() {
         </div>
         <div className={style.ContWrapList}>
           <div>
-            <div className={clsx(style.HomeContent, style.BoardWrap)}>
-              <BoardList posts={posts} />
-            </div>
-            <div className={clsx(style.HomeContent, style.LectureWrap)}>
-              <Lecture />
-            </div>
+            <div className={clsx(style.HomeContent, style.BoardWrap)}><BoardList posts={posts} /></div>
+            <div className={clsx(style.HomeContent, style.LectureWrap)}><Lecture /></div>
           </div>
           <div>
-            <div className={clsx(style.HomeContent, style.JobPostingWrap)}>
-              <JobPosting />
-            </div>
+            <div className={clsx(style.HomeContent, style.JobPostingWrap)}><JobPosting /></div>
+            <div className={clsx(style.HomeContent, style.LeadsActivityWrap)}><LeadsActivity /></div>
           </div>
         </div>
       </div>

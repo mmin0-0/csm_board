@@ -18,9 +18,7 @@ export default function JobPosting() {
   return (
     <>
       <div className={style.ContTitWrap}>
-        <Typography as="strong" color="black" size="medium" weight="bold">
-          Job Posting
-        </Typography>
+        <Typography as="strong" color="black" size="medium" weight="bold">Job Posting</Typography>
       </div>
       <div className={style.ContWrap}>
         <div className={style.PostingList}>
