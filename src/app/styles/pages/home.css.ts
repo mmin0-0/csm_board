@@ -19,6 +19,16 @@ export const ContWrap = style([
   spacing.mt(1),
   position('relative')
 ]);
+export const ContWrapBottom = style([spacing.mt(1)]);
+export const ContWrapList = style({
+  marginTop: '1.8rem',
+  display: 'flex',
+  gap: '2rem'
+});
+globalStyle(`${ContWrapList} > div:first-child`, {width: '55%'});
+globalStyle(`${ContWrapList} > div:last-child`, {width: '45%'});
+globalStyle(`${ContWrapList} > div > div:not(:first-child)`, {marginTop: '1.8rem'});
+export const MoreLink = style({fontSize: vars.fontSize.small});
 
 // 행사일정(swiper)
 export const EventWrap = style([position('relative')]);
@@ -47,10 +57,7 @@ export const EventListControls = style([
 ]);
 
 // 게시판 테이블
-export const BoardWrap = style({
-  background: vars.colors.yellow,
-  marginTop: '1.8rem',
-});
+export const BoardWrap = style({background: vars.colors.yellow});
 export const BoardTab = style([
   {
     textTransform: 'capitalize',
@@ -112,10 +119,7 @@ globalStyle(`${BoardItem} p`, {
 globalStyle(`${BoardItem} span`, {whiteSpace: 'nowrap'});
 
 // 강의
-export const LectureWrap = style({
-  background: vars.colors.pink,
-  marginTop: '1.8rem',
-});
+export const LectureWrap = style({background: vars.colors.pink});
 export const LectureList = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
@@ -150,4 +154,42 @@ globalStyle(`${LectureInfo} strong`, {
   textTransform: 'capitalize',
   display: 'block',
   marginBottom: '.6rem'
-})
+});
+
+// 채용
+export const JobPostingWrap = style({background: vars.colors.blue});
+export const PostingList = style({});
+globalStyle(`${PostingList} > a`, {
+  display: 'block',
+  padding: '.6rem 0',
+  borderBottom: `2px solid ${vars.colors.white}`
+});
+export const PostingInfo = style([
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    justify: 'space-between',
+    gap: '1rem'
+  })
+]);
+export const PostingUsers = style({display: 'flex'});
+export const UserInfo = style([
+  size({width: '3rem', height: '3rem'}),
+  radius('50%'),
+  position('relative'),
+  spacing.ml('-4px'),
+  {overflow: 'hidden'}
+]);
+export const UserPath = style([
+  position('absolute', {top: '0', left: '0'}),
+  size({width: '100%', height: '100%'}),
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    justify: 'center'
+  }),
+  {
+    background: `rgba(${vars.colors.blackRGB}, .65)`,
+    color: vars.colors.white
+  }
+]);

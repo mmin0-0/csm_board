@@ -5,6 +5,7 @@ import '@/app/styles/reset.css';
 export const vars = createGlobalTheme(':root', {
   colors: {
     black: '#111111',
+    blackRGB: '17, 17, 17',
     darkgray: '#212121',
     white: '#ffffff',
     light: '#F5F5F5',

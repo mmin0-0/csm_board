@@ -33,8 +33,8 @@ export default function Outsourcing(){
   return(
     <>
       <div className={style.ContTitWrap}>
-        <Typography as="strong" color="black" weight="semiBold">Lecture</Typography>
-        <Link href="#">View All</Link>
+        <Typography as="strong" color="black" size="medium" weight="bold">Lecture</Typography>
+        <Link href="#" className={style.MoreLink}>View All</Link>
       </div>
       <div className={style.ContWrap}>
         <div className={style.LectureList}>
@@ -43,8 +43,8 @@ export default function Outsourcing(){
               <ImgWrap src={`home/${item.field}.jpg`} alt={item.field} className={style.LectureImg} />
               <div className={style.LectureInfo}>
                 <Typography as="strong" color="black"><FontAwesomeIcon icon={item.icon} style={{width: '1.6rem'}} /> {item.field}</Typography>
-                <Typography color="black">{item.title}</Typography>
-                <Typography color="black">{item.time}</Typography>
+                <Typography color="black" lineHeight="medium">{item.title}</Typography>
+                <Typography color="black" size="small">{item.time}</Typography>
               </div>
             </Link>
           )}

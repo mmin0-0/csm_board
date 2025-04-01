@@ -27,7 +27,7 @@ export default function BoardList({posts}:Props){
           className={clsx(style.BoardTab, activeTab === tab ? 'on' : '')}
           >{tab}</Link>)}
         </div>
-        <Link href="/board">View All</Link>
+        <Link href="/board" className={style.MoreLink}>View All</Link>
       </div>
       <div className={clsx(style.ContWrap, style.BoardContWrap)}>
         {(activeTab === 'notice' ? notices : boardPosts).length === 0 ?(
