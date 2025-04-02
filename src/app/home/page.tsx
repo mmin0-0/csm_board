@@ -9,6 +9,7 @@ import BoardList from "@/app/home/_component/BoardList";
 import Lecture from "@/app/home/_component/Lecture";
 import JobPosting from "@/app/home/_component/JobPosting";
 import LeadsActivity from "@/app/home/_component/LeadsActivity";
+import ScheduleCalendar from "@/app/home/_component/ScheduleCalendar";
 import { Typography } from "../_component/Typography";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
