@@ -40,7 +40,7 @@ export default function Outsourcing(){
         <div className={style.LectureList}>
           {learning.map((item, idx) =>
             <Link href="#" key={idx} className={style.LectureItem}>
-              <ImgWrap src={`home/${item.field}.jpg`} alt={item.field} className={style.LectureImg} />
+              <ImgWrap src={`home/${item.field}.jpg`} alt={item.field} />
               <div className={style.LectureInfo}>
                 <Typography as="strong" color="black"><FontAwesomeIcon icon={item.icon} style={{width: '1.6rem'}} /> {item.field}</Typography>
                 <Typography color="black" lineHeight="medium">{item.title}</Typography>

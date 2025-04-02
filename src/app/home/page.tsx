@@ -9,11 +9,10 @@ import BoardList from "@/app/home/_component/BoardList";
 import Lecture from "@/app/home/_component/Lecture";
 import JobPosting from "@/app/home/_component/JobPosting";
 import LeadsActivity from "@/app/home/_component/LeadsActivity";
-import ScheduleCalendar from "./_component/ScheduleCalendar";
 import { Typography } from "../_component/Typography";
 import Link from "next/link";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default async function Home() {
   const db = (await connectDB).db("csm_board");
@@ -35,42 +34,49 @@ export default async function Home() {
     <main>
       <div className={style.HomeContWrap}>
         <div className={style.MainContent}>
-          <div className={ContHead}>
+          <div className={clsx(ContHead, style.Header)}>
             {session ? (
-              <>Hello <Typography as="strong" color="pink">{session.user.name}</Typography>,welcome back!</>
+              <>
+                Hello{" "}
+                <Typography as="strong" color="pink">
+                  {session.user.name}
+                </Typography>
+                ,welcome back!
+              </>
             ) : (
-              <>Hello, welcome <Typography as="strong">CSㆍM</Typography></>
+              <>
+                Hello, welcome <Typography as="strong">CSㆍM</Typography>
+              </>
             )}
           </div>
-          <div className={style.ContWrapList}>
-            <div>
-              <div className={clsx(style.HomeContent, style.BoardWrap)}>
-                <BoardList posts={posts} />
-              </div>
-              <div className={clsx(style.HomeContent, style.LectureWrap)}>
-                <Lecture />
-              </div>
-            </div>
-            <div>
-              <div className={clsx(style.HomeContent, style.JobPostingWrap)}>
-                <JobPosting />
-              </div>
-              <div className={clsx(style.HomeContent, style.LeadsActivityWrap)}>
-                <LeadsActivity />
-              </div>
-            </div>
+          <div className={clsx(style.HomeContent, style.BoardWrap)}>
+            <BoardList posts={posts} />
+          </div>
+          <div className={clsx(style.HomeContent, style.LeadsActivityWrap)}>
+            <LeadsActivity />
+          </div>
+          <div className={clsx(style.HomeContent, style.LectureWrap)}>
+            <Lecture />
+          </div>
+          <div className={clsx(style.HomeContent, style.JobPostingWrap)}>
+            <JobPosting />
           </div>
           <div className={clsx(style.HomeContent, style.NotificationsWrap)}>
             <Link href="#">
-              <Typography as="strong" color="black" size="large" weight="bold">Notifications (5)</Typography>
-              <FontAwesomeIcon icon={faArrowRight} style={{fontSize: '2.4rem'}} />
+              <Typography as="strong" color="black" size="large" weight="bold">
+                Notifications (5)
+              </Typography>
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                style={{ fontSize: "2.4rem" }}
+              />
             </Link>
           </div>
         </div>
         <div className={style.SubContent}>
           <ScheduleCalendar />
           <div id="eventList" className={style.EventWrap}>
-            <EventSchedule />
+            {/* <EventSchedule /> */}
           </div>
         </div>
       </div>

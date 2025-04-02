@@ -99,10 +99,10 @@ export function CustomSwiper({
       loop={loop}
       observer={true}
       observeParents={true} 
-      autoplay={{
-        delay: autoplayDelay,
-        disableOnInteraction: false,
-      }}
+      // autoplay={{
+      //   delay: autoplayDelay,
+      //   disableOnInteraction: false,
+      // }}
       pagination={
         paginationId ? { 
           el: `#${paginationId} .swiper-pagination`, 

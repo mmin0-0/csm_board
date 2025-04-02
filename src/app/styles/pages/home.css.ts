@@ -8,10 +8,20 @@ export const HomeContWrap = style({
   gap: '2rem'
 });
 export const MainContent = style([
-  size({width: 'calc(75% - 1rem)'})
+  size({width: 'calc(70% - 1rem)', height: 'calc(100vh - 4rem)'}),
+  {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+    gridTemplateRows: '3rem auto auto auto auto',
+    gap: '1rem'
+  }
 ]);
+export const Header = style({
+  gridColumn: '1 / 5',
+  gridRow: '1 / 2'
+});
 export const SubContent = style([
-  size({width: 'calc(25% - 1rem)'}),
+  size({width: 'calc(30% - 1rem)'}),
   radius('2rem'),
   blank.p('2rem'),
   border({
@@ -19,9 +29,13 @@ export const SubContent = style([
     type: 'solid',
     color: vars.colors.darkgray
   }),
+  {
+    gridColumn: '5 / 6',
+    background: vars.colors.black
+  }
 ]);
 export const HomeContent = style([
-  blank.p('2rem 3rem'),
+  blank.p('1.6rem'),
   radius('2.4rem'),
   {color: vars.colors.black}
 ]);
@@ -50,40 +64,12 @@ export const MoreLink = style({
   fontWeight: vars.fontWeight.medium,
 });
 
-// 행사일정(swiper)
-export const EventWrap = style([
-  position('relative'),
-  spacing.mt(2),
-]);
-export const EventSwiper = style([]);
-export const EventItem = style([
-  blank.p('1rem'),
-  radius('1.2rem'),
-  {background: vars.colors.darkgray}
-]);
-export const EventPreview = style({maxHeight: '20rem'});
-globalStyle(`${EventPreview} img`, {
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover'
-});
-export const EventInfo = style([
-  spacing.mt(1),
-  blank.pt(1),
-  border({
-    width: '1px',
-    type: 'solid',
-    color: vars.colors.white,
-    direction: 'top'
-  })
-]);
-export const EventPagination = style({
-  justifyContent: 'flex-end',
-  marginTop: '1rem',
-});
-
 // 게시판(Board list)
-export const BoardWrap = style({background: vars.colors.yellow});
+export const BoardWrap = style({
+  background: vars.colors.yellow,
+  gridColumn: '1 / 4',
+  gridRow: '2 / 3'
+});
 export const BoardTab = style([
   {
     textTransform: 'capitalize',
@@ -145,7 +131,11 @@ globalStyle(`${BoardItem} p`, {
 globalStyle(`${BoardItem} span`, {whiteSpace: 'nowrap'});
 
 // 강의(Lecture)
-export const LectureWrap = style({background: vars.colors.pink});
+export const LectureWrap = style({
+  background: vars.colors.pink,
+  gridColumn: '1 / 3',
+  gridRow: '3 / 5'
+});
 export const LectureList = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)',
@@ -169,12 +159,6 @@ export const LectureItem = style([
     }
   }
 ]);
-export const LectureImg = style({height: '14rem'});
-globalStyle(`${LectureImg} img`, {
-  height: '100%',
-  width: '100%',
-  objectFit: 'cover'
-});
 export const LectureInfo = style({marginTop: '1rem'});
 globalStyle(`${LectureInfo} strong`, {
   textTransform: 'capitalize',
@@ -183,7 +167,11 @@ globalStyle(`${LectureInfo} strong`, {
 });
 
 // 채용(Job Posting)
-export const JobPostingWrap = style({background: vars.colors.blue});
+export const JobPostingWrap = style({
+  background: vars.colors.blue,
+  gridColumn: '3 / 5',
+  gridRow: '3 / 4'
+});
 export const PostingList = style({});
 globalStyle(`${PostingList} > a`, {
   display: 'block',
@@ -222,12 +210,17 @@ export const UserPath = style([
 ]);
 
 // 모임활동(Leads activity)
-export const LeadsActivityWrap = style({background: vars.colors.green});
+export const LeadsActivityWrap = style({
+  background: vars.colors.green,
+  gridColumn: '4 / 5',
+  gridRow: '2 / 3'
+});
 
 // 알림(Notifications)
 export const NotificationsWrap = style({
   background: vars.colors.white,
-  marginTop: '1.8rem'
+  gridColumn: '3 / 5',
+  gridRow: '4 / 5'
 });
 globalStyle(`${NotificationsWrap} > a`, {
   display: 'flex',
@@ -235,4 +228,34 @@ globalStyle(`${NotificationsWrap} > a`, {
   justifyContent: 'space-between'
 });
 
-// 일정 캘린더(calender custom)
+// 행사일정(swiper)
+export const EventWrap = style([
+  size({width: '100%'}),
+  spacing.mt(2),
+]);
+export const EventSwiper = style([]);
+export const EventItem = style([
+  blank.p('1rem'),
+  radius('1.2rem'),
+  {background: vars.colors.darkgray}
+]);
+export const EventPreview = style({maxHeight: '20rem'});
+globalStyle(`${EventPreview} img`, {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover'
+});
+export const EventInfo = style([
+  spacing.mt(1),
+  blank.pt(1),
+  border({
+    width: '1px',
+    type: 'solid',
+    color: vars.colors.white,
+    direction: 'top'
+  })
+]);
+export const EventPagination = style({
+  justifyContent: 'flex-end',
+  marginTop: '1rem',
+});

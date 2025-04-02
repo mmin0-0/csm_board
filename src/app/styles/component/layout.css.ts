@@ -36,7 +36,9 @@ export const TitleWrap = style([
   })
 ]);
 export const ContWrap = style([]);
-export const ContHead = style([spacing.mb('2.6rem')]);
+export const ContHead = style([
+  // spacing.mb('2.6rem')
+]);
 
 // swiper
 export const SwiperComponent = style({overflow: 'hidden'});
