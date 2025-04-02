@@ -3,8 +3,7 @@ import { vars } from '@/app/styles/globals.css';
 import { flexBox, spacing } from '../utils.css';
 
 // react calendar custom css
-export const CalendarWrap = style({});
-export const CalendarInfo = style([
+export const CalendarWrap = style([
   spacing.mt(2),
   flexBox({
     direction: 'row',

@@ -40,6 +40,24 @@ export const TextInput = ({ children, className, id, name, defaultValue, value, 
   )
 };
 
+export const DateInput = ({ children, className, id, name, defaultValue, value, placeholder, required, disabled }: TextInputProps) => {
+  return (
+    <div className={style.InputWrap}>
+      <label htmlFor={id} className={className}>{children}</label>
+      <input
+        type="date"
+        id={id}
+        name={name}
+        defaultValue={defaultValue}
+        value={value}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
+      />
+    </div>
+  )
+};
+
 interface PwInputProps extends InputDefaultProps {
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }

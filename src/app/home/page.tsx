@@ -16,9 +16,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default async function Home() {
+  const session = await getServerSession(authOptions);
   const db = (await connectDB).db("csm_board");
   const data = await db.collection("post").find().toArray();
-  const session = await getServerSession(authOptions);
 
   const posts = data.map((post) => ({
     _id: post._id.toString(),
