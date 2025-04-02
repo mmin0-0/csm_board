@@ -14,9 +14,7 @@ export const Wrapper = style([
 export const Container = style([
   size({width: 'calc(100% - 20rem)'}),
   spacing.ml(20),
-  {
-    minHeight: '100dvh',
-  }
+  {minHeight: '100dvh'}
 ]);
 export const BackButtonStyle = style({
   width: '3rem !important',
@@ -40,8 +38,20 @@ export const TitleWrap = style([
 export const ContWrap = style([]);
 export const ContHead = style([spacing.mb('2.6rem')]);
 
+// swiper
 export const SwiperComponent = style({overflow: 'hidden'});
 globalStyle(`${SwiperComponent} .swiper-wrapper`, {display: '-webkit-inline-box'});
+globalStyle(`.swiper-pagination`, {
+  display: 'flex',
+  gap: '.4rem'
+});
+globalStyle(`.swiper-pagination-bullet`, {
+  width: '1rem',
+  height: '1rem',
+  borderRadius: '50%',
+  background: vars.colors.gray01
+});
+globalStyle(`.swiper-pagination-bullet-active`, {background: vars.colors.pink});
 
 // 이미지
 export const ImageWrap = style({});
@@ -62,7 +72,6 @@ export const TableEmpty = style([
   {minHeight: '20rem'}
 ]);
 globalStyle(`${TableWrap} table`, {
-  // tableLayout: 'fixed',
   width: '100%',
   textAlign: 'center',
 });

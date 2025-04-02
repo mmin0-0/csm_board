@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { Swiper } from "swiper/react";
 import { SwiperProps } from 'swiper/react';
@@ -12,6 +12,20 @@ import 'swiper/css/autoplay';
 import { MouseEventHandler } from "react";
 import { Image } from "@/app/_component/ImgWrap";
 import { SwiperComponent } from "@/app/styles/component/layout.css";
+
+type SwiperPaginationProps = {
+  className?: string,
+  bullet?: 'default' | 'fraction' | 'progress',
+};
+export const SwiperPagination = ({className, bullet="default"}:SwiperPaginationProps) => {
+  return (
+    <div className={clsx(className, {
+      "swiper-pagination": bullet === "default",
+      "swiper-pagination-fraction": bullet === "fraction",
+      "swiper-pagination-progressbar": bullet === "progress",
+    })} />
+  )
+};
 
 type SwiperBtnsProps = {
   className?: string,
@@ -40,9 +54,10 @@ type Props = {
   slidesPerView?: number;
   slidesPerGroup?: number;
   loop?: boolean;
-  autoplayDelay?: number,
+  autoplayDelay?: number;
   navigationId?: string;
-  pagination?: any;
+  paginationId?: string;
+  autoHeight?: boolean;
   spaceBetween?: number;
   centeredSlides?: boolean;
   breakpoints?: { [width: number]: SwiperProps };
@@ -60,16 +75,18 @@ export function CustomSwiper({
   loop = true,
   autoplayDelay = 4500,
   navigationId,
-  pagination,
+  paginationId,
+  autoHeight,
   spaceBetween = 0,
   centeredSlides = false,
   breakpoints,
   cssMode = false
 }:Props){
-  const swiperRef = useRef<SwiperCore>();
+  const swiperRef = useRef<SwiperCore | null>(null);
+
   return (
     <Swiper
-      cssMode={false}
+      // cssMode={false}
       onSwiper={(swiper)=> {
         swiperRef.current = swiper;
       }}
@@ -86,7 +103,11 @@ export function CustomSwiper({
         delay: autoplayDelay,
         disableOnInteraction: false,
       }}
-      pagination={pagination}
+      pagination={
+        paginationId ? { 
+          el: `#${paginationId} .swiper-pagination`, 
+          clickable: true 
+      } : false}
       navigation={
         navigationId ? {
           nextEl: `#${navigationId} .swiper-button-next`,
@@ -94,6 +115,7 @@ export function CustomSwiper({
         } : false
       }
       spaceBetween={spaceBetween}
+      autoHeight={autoHeight}
       centeredSlides={centeredSlides}
       breakpoints={breakpoints}
       modules={[Autoplay, Pagination, Navigation]}

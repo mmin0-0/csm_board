@@ -13,7 +13,7 @@ export const MainContent = style([
 export const SubContent = style([
   size({width: 'calc(25% - 1rem)'}),
   radius('2rem'),
-  blank.p('2.4rem 3rem'),
+  blank.p('2rem'),
   border({
     width: '1px',
     type: 'solid',
@@ -51,33 +51,36 @@ export const MoreLink = style({
 });
 
 // 행사일정(swiper)
-export const EventWrap = style([position('relative')]);
-export const EventSwiper = style([
-  // size({width: '90%'}),
-  // spacing.mc,
-  // {
-  //   overflow: 'hidden',
-  //   zIndex: 1,
-  // }
+export const EventWrap = style([
+  position('relative'),
+  spacing.mt(2),
 ]);
+export const EventSwiper = style([]);
 export const EventItem = style([
   blank.p('1rem'),
   radius('1.2rem'),
-  {
-    background: vars.colors.darkgray,
-    // width: '100% !important'
-  }
+  {background: vars.colors.darkgray}
 ]);
-
-export const EventListControls = style([
-  position('absolute', {top: '50%', left: '0'}),
-  size({width: '100%'}),
-  flexBox({
-    direction: 'row',
-    justify: 'space-between'
-  }),
-  {transform: 'translateY(-50%)'}
+export const EventPreview = style({maxHeight: '20rem'});
+globalStyle(`${EventPreview} img`, {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover'
+});
+export const EventInfo = style([
+  spacing.mt(1),
+  blank.pt(1),
+  border({
+    width: '1px',
+    type: 'solid',
+    color: vars.colors.white,
+    direction: 'top'
+  })
 ]);
+export const EventPagination = style({
+  justifyContent: 'flex-end',
+  marginTop: '1rem',
+});
 
 // 게시판(Board list)
 export const BoardWrap = style({background: vars.colors.yellow});
@@ -203,6 +206,7 @@ export const UserInfo = style([
   spacing.ml('-4px'),
   {overflow: 'hidden'}
 ]);
+globalStyle(`${UserInfo} img`, {width: '100%'});
 export const UserPath = style([
   position('absolute', {top: '0', left: '0'}),
   size({width: '100%', height: '100%'}),

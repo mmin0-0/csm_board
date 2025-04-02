@@ -5,7 +5,7 @@ import { flexBox, spacing } from '../utils.css';
 // react calendar custom css
 export const CalendarWrap = style({});
 export const CalendarInfo = style([
-  spacing.mt('.6rem'),
+  spacing.mt(2),
   flexBox({
     direction: 'row',
     align: 'flex-start',
