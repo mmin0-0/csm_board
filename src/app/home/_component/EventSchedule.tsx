@@ -16,6 +16,7 @@ export default function EventSchedule() {
       <CustomSwiper
         className={style.EventSwiper}
         slidesPerView={1}
+        spaceBetween={10}
         // centeredSlides={true}
         loop={false}
         direction="horizontal"

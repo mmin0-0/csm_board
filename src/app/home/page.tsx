@@ -37,7 +37,7 @@ export default async function Home() {
         <div className={style.MainContent}>
           <div className={ContHead}>
             {session ? (
-              <>Hello <Typography as="strong">{session.user.name}</Typography>,welcome back!</>
+              <>Hello <Typography as="strong" color="pink">{session.user.name}</Typography>,welcome back!</>
             ) : (
               <>Hello, welcome <Typography as="strong">CSㆍM</Typography></>
             )}

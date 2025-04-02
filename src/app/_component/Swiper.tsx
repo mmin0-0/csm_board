@@ -1,17 +1,17 @@
 'use client'
 import { ReactNode, useRef } from "react";
+import clsx from "clsx";
 import { Swiper } from "swiper/react";
 import { SwiperProps } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { MouseEventHandler } from "react";
-import { Image } from "@/app/_component/ImgWrap";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import clsx from "clsx";
-import { SwiperComponent } from "../styles/component/layout.css";
+import { MouseEventHandler } from "react";
+import { Image } from "@/app/_component/ImgWrap";
+import { SwiperComponent } from "@/app/styles/component/layout.css";
 
 type SwiperBtnsProps = {
   className?: string,
@@ -82,10 +82,10 @@ export function CustomSwiper({
       loop={loop}
       observer={true}
       observeParents={true} 
-      // autoplay={{
-      //   delay: autoplayDelay,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay={{
+        delay: autoplayDelay,
+        disableOnInteraction: false,
+      }}
       pagination={pagination}
       navigation={
         navigationId ? {

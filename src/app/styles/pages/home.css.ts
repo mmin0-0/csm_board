@@ -65,7 +65,7 @@ export const EventItem = style([
   radius('1.2rem'),
   {
     background: vars.colors.darkgray,
-    width: '100% !important'
+    // width: '100% !important'
   }
 ]);
 

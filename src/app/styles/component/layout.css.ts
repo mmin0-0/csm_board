@@ -40,11 +40,8 @@ export const TitleWrap = style([
 export const ContWrap = style([]);
 export const ContHead = style([spacing.mb('2.6rem')]);
 
-export const SwiperComponent = style({});
-globalStyle(`${SwiperComponent} .swiper-wrapper`, {
-  display: 'flex',
-  // flexDirection: 'row'
-});
+export const SwiperComponent = style({overflow: 'hidden'});
+globalStyle(`${SwiperComponent} .swiper-wrapper`, {display: '-webkit-inline-box'});
 
 // 이미지
 export const ImageWrap = style({});

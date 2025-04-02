@@ -39,6 +39,7 @@ export const vars = createGlobalTheme(':root', {
     secondary: '#F5F5F5',
     emphasis: '#ECE42E',
     black: '#111111',
+    pink: '#EB6BA8',
     gray: '#908E8F',
     error: '#bd2c3d',
   },
