@@ -9,6 +9,12 @@ export const TodoListWrap = style([spacing.mt(2)]);
 export const TodoListInfo = style([spacing.mt(1)]);
 export const TodoListInfoWrap = style([spacing.mt(1)]);
 export const TodoListItem = style([
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    justify: 'space-between',
+    gap: '.6rem'
+  }),
   border({
     width: '1px',
     type: 'solid',
@@ -16,13 +22,14 @@ export const TodoListItem = style([
   }),
   blank.p('1rem'),
   radius('1rem'),
-  ellipsis(2),
   {
-    selectors: {
-      '&:not(:first-child)': {marginTop: '1rem'}
-    }
+    selectors: {'&:not(:first-child)': {marginTop: '1rem'}}
   }
 ]);
+export const TodoRemove = style({
+  cursor: 'pointer',
+  minWidth: '2rem'
+});
 
 globalStyle(`${CalendarWrap} .react-calendar`, {
   borderBottom: `2px solid ${vars.colors.gray02}`,

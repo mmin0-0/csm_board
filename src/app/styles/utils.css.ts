@@ -53,7 +53,7 @@ export const ellipsis = (num: number = 1) => {
     return style({
       display: '-webkit-box',
       overflow: 'hidden',
-      whiteSpace: 'normal',
+      whiteSpace: 'break-word',
       wordBreak: 'keep-all',
       textOverflow: 'ellipsis',
       WebkitBoxOrient: 'vertical',
