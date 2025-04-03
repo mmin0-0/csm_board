@@ -46,16 +46,18 @@ export const ellipsis = (num: number = 1) => {
     return style({
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
+      wordBreak: 'keep-all'
     })
   } else{
     return style({
       display: '-webkit-box',
       overflow: 'hidden',
+      whiteSpace: 'normal',
       wordBreak: 'keep-all',
       textOverflow: 'ellipsis',
       WebkitBoxOrient: 'vertical',
-      WebkitLineClamp: num
+      WebkitLineClamp: num,
     })
   }
 };

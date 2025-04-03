@@ -13,7 +13,7 @@ export default async function Header() {
         {session ? (
           <>
             <Typography>
-              Hello, <Typography as="strong">{session.user.name}</Typography> ,welcome back!
+              Hello <Typography as="strong" color="pink">{session.user.name}</Typography> ,welcome back!
             </Typography>
             <LogoutButton />
           </>

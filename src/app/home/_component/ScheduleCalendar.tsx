@@ -15,7 +15,7 @@ export default async function ScheduleCalendar(){
   
     const formattedTodos: ITodo[] = todos.map((todo) => ({
       _id: todo._id.toString(),
-      author: session?.user.email,
+      author: todo.author,
       title: todo.title,
       date: new Date(todo.date),
     }));
@@ -23,7 +23,7 @@ export default async function ScheduleCalendar(){
     return (
       <div className={style.CalendarWrap}>
         <Suspense fallback={<Typography>Loading...</Typography>}>
-          <TodoCalendar todos={formattedTodos} />
+          <TodoCalendar todos={formattedTodos} session={session} />
         </Suspense>
       </div>
     );

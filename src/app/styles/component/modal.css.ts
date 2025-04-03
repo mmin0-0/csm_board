@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
 import { blank, flexBox, position, size, spacing } from '@/app/styles/utils.css';
 
@@ -32,6 +32,5 @@ export const ModalTitle = style([
   spacing.mb(2),
 ]);
 export const ModalContent = style({});
-export const ModalBottom = style([
-  spacing.mt(2)
-]);
+export const ModalBottom = style({marginTop: '2rem'});
+globalStyle(`${ModalBottom} > p`, {marginBottom: '1rem'});

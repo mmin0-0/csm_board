@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import TodoList from "@/app/home/_component/TodoList";
-import { Typography } from "@/app/_component/Typography";
 import * as style from "@/app/styles/component/calendar.css";
 import { Button } from "@/app/_component/Button";
 import TodoModal from "@/app/home/_component/TodoModal";
+import { Session } from "next-auth";
 
-type Props = { todos: ITodo[] };
-export default function TodoCalendar({ todos }: Props) {
+type Props = { 
+  todos: ITodo[];
+  session: Session | null;
+};
+export default function TodoCalendar({ todos, session }: Props) {
   const offset = new Date().getTimezoneOffset() * 60000;
   const today = new Date();
   const [date, setDate] = useState<Value>(today);
@@ -91,8 +94,7 @@ export default function TodoCalendar({ todos }: Props) {
             }
           />
           <div className={style.TodoListWrap}>
-            <Typography>To do List</Typography>
-            <TodoList date={date} todos={currentTodos} />
+            <TodoList date={date} todos={currentTodos} session={session} />
           </div>
         </div>
       </div>
