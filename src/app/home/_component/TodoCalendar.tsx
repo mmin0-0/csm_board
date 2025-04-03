@@ -30,7 +30,9 @@ export default function TodoCalendar({ todos }: Props) {
     }
   }, [date, todoList]);
 
-  const modalHandler = () => {setShowModal((prev) => !prev)};
+  const modalHandler = () => {
+    setShowModal((prev) => !prev);
+  };
 
   const formattedDate = (date: Date) => {
     const year = date.getFullYear();
@@ -74,23 +76,10 @@ export default function TodoCalendar({ todos }: Props) {
   return (
     <>
       <div className={style.CalendarWrap}>
-        <div className={style.TodayInfo}>
-          <Typography>{today.getDate()}</Typography>
-          <Typography size="small" className={style.Week}>
-            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fir", "Sat"][today.getDay()]}
-          </Typography>
-        </div>
-        <div>
-          <p>
-            {today.toLocaleString("ko-KR", {
-              year: "numeric",
-              month: "long",
-              day: "2-digit",
-            })}
-          </p>
-          <Button onClick={modalHandler}>일정추가</Button>
-        </div>
-        <div className={style.CalendarWrap}>
+        <Button onClick={modalHandler} size="large">
+          일정추가
+        </Button>
+        <div className={style.CalendarInfo}>
           <Calendar
             value={date}
             onChange={dateChangeHandler}
@@ -101,7 +90,10 @@ export default function TodoCalendar({ todos }: Props) {
               ["S", "M", "T", "W", "T", "F", "S"][date.getDay()]
             }
           />
-          <TodoList date={date} todos={currentTodos} />
+          <div className={style.TodoListWrap}>
+            <Typography>To do List</Typography>
+            <TodoList date={date} todos={currentTodos} />
+          </div>
         </div>
       </div>
       {showModal && <TodoModal modalHandler={modalHandler} />}

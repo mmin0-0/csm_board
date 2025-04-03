@@ -16,14 +16,7 @@ export const Container = style([
   spacing.ml(20),
   {minHeight: '100dvh'}
 ]);
-export const BackButtonStyle = style({
-  width: '3rem !important',
-  height: '3rem !important',
-  borderRadius: '50% !important',
-  padding: '0 !important'
-});
 globalStyle(`${Container} main`, {
-  // overflowY: 'auto',
   padding: '2rem'
 });
 export const TitleWrap = style([
@@ -36,9 +29,16 @@ export const TitleWrap = style([
   })
 ]);
 export const ContWrap = style([]);
-export const ContHead = style([
-  // spacing.mb('2.6rem')
-]);
+export const ContHead = style([]);
+
+// button
+export const BackButtonStyle = style({
+  width: '3rem !important',
+  height: '3rem !important',
+  borderRadius: '50% !important',
+  padding: '0 !important',
+  background: vars.colors.light,
+});
 
 // swiper
 export const SwiperComponent = style({overflow: 'hidden'});

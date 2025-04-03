@@ -14,6 +14,7 @@ import { Typography } from "../_component/Typography";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Header from "@/app/_component/Header";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -36,19 +37,7 @@ export default async function Home() {
       <div className={style.HomeContWrap}>
         <div className={style.MainContent}>
           <div className={clsx(ContHead, style.Header)}>
-            {session ? (
-              <>
-                Hello{" "}
-                <Typography as="strong" color="pink">
-                  {session.user.name}
-                </Typography>
-                ,welcome back!
-              </>
-            ) : (
-              <>
-                Hello, welcome <Typography as="strong">CSㆍM</Typography>
-              </>
-            )}
+            <Header />
           </div>
           <div className={clsx(style.HomeContent, style.BoardWrap)}>
             <BoardList posts={posts} />

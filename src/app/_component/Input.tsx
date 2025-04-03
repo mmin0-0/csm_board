@@ -40,7 +40,11 @@ export const TextInput = ({ children, className, id, name, defaultValue, value, 
   )
 };
 
-export const DateInput = ({ children, className, id, name, defaultValue, value, placeholder, required, disabled }: TextInputProps) => {
+interface DateInputProps extends InputDefaultProps {
+  dataPlaceholder?: string;
+  areaRequired?: boolean;
+};
+export const DateInput = ({ children, className, id, name, defaultValue, value, dataPlaceholder, required, areaRequired, disabled }: DateInputProps) => {
   return (
     <div className={style.InputWrap}>
       <label htmlFor={id} className={className}>{children}</label>
@@ -50,8 +54,9 @@ export const DateInput = ({ children, className, id, name, defaultValue, value, 
         name={name}
         defaultValue={defaultValue}
         value={value}
-        placeholder={placeholder}
+        data-placeholder={dataPlaceholder}
         required={required}
+        area-required={areaRequired}
         disabled={disabled}
       />
     </div>

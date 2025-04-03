@@ -3,30 +3,13 @@ import { vars } from '@/app/styles/globals.css';
 import { flexBox, spacing } from '../utils.css';
 
 // react calendar custom css
-export const CalendarWrap = style([
+export const CalendarWrap = style({})
+export const CalendarInfo = style([
   spacing.mt(2),
-  flexBox({
-    direction: 'row',
-    align: 'flex-start',
-    justify: 'flex-start',
-    gap: '1rem'
-  })
 ]);
-export const TodayInfo = style({textAlign: 'center'});
-export const Week = style([spacing.mt('.6rem')]);
-export const ScheduleList = style([
-  spacing.mt('.6rem'),
-  {
-    fontSize: vars.fontSize.small,
-    textAlign: 'left'
-  }
-]);
-globalStyle(`${ScheduleList} > p`, {
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap'
-});
-globalStyle(`${ScheduleList} > p:not(:first-child)`, {marginTop: '.6rem'});
+export const TodoListWrap = style([spacing.mt(2)]);
+export const TodoListInfo = style([spacing.mt(1)]);
+export const TodoListItem = style([]);
 
 globalStyle(`${CalendarWrap} .react-calendar`, {
   borderBottom: `2px solid ${vars.colors.gray02}`,

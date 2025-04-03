@@ -21,13 +21,16 @@ export const Eye = style([
     color: vars.colors.gray01
   }
 ]);
+globalStyle(`${InputWrap} *`, {color: vars.colors.black});
 globalStyle(`${InputWrap} textarea, ${InputWrap} input`, {
   width: '100%',
-  border: `1px solid ${vars.colors.darkgray}`,
+  borderRadius: '1.2rem',
+  border: `1px solid ${vars.colors.gray01}`,
 });
-globalStyle(`${InputWrap} textarea::placeholder, ${InputWrap} input::placeholder`, {color: vars.colors.gray01});
+globalStyle(`${InputWrap} textarea:focus, ${InputWrap} input:focus`, {borderColor: vars.colors.pink});
 globalStyle(`${InputWrap} textarea:disabled, ${InputWrap} input:disabled`, {
-  color: vars.colors.pink
+  background: vars.colors.light,
+  color: vars.colors.gray01,
 });
 globalStyle(`${InputWrap} input`, {padding: '.8rem 1rem'});
 globalStyle(`${InputWrap} textarea`, {
@@ -36,9 +39,51 @@ globalStyle(`${InputWrap} textarea`, {
   lineHeight: vars.txtHeight.regular,
 });
 
+// date custom
+globalStyle(`input[type="date"]`, {
+  position: 'relative',
+  background: 'url(/images/icon/calendar_icon.png) no-repeat center left 1rem / 2rem',
+  padding: '.8rem 1rem .8rem 3.4rem',
+});
+globalStyle(`
+  input[type="date"]::-webkit-datetime-edit-text,
+  input[type="date"]::-webkit-datetime-edit-month-field,
+  input[type="date"]::-webkit-datetime-edit-day-field,
+  input[type="date"]::-webkit-datetime-edit-year-field,`
+  , {
+    WebkitAppearance: 'none',
+    display: 'none',
+    color: 'transparent',
+    textShadow: '0 0 0 transparent'
+  });
+globalStyle(`input[type="date"]::before`, {
+  content: 'attr(data-placeholder)',
+  width: '100%',
+  height: '100%',
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  color: vars.colors.black,
+});
+globalStyle(`input[type="date"]:focus::before, input[type="date"]:valid::before`, {display: 'none'});
+globalStyle(`
+  input[type="date"]::-webkit-clear-button,
+  input[type="date"]::-webkit-inner-spin-button`, {display: 'none'});
+
+globalStyle(`input[type="date"]::-webkit-calendar-picker-indicator`, {
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  width: '100%',
+  height: '100%',
+  background: 'transparent',
+  color: 'transparent',
+});
+
 export const InputLabel = style([
   spacing.mb(.6),
   {
+    textTransform: 'capitalize',
     display: 'block',
     fontWeight: vars.fontWeight.semiBold,
   }

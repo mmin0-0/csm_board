@@ -5,7 +5,6 @@ import { blank, flexBox, position, size } from '@/app/styles/utils.css';
 
 export const HeaderWrap = style([
   size({width: '100%'}),
-  blank.p('2rem 1.6rem'),
   position('sticky', {top: '0', left: '0'}),
   {
     zIndex: 10,
@@ -17,6 +16,7 @@ export const HeaderTitle = style([
   flexBox({
     direction: 'row',
     align: 'center',
+    justify: 'space-between',
     gap: '1rem'
   })
 ]);

@@ -1,4 +1,6 @@
 import { Todo as ITodo, Value } from "@/model/Todo";
+import * as style from "@/app/styles/component/calendar.css";
+import { Typography } from "@/app/_component/Typography";
 
 type Props = {
   date: Value;
@@ -6,21 +8,21 @@ type Props = {
 };
 export default function TodoList({ date, todos }: Props) {
   return (
-    <div>
-      일정 내용들
-      <br />
-      <p>
+    <div className={style.TodoListInfo}>
+      <Typography>
         {date?.toLocaleString("ko-KR", {
           year: "numeric",
           month: "long",
           day: "2-digit",
         })}
-      </p>
-      {todos.map((todo, index) => (
-        <p key={index} className="border-4 py-4">
-          {todo.title}
-        </p>
-      ))}
+      </Typography>
+      <div>
+        {todos.map((todo, index) => (
+          <div key={index} className={style.TodoListItem}>
+            <Typography>{todo.title}</Typography>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

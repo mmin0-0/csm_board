@@ -2,7 +2,6 @@ import { vars } from "@/app/styles/globals.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { recipe } from "@vanilla-extract/recipes";
 import { border, radius, transition } from '@/app/styles/utils.css';
-import { globalStyle } from "@vanilla-extract/css";
 
 const blank = {
   'space-1': '.8rem 1.2rem',
@@ -44,9 +43,9 @@ const colorVariants = {
     },
   },
   secondary: {
-    backgroundColor: vars.colors.pink,
-    color: vars.colors.white,
-    borderColor: vars.colors.pink,
+    backgroundColor: vars.colors.white,
+    color: vars.colors.black,
+    borderColor: vars.colors.green,
     selectors: {
       "&:hover": { 
         backgroundColor: vars.colors.pink, 
@@ -103,11 +102,9 @@ export const btnWrap = recipe({
       column: {flexDirection: 'column'}
     },
     align: {
-      start: {alignItems: 'flex-start'},
-      center: {alignItems: 'center'},
-      end: {alignItems: 'flex-end'},
+      start: {justifyContent: 'flex-start'},
+      center: {justifyContent: 'center'},
+      end: {justifyContent: 'flex-end'},
     }
   }
 });
-
-globalStyle(`button > svg`,{marginRight: '.4rem'});
