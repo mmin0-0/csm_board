@@ -26,6 +26,7 @@ globalStyle(`${InputWrap} textarea, ${InputWrap} input`, {
   width: '100%',
   borderRadius: '1.2rem',
   border: `1px solid ${vars.colors.gray01}`,
+  color: vars.colors.white
 });
 globalStyle(`${InputWrap} textarea:focus, ${InputWrap} input:focus`, {borderColor: vars.colors.pink});
 globalStyle(`${InputWrap} textarea:disabled, ${InputWrap} input:disabled`, {
@@ -83,6 +84,7 @@ globalStyle(`input[type="date"]::-webkit-calendar-picker-indicator`, {
 export const InputLabel = style([
   spacing.mb(.6),
   {
+    color: vars.colors.white,
     textTransform: 'capitalize',
     display: 'block',
     fontWeight: vars.fontWeight.semiBold,
@@ -103,8 +105,8 @@ export const LoginFormGroup = style({gap: '2rem'});
 globalStyle(`${LoginFormGroup} input`, {
   border: 0,
   borderRadius: 0,
-  borderBottom: `2px solid ${vars.colors.black}`
+  borderBottom: `2px solid ${vars.colors.black}`,
+  color: vars.colors.black
 });
-globalStyle(`${LoginFormGroup} input:focus`, {
-  borderBottom: `2px solid ${vars.colors.black}`
-});
+globalStyle(`${LoginFormGroup} input:focus`, {borderBottom: `2px solid ${vars.colors.black}`});
+globalStyle(`${LoginFormGroup} label`, {color: vars.colors.black});

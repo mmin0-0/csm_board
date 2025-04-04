@@ -27,8 +27,7 @@ export const LoginTitle = style([
   fontSize: 'clamp(3.2rem, 4vw, 5rem)',
   fontWeight: vars.fontWeight.semiBold,
   }
-]
-);
+]);
 export const LoginContainer = style([
   size({width: '40%'}),
   blank.p('2rem'),
@@ -48,6 +47,7 @@ export const Boundary = style([
   spacing.my(2, 2),
   {textAlign: 'center'}
 ]);
+export const LoginButtonStyle = style([spacing.mt(2)]);
 export const RegisterLink = style({
   color: vars.colors.black,
   marginTop: '2rem',
@@ -59,3 +59,4 @@ globalStyle(`${RegisterLink} b`, {
   textDecoration: 'underline',
   fontWeight: vars.fontWeight.semiBold
 });
+export const EmptyMessage = style([spacing.mt(1)]);

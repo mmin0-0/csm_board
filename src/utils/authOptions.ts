@@ -6,6 +6,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt';
 
 export const authOptions:NextAuthOptions = {
+  pages: {
+    signIn: '/login',
+    newUser: '/register'
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID as string,

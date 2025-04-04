@@ -26,7 +26,7 @@ export default function RootLayout({ children }: Props) {
       <body className={montserrat.className}>
         <AuthProvider>
           <div className={style.Wrapper}>
-            {/* <Lnb /> */}
+            <Lnb />
             <div className={style.Container}>{children}</div>
           </div>
         </AuthProvider>
