@@ -66,7 +66,7 @@ export default function Comment({ _id }: Props) {
           name="comment"
           onChange={onChange}
         />
-        <Button color="secondary" onClick={addComment}>등록</Button>
+        <Button onClick={addComment}>등록</Button>
       </div>
       <div className={style.CommentList}>
         {data.length > 0 ? data.map((comment, idx) => (

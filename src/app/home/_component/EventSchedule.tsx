@@ -27,7 +27,7 @@ export default function EventSchedule() {
         {eventList.map((event, idx) => (
           <SwiperSlide key={idx} className={style.EventItem}>
             <Link href="#">
-              {/* <ImgWrap src={`/home/event_0${idx + 1}.jpg`} alt={event.title} className={style.EventPreview} /> */}
+              {/* <ImgWrap src={`page/home/event_0${idx + 1}.jpg`} alt={event.title} className={style.EventPreview} /> */}
               <div className={style.EventInfo}>
                 <Typography lineHeight="medium" weight="medium">{event.title}</Typography>
                 <Typography size="small" lineHeight="medium">일시: {event.date}</Typography>

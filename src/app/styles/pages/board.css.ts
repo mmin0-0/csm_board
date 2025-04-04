@@ -51,10 +51,19 @@ export const CommentNum = style([
 export const CommentForm = style([
   spacing.mt(1),
   position('relative'),
+  border({
+    width: '1px',
+    type: 'solid',
+    color: vars.colors.light
+  }),
   {display: 'flex'}
 ]);
 globalStyle(`${CommentForm} > div`, {flex: 1});
-globalStyle(`${CommentForm} textarea`, {display: 'block'});
+globalStyle(`${CommentForm} textarea`, {
+  display: 'block',
+  border: '0 !important',
+  borderRadius: '1.2rem 0 0 1.2rem !important'
+});
 globalStyle(`${CommentForm} button`, {borderRadius: 0});
 export const CommentList = style([spacing.mt(1)]);
 export const CommentItem = style([

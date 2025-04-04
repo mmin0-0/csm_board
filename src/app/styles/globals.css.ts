@@ -66,7 +66,7 @@ globalStyle('html',{
 });
 
 globalStyle("body", {
-  fontFamily: 'Pretendard',
+  fontFamily: 'var(--font-montserrat), Pretendard',
   fontSize: vars.fontSize.regular,
   fontWeight: vars.fontWeight.normal,
   color: vars.colors.white,
@@ -77,7 +77,8 @@ globalStyle("body", {
 globalFontFace('Pretendard', {
   src: 'url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff")',
   fontWeight: '400',
-  fontStyle: 'normal'
+  fontStyle: 'normal',
+  fontDisplay: 'swap'
 });
 
 export const hide = style({

@@ -95,7 +95,7 @@ type BackgroundProps = {
   x?: string;
   y?: string;
 };
-export const background = ({folder, img, type, repeat, size, x, y}:BackgroundProps) => style({
+export const backgroundProperty = ({folder, img, type, repeat, size, x, y}:BackgroundProps) => style({
   backgroundImage: `url(/images/${folder}/${img}.${type})`,
   backgroundRepeat: repeat,
   backgroundSize: size,

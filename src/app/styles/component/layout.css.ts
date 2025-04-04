@@ -4,7 +4,7 @@ import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
 export const Wrapper = style([
-  size({width: '100dvw'}),
+  size({width: '100dvw', height: '100dvh'}),
   {
     display: 'flex',
     background: vars.colors.black,
@@ -12,9 +12,8 @@ export const Wrapper = style([
   }
 ]);
 export const Container = style([
-  size({width: 'calc(100% - 20rem)'}),
-  spacing.ml(20),
-  {minHeight: '100dvh'}
+  size({height: '100%'}),
+  {flex: 1}
 ]);
 export const TitleWrap = style([
   spacing.mb(2),

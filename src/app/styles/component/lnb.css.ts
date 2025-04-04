@@ -1,12 +1,11 @@
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { composeStyles, globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
-import { blank, border, flexBox, position, radius, size, spacing, transition } from '@/app/styles/utils.css';
+import { blank, border, flexBox, position, radius, size, transition } from '@/app/styles/utils.css';
 
 export const LnbWrap = style([
-  size({width: '20rem', height: '100dvh'}),
+  size({width: '20rem', height: '100%'}),
   blank.p('2.4rem 2rem'),
-  position('fixed', {top: '0', left: '0'}),
   border({
     width: '1px',
     type: 'solid',

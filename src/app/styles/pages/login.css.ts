@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
-import { blank, flexBox, size, spacing } from '../utils.css';
+import { blank, flexBox, position, size, spacing, backgroundProperty } from '@/app/styles/utils.css';
 
 export const LoginWrap = style([
   size({height: '100dvh'}),
@@ -8,9 +8,29 @@ export const LoginWrap = style([
 ]);
 export const LoginBackground = style([
   size({width: '60%'}),
+  position('relative'),
+  blank.p('2rem'),
+  backgroundProperty({
+    folder: 'page/login',
+    img: 'login_bg',
+    type: 'png',
+    repeat: 'no-repeat',
+    size: 'auto 60%',
+    x: 'left 25%',
+    y: 'bottom 30%'
+  }),
 ]);
+export const LoginTitle = style([
+  size({width: 'calc(100% - 4rem)'}),
+  position('absolute', {top: '10%'}),
+  {
+  fontSize: 'clamp(3.2rem, 4vw, 5rem)',
+  fontWeight: vars.fontWeight.semiBold,
+  }
+]
+);
 export const LoginContainer = style([
-  size({width: '60%'}),
+  size({width: '40%'}),
   blank.p('2rem'),
   flexBox({
     direction: 'row',
@@ -35,4 +55,7 @@ export const RegisterLink = style({
   textAlign: 'center',
   lineHeight: '1.2'
 });
-globalStyle(`${RegisterLink} b`, {textDecoration: 'underline'});
+globalStyle(`${RegisterLink} b`, {
+  textDecoration: 'underline',
+  fontWeight: vars.fontWeight.semiBold
+});
