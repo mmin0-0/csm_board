@@ -2,6 +2,7 @@ import { vars } from "@/app/styles/globals.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { recipe } from "@vanilla-extract/recipes";
 import { border, radius, transition } from '@/app/styles/utils.css';
+import { globalStyle, style } from "@vanilla-extract/css";
 
 const blank = {
   'space-1': '.8rem 1.2rem',
@@ -43,9 +44,9 @@ const colorVariants = {
     },
   },
   secondary: {
-    backgroundColor: vars.colors.white,
-    color: vars.colors.black,
-    borderColor: vars.colors.green,
+    backgroundColor: vars.colors.darkgray,
+    color: vars.colors.white,
+    borderColor: vars.colors.darkgray,
     selectors: {
       "&:hover": { 
         backgroundColor: vars.colors.pink, 
@@ -108,3 +109,25 @@ export const btnWrap = recipe({
     }
   }
 });
+
+export const LoginButton = style({
+  height: '5.2rem',
+  padding: '1.2rem 1rem',
+  borderRadius: '1.2rem',
+  fontSize: vars.fontSize.medium,
+  background: vars.colors.white,
+  borderColor: vars.colors.white,
+  selectors: {
+    '&:hover': {
+      background: vars.colors.white,
+      color: vars.colors.black,
+      borderColor: vars.colors.white,
+    }
+  }
+});
+globalStyle(`${LoginButton}.black`, {
+  background: vars.colors.black,
+  color: vars.colors.white,
+  borderColor: vars.colors.black,
+});
+globalStyle(`${LoginButton} svg`, {marginRight: '.4rem'});

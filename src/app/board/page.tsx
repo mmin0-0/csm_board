@@ -1,10 +1,10 @@
 import { TitWrap, Typography } from "@/app/_component/Typography";
 import { connectDB } from "@/utils/database";
-import { TitleWrap, ContWrap } from "@/app/styles/component/layout.css";
+import { TitleWrap, ContWrap, PageContainer } from "@/app/styles/component/layout.css";
 import BoardListTable from "@/app/board/_component/BoardListTable";
 import WriteLinkButton from "@/app/board/_component/WriteLinkButton";
 
-export default async function Board (){
+export default async function Board() {
   const db = (await connectDB).db('csm_board');
   const data = await db.collection('post').find().toArray();
 
@@ -21,12 +21,14 @@ export default async function Board (){
 
   return (
     <main>
-      <TitWrap className={TitleWrap}>
-        <Typography as="h4" weight="bold" size="xlarge">게시판 리스트</Typography>
-        <WriteLinkButton />
-      </TitWrap>
-      <div className={ContWrap}>
-        <BoardListTable posts={posts} />
+      <div className={PageContainer}>
+        <TitWrap className={TitleWrap}>
+          <Typography as="h4" weight="bold" size="xlarge">게시판 리스트</Typography>
+          <WriteLinkButton />
+        </TitWrap>
+        <div className={ContWrap}>
+          <BoardListTable posts={posts} />
+        </div>
       </div>
     </main>
   )

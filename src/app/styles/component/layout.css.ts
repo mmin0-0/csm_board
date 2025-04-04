@@ -16,9 +16,6 @@ export const Container = style([
   spacing.ml(20),
   {minHeight: '100dvh'}
 ]);
-globalStyle(`${Container} main`, {
-  padding: '2rem'
-});
 export const TitleWrap = style([
   spacing.mb(2),
   flexBox({
@@ -28,6 +25,7 @@ export const TitleWrap = style([
     gap: '1rem'
   })
 ]);
+export const PageContainer = style([blank.p('2rem')]);
 export const ContWrap = style([]);
 export const ContHead = style([]);
 

@@ -1,9 +1,7 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/utils/authOptions";
 import { connectDB } from "@/utils/database";
 import clsx from "clsx";
 import * as style from "@/app/styles/pages/home.css";
-import { ContHead } from "@/app/styles/component/layout.css";
+import { ContHead, PageContainer } from "@/app/styles/component/layout.css";
 import EventSchedule from "@/app/home/_component/EventSchedule";
 import BoardList from "@/app/home/_component/BoardList";
 import Lecture from "@/app/home/_component/Lecture";
@@ -17,7 +15,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Header from "@/app/_component/Header";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
   const db = (await connectDB).db("csm_board");
   const data = await db.collection("post").find().toArray();
 
@@ -34,7 +31,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className={style.HomeContWrap}>
+      <div className={clsx(PageContainer, style.HomeContWrap)}>
         <div className={style.MainContent}>
           <div className={clsx(ContHead, style.Header)}>
             <Header />

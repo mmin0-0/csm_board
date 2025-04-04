@@ -96,4 +96,15 @@ export const Essential = style({
       marginRight: '.4rem'
     }
   }
-})
+});
+
+// Login
+export const LoginFormGroup = style({gap: '2rem'});
+globalStyle(`${LoginFormGroup} input`, {
+  border: 0,
+  borderRadius: 0,
+  borderBottom: `2px solid ${vars.colors.black}`
+});
+globalStyle(`${LoginFormGroup} input:focus`, {
+  borderBottom: `2px solid ${vars.colors.black}`
+});
