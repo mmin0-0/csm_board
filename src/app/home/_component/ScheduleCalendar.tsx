@@ -29,6 +29,6 @@ export default async function ScheduleCalendar(){
     );
   } catch (error) {
     console.error("Error fetching todos:", error);
-    return <p>Error loading todos</p>;
+    return <Typography>Error loading todos</Typography>;
   }
 }

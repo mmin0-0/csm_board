@@ -6,8 +6,8 @@ import clsx from "clsx";
 import { Post as IPost } from "@/model/Post";
 import { Typography } from "@/app/_component/Typography";
 
-type Props = {posts: IPost[]};
-export default function BoardList({posts}:Props){
+type Props = { posts: IPost[] };
+export default function BoardList({ posts }: Props) {
   const [activeTab, setActiveTap] = useState('notice');
   const notices = posts.filter(item => item.postType === 'notice');
   const boardPosts = posts.filter(item => item.postType === 'general');
@@ -19,29 +19,22 @@ export default function BoardList({posts}:Props){
   return (
     <>
       <div className={style.ContTitWrap}>
-        <div>
-          {tabs.map((tab) => <Link 
-          key={tab} 
-          href="#"
-          onClick={() => handleTabClick(tab)}
-          className={clsx(style.BoardTab, activeTab === tab ? 'on' : '')}
-          >{tab}</Link>)}
-        </div>
+        <Typography as="strong" color="black" size="medium" weight="bold">Board List</Typography>
         <Link href="/board" className={style.MoreLink}>View All</Link>
       </div>
       <div className={clsx(style.ContWrap, style.BoardContWrap)}>
-        {(activeTab === 'notice' ? notices : boardPosts).length === 0 ?(
+        {(activeTab === 'notice' ? notices : boardPosts).length === 0 ? (
           <div className={style.BoardContEmpty}>게시물이 없습니다.</div>
-        ): (
+        ) : (
           <ul>
             {(activeTab === 'notice' ? notices : boardPosts).map((post, idx) => <li key={idx}>
-                <Link href={`/board/${post._id}`} className={style.BoardItem}>
-                  <Typography color="black">{post.title}</Typography>
-                  <Typography as="span" color="black">{post.createAt.split(' ')[0]}</Typography>
-                </Link>
-              </li>)}
+              <Link href={`/board/${post._id}`} className={style.BoardItem}>
+                <Typography color="black">{post.title}</Typography>
+                <Typography as="span" color="black">{post.createAt.split(' ')[0]}</Typography>
+              </Link>
+            </li>)}
           </ul>
-          )}
+        )}
       </div>
     </>
   )

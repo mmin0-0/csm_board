@@ -61,7 +61,7 @@ globalStyle(`${ContWrapList} > div:last-child`, {width: '45%'});
 globalStyle(`${ContWrapList} > div > div:not(:first-child)`, {marginTop: '1.8rem'});
 export const MoreLink = style({
   fontSize: vars.fontSize.small,
-  fontWeight: vars.fontWeight.medium,
+  fontWeight: vars.fontWeight.semiBold,
 });
 
 // 게시판(Board list)
@@ -226,36 +226,4 @@ globalStyle(`${NotificationsWrap} > a`, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between'
-});
-
-// 행사일정(swiper)
-export const EventWrap = style([
-  size({width: '100%'}),
-  spacing.mt(2),
-]);
-export const EventSwiper = style([]);
-export const EventItem = style([
-  blank.p('1rem'),
-  radius('1.2rem'),
-  {background: vars.colors.darkgray}
-]);
-export const EventPreview = style({maxHeight: '20rem'});
-globalStyle(`${EventPreview} img`, {
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover'
-});
-export const EventInfo = style([
-  spacing.mt(1),
-  blank.pt(1),
-  border({
-    width: '1px',
-    type: 'solid',
-    color: vars.colors.white,
-    direction: 'top'
-  })
-]);
-export const EventPagination = style({
-  justifyContent: 'flex-end',
-  marginTop: '1rem',
 });

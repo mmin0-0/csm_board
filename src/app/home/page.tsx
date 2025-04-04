@@ -2,7 +2,6 @@ import { connectDB } from "@/utils/database";
 import clsx from "clsx";
 import * as style from "@/app/styles/pages/home.css";
 import { ContHead, PageContainer } from "@/app/styles/component/layout.css";
-import EventSchedule from "@/app/home/_component/EventSchedule";
 import BoardList from "@/app/home/_component/BoardList";
 import Lecture from "@/app/home/_component/Lecture";
 import JobPosting from "@/app/home/_component/JobPosting";
@@ -62,9 +61,6 @@ export default async function Home() {
         </div>
         <div className={style.SubContent}>
           <ScheduleCalendar />
-          <div id="eventList" className={style.EventWrap}>
-            {/* <EventSchedule /> */}
-          </div>
         </div>
       </div>
     </main>
