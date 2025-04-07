@@ -27,16 +27,17 @@ interface DefaultButtonProps {
   className?: string;
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
-  color?: "primary" | "secondary" | "disabled";
+  color?: "primary" | "secondary" | "third" | "disabled";
   size?: 'auto' | 'small' | 'medium' | 'large';
+  blank?: 'space0' | 'space1';
 };
 
-export const Button = ({ children, type = "button", className, disabled, onClick, color = "primary", size = "small" }: DefaultButtonProps) => {
+export const Button = ({ children, type = "button", className, disabled, onClick, color = "primary", size = "small", blank="space1" }: DefaultButtonProps) => {
   return (
     <button
       type={type}
       className={clsx(
-        button({ color, size }),
+        button({ color, size, blank }),
         className
       )}
       disabled={disabled}

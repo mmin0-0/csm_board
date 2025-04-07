@@ -6,8 +6,9 @@ import * as style from "@/app/styles/component/modal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { BackButtonStyle } from "@/app/styles/component/layout.css";
-import { FormGroup, InputLabel } from "@/app/styles/component/input.css";
+import { Essential, FormGroup, InputLabel } from "@/app/styles/component/input.css";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 type Props = { modalHandler: () => void };
 export default function TodoModal({ modalHandler }: Props) {
@@ -67,13 +68,13 @@ export default function TodoModal({ modalHandler }: Props) {
                 id="title"
                 name="title"
                 children="title"
-                className={InputLabel}
+                className={clsx(InputLabel, Essential)}
                 placeholder="일정 제목을 입력해주세요."
               />
               <DateInput
                 id="date"
                 name="date"
-                className={InputLabel}
+                className={clsx(InputLabel, Essential)}
                 children="date"
                 dataPlaceholder="날짜선택"
                 areaRequired={true}

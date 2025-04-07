@@ -6,6 +6,7 @@ import { globalStyle, style } from "@vanilla-extract/css";
 
 const blank = {
   'space-1': '.8rem 1.2rem',
+  'space-0': '0'
 };
 const size = {
   'auto': 'auto',
@@ -54,14 +55,16 @@ const colorVariants = {
       },
     },
   },
+  third: {
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+  },
   disabled: {
     backgroundColor: vars.colors.gray01,
     color: vars.colors.gray02,
     borderColor: vars.colors.gray01,
     selectors: {
-      "&:hover": { 
-        cursor: 'no-drop'
-      },
+      "&:hover": { cursor: 'no-drop' },
     },
   }
 }; 
@@ -77,7 +80,6 @@ export const button = recipe({
     radius('2rem'),
     {textAlign: 'center'},
     sprinkles({
-      padding: 'space-1',
       cursor: 'active',
     })
   ],
@@ -88,9 +90,13 @@ export const button = recipe({
       small: sprinkles({width: 'small'}),
       medium: sprinkles({width: 'medium'}),
       large: sprinkles({width: 'large'})
+    },
+    blank: {
+      space0: sprinkles({padding: 'space-0'}),
+      space1: sprinkles({padding: 'space-1'}),
     }
   }, 
-  defaultVariants: {color: 'primary', size: 'small'}
+  defaultVariants: {color: 'primary', size: 'small', blank: 'space1'}
 });
 
 export const btnWrap = recipe({

@@ -14,7 +14,7 @@ export default function Lnb() {
     { title: 'home', path: '/home', icon: faHouse },
     { title: 'board', path: '/board', icon: faBookOpen },
     { title: 'write', path: '/write', icon: faPen },
-    { title: 'profile', path: '/profile', icon: faGear },
+    { title: 'profile', path: `/user/${session?.user.email}`, icon: faGear },
     { title: 'logout', path: '', icon: faArrowRightFromBracket },
     { title: 'signUp', path: '/register', icon: faAddressCard },
     { title: 'login', path: 'login', icon: faArrowRightFromBracket },

@@ -1,5 +1,51 @@
-export default function Page(){
+import ScheduleCalendar from "@/app/_component/ScheduleCalendar";
+import { PageContainer } from "@/app/styles/component/layout.css";
+import * as style from '@/app/styles/pages/profile.css';
+import clsx from "clsx";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/utils/authOptions";
+import UserInfo from "./_component/UserInfo";
+import UserDetails from "./_component/UserDetails";
+import { connectDB } from "@/utils/database";
+import { Post as IPost } from "@/model/Post";
+import { Todo as ITodo } from "@/model/Todo";
+
+export default async function Page(){
+  const session = await getServerSession(authOptions);
+  const userEmail = session?.user.email;
+
+  const db = (await connectDB).db('csm_board');
+  const postData = await db.collection('post').find({author: userEmail}).toArray();
+  const todoData = await db.collection('todo').find({author: userEmail}).toArray();
+
+  const posts:IPost[] = postData.map((post) => ({
+    _id: post._id.toString(),
+    author: post.author,
+    title: post.title,
+    content: post.content,
+    postType: post.postType,
+    createAt: post.createAt,
+  }));
+
+  const todos:ITodo[] = todoData.map((todo) => ({
+    _id: todo._id.toString(),
+    author: todo.author,
+    title: todo.title,
+    date: todo.date
+  }));
+
   return(
-    <>개인 프로필 페이지</>
+    <main>
+      <div className={clsx(PageContainer, style.ProfileContWrap)}>
+        <div className={style.MainContent}>
+          <UserInfo session={session} />
+          <UserDetails session={session} posts={posts} todos={todos} />
+          <div className={style.UserDetails}></div>
+        </div>
+        <div className={style.SubContent}>
+          <ScheduleCalendar />
+        </div>
+      </div>
+    </main>
   )
 }

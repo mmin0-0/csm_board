@@ -23,6 +23,7 @@ export const ModalContainer = style([
     background: vars.colors.white,
   }
 ]);
+globalStyle(`${ModalContainer} label, ${ModalContainer} input`, {color: vars.colors.black});
 export const ModalTitle = style([
   flexBox({
     direction: 'row',
