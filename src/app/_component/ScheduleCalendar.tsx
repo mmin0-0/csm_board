@@ -1,7 +1,7 @@
 import { connectDB } from '@/utils/database';
 import * as style from "@/app/styles/component/calendar.css";
 import { Todo as ITodo } from '@/model/Todo'; 
-import TodoCalendar from '@/app/home/_component/TodoCalendar';
+import TodoCalendar from '@/app/_component/TodoCalendar';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/utils/authOptions';
 import { Suspense } from 'react';

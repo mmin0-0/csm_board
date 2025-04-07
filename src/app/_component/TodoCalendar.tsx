@@ -3,10 +3,10 @@ import { Todo as ITodo, Value } from "@/model/Todo";
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import TodoList from "@/app/home/_component/TodoList";
+import TodoList from "@/app/_component/TodoList";
 import * as style from "@/app/styles/component/calendar.css";
 import { Button } from "@/app/_component/Button";
-import TodoModal from "@/app/home/_component/TodoModal";
+import TodoModal from "@/app/_component/TodoModal";
 import { Session } from "next-auth";
 
 type Props = { 
