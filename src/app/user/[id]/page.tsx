@@ -40,7 +40,6 @@ export default async function Page(){
         <div className={style.MainContent}>
           <UserInfo session={session} />
           <UserDetails session={session} posts={posts} todos={todos} />
-          <div className={style.UserDetails}></div>
         </div>
         <div className={style.SubContent}>
           <ScheduleCalendar />

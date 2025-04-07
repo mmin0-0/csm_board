@@ -38,13 +38,11 @@ export const UserImg = style([
   {overflow: 'hidden'}
 ]);
 export const InfoModifyBtn = style([position('absolute', {top: '1rem', right: '1rem'})]);
-export const UserDetails = style([
-  spacing.mt('2rem'),
-  flexBox({
-    direction: 'row',
-    gap: '2rem'
-  })
-]);
+export const UserDetails = style({
+  marginTop: '2rem',
+  display: 'flex',
+  gap: '2rem'
+});
 globalStyle(`${UserDetails} > div`, {flex: 1});
 export const ProfileContent = style([
   blank.p('1.6rem'),

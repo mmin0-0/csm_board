@@ -30,7 +30,7 @@ export default function UserDetails({ session, posts, todos }: Props) {
           {posts.length > 0 ? (
             posts.map((post, idx) => (
               <div key={idx} className={style.ContentItem} onClick={() => router.push(`/board/${post._id}`)}>
-                <Typography color="black">{post.title}</Typography>
+                <Typography color="black" lineHeight="regular">{post.title}</Typography>
                 <Typography color="black" as="span">{post.createAt.split(' ')[0]}</Typography>
               </div>
             ))
@@ -46,7 +46,7 @@ export default function UserDetails({ session, posts, todos }: Props) {
           {todos.length > 0 ? (
             todos.map((todo, idx) => 
               <div key={idx} className={style.ContentItem}>
-                <Typography color="black">{todo.title}</Typography>
+                <Typography color="black" lineHeight="regular">{todo.title}</Typography>
                 <Typography as="span" color="black">{todo.date.toString()}</Typography>
               </div>
               )

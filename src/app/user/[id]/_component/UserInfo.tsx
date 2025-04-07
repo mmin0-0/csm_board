@@ -13,9 +13,10 @@ export default function UserInfo({session}:Props) {
   const ModifyHandler = () => {
     alert('준비 중 입니다:)');
   };
+  
   return (
     <div className={style.UserInfo}>
-      {/* <ImgWrap src={nfaker.image.avatar()} alt={session?.user.name as string} className={style.UserImg} /> */}
+      <ImgWrap src={faker.image.avatar()} alt={session?.user.name as string} className={style.UserImg} />
       <div>
         <Typography as="strong" weight="medium">
           {session?.user.name}
