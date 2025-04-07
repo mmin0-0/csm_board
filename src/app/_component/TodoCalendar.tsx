@@ -78,10 +78,8 @@ export default function TodoCalendar({ todos, session }: Props) {
 
   return (
     <>
-      <div className={style.CalendarWrap}>
-        <Button onClick={modalHandler} size="large">
-          일정추가
-        </Button>
+      <div className={style.CalendarCont}>
+        <Button onClick={modalHandler} size="large">일정추가</Button>
         <div className={style.CalendarInfo}>
           <Calendar
             value={date}

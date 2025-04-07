@@ -47,7 +47,7 @@ export default function BoardListTable({ posts }: Props) {
                   {post.postType === 'general' ? (
                     <>{idx + 1}</>
                   ) : (
-                    <Typography color="emphasis"><FontAwesomeIcon icon={faBullhorn} style={{width: '1.6rem'}} /></Typography>
+                    <Typography color="pink"><FontAwesomeIcon icon={faBullhorn} style={{width: '1.6rem'}} /></Typography>
                   )}
                 </div>
               </td>

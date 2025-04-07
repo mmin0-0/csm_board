@@ -12,7 +12,7 @@ export const MainContent = style([
   {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    gridTemplateRows: '4rem auto auto auto auto',
+    gridTemplateRows: '2.8rem auto auto auto auto',
     gap: '1rem'
   }
 ]);
@@ -21,18 +21,7 @@ export const Header = style({
   gridRow: '1 / 2'
 });
 export const SubContent = style([
-  size({width: 'calc(30% - 1rem)'}),
-  radius('2rem'),
-  blank.p('2rem'),
-  border({
-    width: '1px',
-    type: 'solid',
-    color: vars.colors.darkgray
-  }),
-  {
-    gridColumn: '5 / 6',
-    background: vars.colors.black
-  }
+  size({width: 'calc(30% - 1rem)'})
 ]);
 export const HomeContent = style([
   blank.p('1.6rem'),

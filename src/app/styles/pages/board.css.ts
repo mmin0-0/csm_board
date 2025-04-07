@@ -24,7 +24,7 @@ export const Th = style([
   blank.p('1rem .8rem'),
   {
     textTransform: 'capitalize',
-    background: `rgba(${vars.colors.yellowRGB}, .45)`
+    background: `rgba(${vars.colors.pinkRGB}, .35)`
   }
 ]);
 export const Td = style([blank.p('1rem .8rem')]);
@@ -54,7 +54,7 @@ export const CommentForm = style([
   border({
     width: '1px',
     type: 'solid',
-    color: vars.colors.light
+    color: vars.colors.darkgray
   }),
   {display: 'flex'}
 ]);

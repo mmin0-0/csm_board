@@ -7,9 +7,13 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const POST = async (req: NextRequest) => {
   const session = await getServerSession(authOptions);
+
+  if(!session){
+    return NextResponse.json({ error: '로그인 후 이용가능합니다.' }, { status: 401 });
+  }
+
   try {
     const body = await req.json();
-
     const now = new Date();
     const koreaTime = new Date(now.setHours(now.getHours()));
     const formattedDate = koreaTime.getFullYear() + '-' +

@@ -6,11 +6,9 @@ import { Textarea } from "@/app/_component/Input";
 import { Typography } from "@/app/_component/Typography";
 import { Button } from "@/app/_component/Button";
 import { hide } from "@/app/styles/globals.css";
-import { useRouter } from "next/navigation";
 
 type Props = { _id: string };
 export default function Comment({ _id }: Props) {
-  const router = useRouter();
   const [comment, setComment] = useState<string>('');
   const [data, setData] = useState<IComment[]>([]);
 

@@ -1,5 +1,5 @@
-import { globalStyle, style } from '@vanilla-extract/css';
-import { blank, border, flexBox, size, spacing, transition } from '@/app/styles/utils.css';
+import { globalStyle, style, keyframes } from '@vanilla-extract/css';
+import { blank, border, flexBox, radius, size, spacing, transition } from '@/app/styles/utils.css';
 import { vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
@@ -86,10 +86,7 @@ export const Tr = style([
     cursor: 'pointer',
     position: 'relative',
     selectors: {
-      '&:hover': {
-        background: vars.colors.yellow,
-        color: vars.colors.black
-      }
+      '&:hover': {background: `rgba(${vars.colors.pinkRGB}, .35)`}
     }
   }
 ]);
@@ -103,3 +100,46 @@ export const Td = style([blank.p('2rem .8rem')]);
 export const TextAlignLeft = style({textAlign: 'left'});
 export const TextAlignCenter = style({textAlign: 'center'});
 export const TextAlignRight = style({textAlign: 'right'});
+
+// loading
+const LoadingAni = keyframes({
+  '0%': {transform: 'translate(0, 0)'},
+  '50%': {transform: 'translate(0, 15px)'},
+  '100%': {transform: 'translate(0, 0)'},
+});
+export const LoadingWrap = style({});
+export const LoadingLines = style([
+  spacing.mt(1),
+  flexBox({
+    direction: 'row',
+    align: 'center',
+    gap: '1rem'
+  }),
+]);
+export const LoadingLine = style([
+  size({width: '1.2rem', height: '1.2rem'}),
+  radius('50%'),
+  {
+    background: vars.colors.pink,
+    animation: `${LoadingAni} .6s linear infinite`,
+    selectors: {
+      '&:first-child': {animationDelay: '.1s'},
+      '&:nth-child(2)': {animationDelay: '.2s'},
+      '&:last-child': {animationDelay: '.3s'},
+    }
+  }
+]);
+
+// not-found page
+export const EmptyWrap = style({});
+export const EmptyImgWrap = style([
+  size({width: '18rem'})
+]);
+export const EmptyInfo = style({});
+globalStyle(`${EmptyInfo} > p`, {marginTop: '1rem'});
+globalStyle(`${EmptyInfo} > a`, {
+  display: 'block',
+  marginTop: '1rem',
+  color: vars.colors.pink,
+  textDecoration: 'underline'
+});
