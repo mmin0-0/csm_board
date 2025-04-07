@@ -55,6 +55,7 @@ export const ContentItem = style([
   radius('1rem'),
   flexBox({
     direction: 'row',
+    align: 'center',
     justify: 'space-between',
     gap: '1rem'
   }),

@@ -40,7 +40,6 @@ export default function UserDetails({ session, posts, todos }: Props) {
       <div className={clsx(style.ProfileContent, style.UserSchedule)}>
         <div className={ContTitWrap}>
           <Typography as="strong" color="black" size="medium" weight="bold">"{session?.user.name}"님의 일정</Typography>
-          <Button size="auto">일정 추가하기</Button>
         </div>
         <div className={style.ContWrap}>
           {todos.length > 0 ? (
