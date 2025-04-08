@@ -84,3 +84,5 @@ export const CommentUserInfo = style([
 ]);
 export const AuthorEmail = style({marginLeft: '.6rem'});
 export const CommentCont = style([spacing.mt(2)]);
+export const LikeButton = style({});
+globalStyle(`${LikeButton} svg`, {marginRight: '.4rem'});

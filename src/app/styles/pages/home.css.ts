@@ -12,7 +12,7 @@ export const MainContent = style([
   {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    gridTemplateRows: '2.8rem auto auto auto auto',
+    gridTemplateRows: '2.8rem auto auto auto',
     gap: '1rem'
   }
 ]);

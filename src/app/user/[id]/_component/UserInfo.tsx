@@ -15,13 +15,14 @@ export default function UserInfo({session}:Props) {
   };
   
   return (
-    <div className={style.UserInfo}>
+    <div className={style.UserInfoWrap}>
       <ImgWrap src={faker.image.avatar()} alt={session?.user.name as string} className={style.UserImg} />
       <div>
         <Typography as="strong" weight="medium">
           {session?.user.name}
           <Typography as="span" color="gray">@{session?.user.email}</Typography>
         </Typography>
+        <Typography size="small" className={style.ContactInfo}>Contact Time: 09:00 - 21:00</Typography>
       </div>
       <Button size="auto" color="third" blank="space0" className={style.InfoModifyBtn} onClick={ModifyHandler}><FontAwesomeIcon icon={faPen} /></Button>
     </div>

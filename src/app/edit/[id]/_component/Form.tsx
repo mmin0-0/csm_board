@@ -53,7 +53,7 @@ export default function Form({ post }: Props) {
     <form onSubmit={onSubmit}>
       <div className={FormGroup}>
         <input type="hidden" name="_id" defaultValue={post._id.toString()} />
-        <TextInput id="author" name="author" children="작성자" className={InputLabel} defaultValue="작성자" disabled={true} />
+        <TextInput id="author" name="author" children="작성자" className={InputLabel} defaultValue={post.author} disabled={true} />
         <TextInput
           id="title"
           name="title"

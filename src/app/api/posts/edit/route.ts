@@ -12,16 +12,16 @@ export const POST = async (req: NextRequest) => {
   try {
     const db = (await connectDB).db('csm_board');
     const formData = await req.formData();
-
-    const body = await req.text();
-    const objectId = new ObjectId(body);
-    const target = await db.collection('post').findOne({ _id: objectId });
-
+  
     const _id = formData.get('_id') as string;
     const title = (formData.get('title') as string)?.trim();
     const content = (formData.get('content') as string)?.trim();
 
-    if(target?.author !== session.user?.email){
+    const objectId = new ObjectId(_id);
+    const target = await db.collection('post').findOne({ _id: objectId });
+
+    const userRole = session.user?.role ?? 'user';
+    if(target?.author !== session.user?.email && userRole !== 'admin'){
       return NextResponse.json({error: '작성자 또는 관리자만 삭제 가능합니다.'}, {status: 403});
     }
 

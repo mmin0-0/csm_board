@@ -54,7 +54,7 @@ export default async function Home() {
               </Typography>
               <FontAwesomeIcon
                 icon={faArrowRight}
-                style={{ fontSize: "2.4rem" }}
+                style={{ width: '2.4rem' }}
               />
             </Link>
           </div>
