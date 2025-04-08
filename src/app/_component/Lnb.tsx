@@ -8,13 +8,18 @@ import { faHouse, faBookOpen, faPen, faGear, faAddressCard, faArrowRightFromBrac
 import { Button } from '@/app/_component/Button';
 import { Bars, BarsIcon } from '@/app/styles/component/button.css';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Lnb() {
   const { data: session } = useSession();
   const pathname = usePathname();
   const path = usePathname() || '';
   const [open, setOpen] = useState(false);
+  
+  useEffect(()=>{
+    setOpen(false);
+  }, [pathname]);
+
   const navMenuList = [
     { title: 'home', path: '/home', icon: faHouse },
     { title: 'board', path: '/board', icon: faBookOpen },

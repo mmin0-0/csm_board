@@ -1,11 +1,10 @@
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
-import { blank, flexBox, position, size } from '@/app/styles/utils.css';
+import { flexBox, size } from '@/app/styles/utils.css';
 
 export const HeaderWrap = style([
   size({width: '100%'}),
-  // position('sticky', {top: '0', left: '0'}),
   {
     zIndex: 9,
     background: vars.colors.black

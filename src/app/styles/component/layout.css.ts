@@ -25,7 +25,6 @@ export const Container = style([
 ]);
 export const TitleWrap = style([
   spacing.mb(2),
-  size({height: '4rem'}),
   flexBox({
     direction: 'row',
     justify: 'space-between',
@@ -33,19 +32,17 @@ export const TitleWrap = style([
     gap: '1rem'
   }),
   {
+    minHeight: '4rem',
     '@media': {
-      [media.lg]: {paddingLeft: '4rem'}
+      [media.lg]: {paddingLeft: '4rem'},
+      [media.xs]: {
+        flexDirection: 'column',
+        alignItems: 'flex-start'
+      }
     }
   }
 ]);
-export const PageContainer = style([
-  blank.p('2rem'),
-  {
-    // '@media': {
-    //   [media.lg]: {padding: '2rem 2rem 2rem 0'}
-    // }
-  }
-]);
+export const PageContainer = style([blank.p('2rem')]);
 export const ContWrap = style([]);
 export const ContHead = style({
   height: '4rem',
@@ -102,7 +99,6 @@ export const TableEmpty = style([
 globalStyle(`${TableWrap} table`, {
   width: '100%',
   textAlign: 'center',
-  // tableLayout: 'fixed',
   whiteSpace: 'nowrap',
   borderCollapse: 'collapse'
 });
@@ -139,7 +135,11 @@ const LoadingAni = keyframes({
   '50%': {transform: 'translate(0, 15px)'},
   '100%': {transform: 'translate(0, 0)'},
 });
-export const LoadingWrap = style({});
+export const LoadingWrap = style({
+  '@media': {
+    [media.lg]: {paddingLeft: '4rem'}
+  }
+});
 export const LoadingLines = style([
   spacing.mt(1),
   flexBox({

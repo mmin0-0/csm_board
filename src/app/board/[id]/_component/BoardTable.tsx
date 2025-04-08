@@ -5,7 +5,6 @@ import * as style from '@/app/styles/pages/board.css';
 type Props = { post: IPost };
 export default function BoardTable({ post }: Props) {
   return (
-    <div className={TableWrap}>
       <table className={style.BoardTable}>
         <caption>게시판 조회하기</caption>
         <tbody>
@@ -27,6 +26,5 @@ export default function BoardTable({ post }: Props) {
           </tr>
         </tbody>
       </table>
-    </div>
   )
 }

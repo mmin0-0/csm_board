@@ -5,21 +5,13 @@ import { blank, border, flexBox, position, radius, size, transition } from '@/ap
 
 export const LnbWrap = style([
   position('relative'),
-  {
-    zIndex: 10,
-    // '@media': {
-    //   [media.lg]: {
-    //     minWidth: '5rem'
-    //   }
-    // }
-  }
+  {zIndex: 10}
 ]);
 export const LnbControls = style([
   position('absolute', {top: '2rem', left: '2rem'}),
   {
     zIndex: 10,
     display: 'none',
-    // transform: 'translateX(-50%)',
     '@media': {
       [media.lg]: {display: 'block'}
     }
