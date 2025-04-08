@@ -20,11 +20,6 @@ export default async function Detail(props: Props) {
     _id: new ObjectId(props.params.id)
   });
 
-  // let liked:boolean = false;
-  // if(session && data){
-  //   liked = data.likeUser.includes(session.user.email);
-  // }
-
   // 날짜 기준으로 정렬(내림차순)
   const posts = await db.collection('post').find().sort({ createAt: 1 }).toArray();
   const postIndex = posts.findIndex((post) => post._id.toString() === data?._id.toString()) + 1;

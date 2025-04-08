@@ -1,27 +1,51 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '@/app/styles/globals.css';
+import { vars, media } from '@/app/styles/globals.css';
 import { blank, border, flexBox, position, radius, size, spacing, transition } from '@/app/styles/utils.css';
 
 // 공통 컴포넌트(주요 콘텐츠)
 export const HomeContWrap = style({
   display: 'flex',
-  gap: '2rem'
+  gap: '2rem',
+  '@media': {
+    [media.sm]: {
+      flexDirection: 'column'
+    }
+  }
 });
 export const MainContent = style([
-  size({width: 'calc(70% - 1rem)', height: 'calc(100vh - 4rem)'}),
+  size({width: 'calc(70% - 1rem)'}),
   {
+    minHeight: 'calc(100vh - 4rem)',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    gridTemplateRows: '2.8rem auto auto auto',
-    gap: '1rem'
+    gridTemplateRows: '4rem auto auto auto',
+    gap: '1rem',
+    '@media': {
+      [media.sm]: {
+        width: '100%',
+        display: 'block'
+      }
+    }
   }
 ]);
+globalStyle(`${MainContent} > div:not(:first-child)`, {
+  '@media': {
+    [media.sm]: {marginTop: '2rem'}
+  }
+});
 export const Header = style({
   gridColumn: '1 / 5',
   gridRow: '1 / 2'
 });
 export const SubContent = style([
-  size({width: 'calc(30% - 1rem)'})
+  size({width: 'calc(30% - 1rem)'}),
+  {
+    '@media': {
+      [media.sm]: {
+        width: '100%'
+      }
+    }
+  }
 ]);
 export const HomeContent = style([
   blank.p('1.6rem'),
@@ -127,8 +151,11 @@ export const LectureWrap = style({
 });
 export const LectureList = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
-  gap: '2rem 1rem'
+  gridTemplateColumns: 'repeat(auto-fit, minmax(18rem, 1fr))',
+  gap: '1rem',
+  '@media': {
+    [media.xs]: {gridTemplateColumns: '1fr'}
+  }
 });
 export const LectureItem = style([
   blank.p(1),
@@ -148,6 +175,11 @@ export const LectureItem = style([
     }
   }
 ]);
+globalStyle(`${LectureItem} img`, {
+  '@media': {
+    [media.xs]: {width: '100%'}
+  }
+});
 export const LectureInfo = style({marginTop: '1rem'});
 globalStyle(`${LectureInfo} strong`, {
   textTransform: 'capitalize',
@@ -203,6 +235,11 @@ export const LeadsActivityWrap = style({
   background: vars.colors.green,
   gridColumn: '4 / 5',
   gridRow: '2 / 3'
+});
+globalStyle(`${LeadsActivityWrap} > canvas`, {
+  '@media': {
+    [media.xs]: {width: '100%'}
+  }
 });
 
 // 알림(Notifications)

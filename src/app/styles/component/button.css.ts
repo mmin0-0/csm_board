@@ -1,7 +1,7 @@
 import { vars } from "@/app/styles/globals.css";
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { recipe } from "@vanilla-extract/recipes";
-import { border, radius, transition } from '@/app/styles/utils.css';
+import { border, position, radius, transition } from '@/app/styles/utils.css';
 import { globalStyle, style } from "@vanilla-extract/css";
 
 const blank = {
@@ -137,3 +137,51 @@ globalStyle(`${LoginButton}.black`, {
   borderColor: vars.colors.black,
 });
 globalStyle(`${LoginButton} svg`, {marginRight: '.4rem'});
+
+export const Bars = style({
+  width: '3rem',
+  height: '3rem',
+  cursor: 'pointer'
+});
+export const BarsIcon = style([
+  position('absolute', {top: '50%', left: '50%'}),
+  radius('50px'),
+  transition('all', '.35s'),
+  {
+    transform: 'translate(-50%, -50%) rotate(0deg)',
+    width: '100%',
+    height: '.4rem',
+    background: vars.colors.white,
+    selectors: {
+      '&::before, &::after':{
+        content: '',
+        position: 'absolute',
+        height: '100%',
+        width: '50%',
+        background: vars.colors.white,
+        borderRadius: '50px',
+        margin: 'auto',
+        transition: 'all ease .35s'
+      },
+      '&::before': {
+        top: '-10px',
+        left: 0,
+        transformOrigin: 'left'
+      },
+      '&::after': {
+        bottom: '-10px',
+        right: 0,
+        transformOrigin: 'right'
+      }
+    }
+  }
+]);
+globalStyle(`${Bars}.on`, {transform: 'rotate(135deg)'});
+globalStyle(`${Bars}.on ${BarsIcon}::before`, {
+  top: 0,
+  transform: 'translateX(100%) rotate(-90deg)'
+});
+globalStyle(`${Bars}.on ${BarsIcon}::after`, {
+  bottom: 0,
+  transform: 'translateX(-100%) rotate(-90deg)'
+});

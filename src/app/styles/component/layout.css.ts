@@ -1,6 +1,6 @@
 import { globalStyle, style, keyframes } from '@vanilla-extract/css';
 import { blank, border, flexBox, radius, size, spacing, transition } from '@/app/styles/utils.css';
-import { vars } from '@/app/styles/globals.css';
+import { media, vars } from '@/app/styles/globals.css';
 
 // 공동 컴포넌트
 export const Wrapper = style([
@@ -13,20 +13,48 @@ export const Wrapper = style([
 ]);
 export const Container = style([
   size({height: '100%'}),
-  {flex: 1}
+  {
+    flex: 1,
+    '@media': {
+      [media.sm]: {
+        width: '100%',
+        flex: 'none'
+      }
+    }
+  }
 ]);
 export const TitleWrap = style([
   spacing.mb(2),
+  size({height: '4rem'}),
   flexBox({
     direction: 'row',
     justify: 'space-between',
     align: 'center',
     gap: '1rem'
-  })
+  }),
+  {
+    '@media': {
+      [media.lg]: {paddingLeft: '4rem'}
+    }
+  }
 ]);
-export const PageContainer = style([blank.p('2rem')]);
+export const PageContainer = style([
+  blank.p('2rem'),
+  {
+    // '@media': {
+    //   [media.lg]: {padding: '2rem 2rem 2rem 0'}
+    // }
+  }
+]);
 export const ContWrap = style([]);
-export const ContHead = style([]);
+export const ContHead = style({
+  height: '4rem',
+  display: 'flex',
+  alignItems: 'center',
+  '@media': {
+    [media.lg]: {paddingLeft: '4rem'}
+  }
+});
 
 // button
 export const BackButtonStyle = style({
@@ -60,7 +88,8 @@ globalStyle(`${ImageWrap} img`, {maxWidth: '100%'});
 export const TableWrap = style({
   border: `1px solid ${vars.colors.darkgray}`,
   borderRadius: '2rem',
-  overflow: 'hidden'
+  overflow: 'auto',
+  width: '100%'
 });
 export const TableEmpty = style([
   flexBox({
@@ -73,6 +102,9 @@ export const TableEmpty = style([
 globalStyle(`${TableWrap} table`, {
   width: '100%',
   textAlign: 'center',
+  // tableLayout: 'fixed',
+  whiteSpace: 'nowrap',
+  borderCollapse: 'collapse'
 });
 export const Tr = style([
   transition('background'),
@@ -142,4 +174,17 @@ globalStyle(`${EmptyInfo} > a`, {
   marginTop: '1rem',
   color: vars.colors.pink,
   textDecoration: 'underline'
+});
+
+export const TabelTest = style({
+  display: 'block',
+  overflowX: 'auto',
+  overflowY: 'hidden',
+  width: '100%'
+});
+globalStyle(`${TabelTest} table`, {
+  minWidth: '800px',
+  whiteSpace: 'nowrap',
+  borderCollapse: 'collapse',
+  border: '1px solid white'
 });

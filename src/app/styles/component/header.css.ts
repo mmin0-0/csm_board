@@ -5,9 +5,9 @@ import { blank, flexBox, position, size } from '@/app/styles/utils.css';
 
 export const HeaderWrap = style([
   size({width: '100%'}),
-  position('sticky', {top: '0', left: '0'}),
+  // position('sticky', {top: '0', left: '0'}),
   {
-    zIndex: 10,
+    zIndex: 9,
     background: vars.colors.black
   }
 ]);

@@ -1,5 +1,5 @@
 import { Post as IPost } from "@/model/Post";
-import { TableWrap, Th, Td } from "@/app/styles/component/layout.css";
+import { TableWrap } from "@/app/styles/component/layout.css";
 import * as style from '@/app/styles/pages/board.css';
 
 type Props = { post: IPost };

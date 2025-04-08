@@ -5,11 +5,16 @@ import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faBookOpen, faPen, faGear, faAddressCard, faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { Button } from '@/app/_component/Button';
+import { Bars, BarsIcon } from '@/app/styles/component/button.css';
+import clsx from 'clsx';
+import { useState } from 'react';
 
 export default function Lnb() {
   const { data: session } = useSession();
   const pathname = usePathname();
   const path = usePathname() || '';
+  const [open, setOpen] = useState(false);
   const navMenuList = [
     { title: 'home', path: '/home', icon: faHouse },
     { title: 'board', path: '/board', icon: faBookOpen },
@@ -24,12 +29,20 @@ export default function Lnb() {
       : menu.title !== 'profile' && menu.title !== 'logout'
   );
 
+  const lnbHandler = () => {
+    setOpen((prev) => !prev);
+  };
+
   if (pathname === '/login') {
     return null;
   }
+
   return (
-    <div className={style.LnbWrap}>
-      <nav>
+    <div className={clsx(style.LnbWrap, open ? 'on' : '')}>
+      <Button className={clsx(Bars, style.LnbControls, open ? 'on' : '')} color="third" size="auto" blank="space0" onClick={lnbHandler}>
+        <div className={BarsIcon} />
+      </Button>
+      <nav className={style.NavWrap}>
         <div className={style.NavInner}>
           {filterMenu.map((item) => {
             const isActive =

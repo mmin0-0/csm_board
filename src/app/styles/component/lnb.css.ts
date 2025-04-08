@@ -1,9 +1,31 @@
 import "@vanilla-extract/css/disableRuntimeStyles";
 import { composeStyles, globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '@/app/styles/globals.css';
+import { media, vars } from '@/app/styles/globals.css';
 import { blank, border, flexBox, position, radius, size, transition } from '@/app/styles/utils.css';
 
 export const LnbWrap = style([
+  position('relative'),
+  {
+    zIndex: 10,
+    // '@media': {
+    //   [media.lg]: {
+    //     minWidth: '5rem'
+    //   }
+    // }
+  }
+]);
+export const LnbControls = style([
+  position('absolute', {top: '2rem', left: '2rem'}),
+  {
+    zIndex: 10,
+    display: 'none',
+    // transform: 'translateX(-50%)',
+    '@media': {
+      [media.lg]: {display: 'block'}
+    }
+  }
+]);
+export const NavWrap = style([
   size({width: '20rem', height: '100%'}),
   blank.p('2.4rem 2rem'),
   border({
@@ -12,12 +34,23 @@ export const LnbWrap = style([
     color: vars.colors.darkgray,
     direction: 'right'
   }),
+  transition('left'),
   {
-    zIndex: 10,
-    background: vars.colors.black
+    background: vars.colors.black,
+    '@media': {
+      [media.lg]: {
+        position: 'absolute',
+        top: 0,
+        left: '-20rem',
+        padding: '6.4rem 1rem',
+        boxShadow: vars.colors.shadow
+      }
+    }
   }
 ]);
-
+globalStyle(`${LnbWrap}.on ${NavWrap}`, {
+  left: 0
+});
 export const NavInner = style([
   flexBox({
     direction: 'column',

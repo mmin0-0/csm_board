@@ -1,6 +1,6 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '@/app/styles/globals.css';
-import { blank, border, flexBox, radius, size, spacing } from '../utils.css';
+import { blank, border, flexBox, radius, size, spacing } from '@/app/styles/utils.css';
 
 // react calendar custom css
 export const CalendarWrap = style([
@@ -39,7 +39,11 @@ export const TodoListItem = style([
 ]);
 export const TodoRemove = style({
   cursor: 'pointer',
-  minWidth: '2rem'
+  minWidth: '2rem',
+  transition: 'color ease .25s',
+  selectors: {
+    '&:hover': {color: vars.colors.pink}
+  }
 });
 
 globalStyle(`${CalendarCont} .react-calendar`, {

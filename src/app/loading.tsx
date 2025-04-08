@@ -1,5 +1,5 @@
 import * as style from '@/app/styles/component/layout.css';
-import { Typography } from './_component/Typography';
+import { Typography } from '@/app/_component/Typography';
 
 export default function Loading(){
   return (

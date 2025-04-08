@@ -10,14 +10,14 @@ export default async function Header() {
       <div className={style.HeaderTitle}>
         {session ? (
           <>
-            <Typography>
-              Hello <Typography as="strong" color="pink" weight="semiBold">{session.user.name}</Typography> ,welcome back!
+            <Typography size="medium">
+              Hello <Typography as="strong" color="pink" weight="semiBold" size="medium">{session.user.name}</Typography> ,welcome back!
             </Typography>
           </>
         ) : (
           <>
-            <Typography>
-              Hello, welcome <Typography as="strong">CSㆍM</Typography>
+            <Typography size="medium">
+              Hello, welcome <Typography as="strong" size="medium">CSㆍM</Typography>
             </Typography>
           </>
         )}

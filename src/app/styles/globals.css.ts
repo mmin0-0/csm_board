@@ -20,7 +20,7 @@ export const vars = createGlobalTheme(':root', {
     red: '#F20000',
     mainRGB: '235, 107, 168' , 
     mainFilter: 'invert(58%) sepia(63%) saturate(752%) hue-rotate(294deg) brightness(96%) contrast(93%)',
-    shadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
+    shadow: 'rgba(17, 17, 17, 0.2) 0px 7px 29px 0px;',
   },
   fontSize: {
     small: '1.4rem',
@@ -53,9 +53,9 @@ export const vars = createGlobalTheme(':root', {
 });
 
 export const media = {
-  xs: 'screen and (max-width: 420px)',
-  sm: 'screen and (max-width: 768px)',
-  lg: 'screen and (max-width: 1200px)'
+  xs: 'screen and (max-width: 768px)',
+  sm: 'screen and (max-width: 1080px)',
+  lg: 'screen and (max-width: 1280px)'
 };
 
 globalStyle("*", {
