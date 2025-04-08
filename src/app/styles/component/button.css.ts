@@ -117,7 +117,7 @@ export const btnWrap = recipe({
 });
 
 export const LoginButton = style({
-  height: '5.2rem',
+  minHeight: '5.2rem',
   padding: '1.2rem 1rem',
   borderRadius: '1.2rem',
   fontSize: vars.fontSize.medium,

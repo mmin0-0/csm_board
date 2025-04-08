@@ -7,7 +7,7 @@ export default function Page() {
     <main>
       <div className={style.LoginWrap}>
         <div className={style.LoginBackground}>
-          <Typography as="h2" lineHeight="medium" className={style.LoginTitle}>Manage your leads<br />in one place</Typography>
+          <Typography as="h2" lineHeight="medium" weight="semiBold" className={style.LoginTitle}>Manage your leads<br />in one place</Typography>
         </div>
         <div className={style.LoginContainer}>
           <div className={style.LoginContInfo}>

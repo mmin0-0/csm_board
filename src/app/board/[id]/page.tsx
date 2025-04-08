@@ -10,7 +10,8 @@ import PostActions from "@/app/board/[id]/_component/PostActions";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/utils/authOptions";
 import { ButtonWrap } from "@/app/_component/Button";
-import PostLike from "./_component/PostLike";
+import PostLike from "@/app/board/[id]/_component/PostLike";
+import NotFound from '@/app/not-found';
 
 type Props = { params: { id: string } };
 export default async function Detail(props: Props) {
@@ -25,7 +26,7 @@ export default async function Detail(props: Props) {
   const postIndex = posts.findIndex((post) => post._id.toString() === data?._id.toString()) + 1;
 
   if (!data) {
-    return <main>게시글을 찾을 수 없습니다.</main>
+    return <NotFound />
   }
 
   const post = {
