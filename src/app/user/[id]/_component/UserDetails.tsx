@@ -53,7 +53,7 @@ export default function UserDetails({ session, posts, todos }: Props) {
               </div>
             ))
           ) : (
-            <Typography>작상한 게시물이 없습니다.</Typography>
+            <Typography color="black">작상한 게시물이 없습니다.</Typography>
           )}
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function UserDetails({ session, posts, todos }: Props) {
               </div>
             ))
           ) : (
-            <Typography>일정이 없습니다.</Typography>
+            <Typography color="black">일정이 없습니다.</Typography>
           )}
         </div>
       </div>

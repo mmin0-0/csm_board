@@ -21,7 +21,7 @@ export const POST = async(req: NextRequest) => {
     String(now.getMinutes()).padStart(2, '0') + ':' + 
     String(now.getSeconds()).padStart(2, '0');
     
-    const author = session.user?.email;
+    const author = session.user?.name;
     const title = (formData.get("title") as string)?.trim();
     const content = (formData.get("content") as string)?.trim();
     const postType = 'general';
