@@ -47,8 +47,11 @@ export const TodoRemove = style({
 });
 
 globalStyle(`${CalendarCont} .react-calendar`, {
+  width: '100%',
+  border: 0,
   borderBottom: `2px solid ${vars.colors.gray02}`,
-  paddingBottom: '2rem'
+  paddingBottom: '2rem',
+  background: vars.colors.black,
 });
 globalStyle(`${CalendarCont} 
   .react-calendar__navigation, 
@@ -59,9 +62,18 @@ globalStyle(`${CalendarCont} .react-calendar__viewContainer`, {marginTop: '2rem'
 globalStyle(`${CalendarCont} 
   .react-calendar__month-view__days__day,
   .react-calendar__month-view__weekdays__weekday`, {padding: '1.4rem 0'});
-globalStyle(`${CalendarCont} 
-  .react-calendar__month-view__weekdays__weekday--weekend,
-  .react-calendar__month-view__days__day--weekend`, {color: vars.colors.pink});
+globalStyle(`.react-calendar__month-view__weekdays__weekday--weekend, .react-calendar__month-view__days__day--weekend`, {color: vars.colors.pink});
+globalStyle(`.react-calendar__navigation button:enabled:focus, .react-calendar__navigation button:enabled:hover`, {
+  backgroundColor: vars.colors.black
+});
+globalStyle(`.react-calendar__tile--active:enabled:focus, .react-calendar__tile--active:enabled:hover`, {
+  background: vars.colors.gray01
+});
+
+globalStyle(`.react-calendar__tile:enabled:focus, .react-calendar__tile:enabled:hover`, {
+  backgroundColor: vars.colors.gray01,
+  borderRadius: '50%'
+});
 globalStyle(`${CalendarCont} 
   .react-calendar__month-view__weekdays`, {
     borderBottom: `2px solid ${vars.colors.gray02}`,
