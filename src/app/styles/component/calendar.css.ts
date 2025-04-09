@@ -67,7 +67,7 @@ globalStyle(`.react-calendar__navigation button:enabled:focus, .react-calendar__
   backgroundColor: vars.colors.black
 });
 globalStyle(`.react-calendar__tile--active:enabled:focus, .react-calendar__tile--active:enabled:hover`, {
-  background: vars.colors.gray01
+  background: `${vars.colors.gray01} !important`
 });
 
 globalStyle(`.react-calendar__tile:enabled:focus, .react-calendar__tile:enabled:hover`, {
