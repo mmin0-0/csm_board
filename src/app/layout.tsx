@@ -17,6 +17,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "CSM",
   description: "코딩을 사랑하는 모임",
+  icons: {
+    icon: '/favicon.png'
+  }
 };
 
 type Props = { children: React.ReactNode };
