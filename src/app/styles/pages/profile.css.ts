@@ -1,17 +1,29 @@
 import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from '@/app/styles/globals.css';
+import { media, vars } from '@/app/styles/globals.css';
 import { blank, border, flexBox, position, radius, size, spacing, transition } from '@/app/styles/utils.css';
 
 export const ContWrap = style([
   spacing.mt(1),
   position('relative')
 ]);
-export const ProfileContWrap = style({
-  display: 'flex',
-  gap: '2rem'
-});
+export const ProfileContWrap = style([
+  flexBox({
+    direction: 'row',
+    gap: '2rem'
+  }),
+  {
+    '@media': {
+      [media.sm]: {flexDirection: 'column'}
+    }
+  }
+]);
 export const MainContent = style([
   size({width: 'calc(70% - 1rem)'}),
+  {
+    '@media': {
+      [media.sm]: {width: '100%'}
+    }
+  }
 ]);
 export const UserInfoWrap = style([
   position('relative'),
@@ -45,9 +57,17 @@ export const UserDetails = style({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr 1fr',
   gridTemplateRows: '1fr 1fr 1fr 1fr',
-  gap: '2rem'
+  gap: '2rem',
+  '@media': {
+    [media.sm]: {display: 'block'}
+  }
 });
 globalStyle(`${UserDetails} > div`, {flex: 1});
+globalStyle(`${UserDetails} > div:not(:first-child)`, {
+  '@media': {
+    [media.sm]: {marginTop: '2rem'}
+  }
+});
 export const ProfileContent = style([
   blank.p('1.6rem'),
   radius('2.4rem'),

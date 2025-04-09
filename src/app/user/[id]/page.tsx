@@ -11,6 +11,17 @@ import { Todo as ITodo } from "@/model/Todo";
 import { TitWrap, Typography } from "@/app/_component/Typography";
 import SignAlert from "@/app/_component/SignAlert";
 
+type Props = {params: {id: string}};
+export async function generateMetadata({params}:Props){
+  const db = (await connectDB).db("csm_board");
+  const user = await db.collection("user_cred").findOne({email: params.id});
+
+  return {
+    title: `${user?.name}(${user?.email}) / 프로필`,
+    description: `${user?.name}(${user?.email}) / 프로필`,
+  };
+}
+
 export default async function Page() {
   const session = await getServerSession(authOptions);
   if (!session) {
