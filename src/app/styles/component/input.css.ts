@@ -13,15 +13,15 @@ globalStyle(`${formControls} > div`, {marginTop: '1rem'});
 
 export const InputWrap = style([]);
 export const InputGroup = style([position('relative')]);
+globalStyle(`${InputWrap} input`, {color: vars.colors.black});
 export const Eye = style([
   position('absolute', {top: '50%', right: '1rem'}),
   {
     transform: 'translateY(-50%)',
     cursor: 'pointer',
-    color: vars.colors.gray01
+    color: vars.colors.white
   }
 ]);
-globalStyle(`${InputWrap} *`, {color: vars.colors.black});
 globalStyle(`${InputWrap} textarea, ${InputWrap} input`, {
   width: '100%',
   borderRadius: '1.2rem',

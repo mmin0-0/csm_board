@@ -1,6 +1,7 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 import { media, vars } from '@/app/styles/globals.css';
 import { blank, flexBox, position, size, spacing, backgroundProperty } from '@/app/styles/utils.css';
+import { Eye } from '@/app/styles/component/input.css';
 
 export const LoginWrap = style([
   size({height: '100dvh'}),
@@ -14,6 +15,7 @@ export const LoginWrap = style([
     }
   }
 ]);
+globalStyle(`${LoginWrap} ${Eye}`, {color: vars.colors.black});
 export const LoginBackground = style([
   size({width: '60%', height: '100%'}),
   position('relative'),
