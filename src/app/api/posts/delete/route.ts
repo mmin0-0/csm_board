@@ -18,7 +18,7 @@ export const DELETE = async (req: NextRequest) => {
     const target = await db.collection('post').findOne({ _id: objectId });
 
     const userRole = session.user?.role ?? 'user';
-    if(target?.author !== session.user?.email && userRole !== 'admin'){
+    if(target?.authorEmail !== session.user?.email && userRole !== 'admin'){
       return NextResponse.json({error: '작성자 또는 관리자만 삭제 가능합니다.'}, {status: 403});
     }
 

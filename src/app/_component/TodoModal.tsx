@@ -84,7 +84,7 @@ export default function TodoModal({ modalHandler }: Props) {
           <div className={style.ModalBottom}>
             {message && <Typography weight="semiBold" color="error">{message}</Typography>}
             <ButtonWrap align="center">
-              <Button type="submit" size="medium">추가</Button>
+              <Button type="submit" size="medium">일정추가</Button>
             </ButtonWrap>
           </div>
         </form>

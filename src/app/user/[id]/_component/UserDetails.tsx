@@ -46,7 +46,7 @@ export default function UserDetails({ session, posts, todos }: Props) {
                   <Typography color="black" lineHeight="regular">
                     {post.title}
                   </Typography>
-                  <Typography color="black" as="span">
+                  <Typography color="gray" as="span" size="small" className={style.ContentDate}>
                     {post.createAt.split(" ")[0]}
                   </Typography>
                 </div>
@@ -71,7 +71,7 @@ export default function UserDetails({ session, posts, todos }: Props) {
                   <Typography color="black" lineHeight="regular">
                     {todo.title}
                   </Typography>
-                  <Typography as="span" color="black">
+                  <Typography color="gray" as="span" size="small" className={style.ContentDate}>
                     {todo.date.toString()}
                   </Typography>
                 </div>

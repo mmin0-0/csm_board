@@ -85,6 +85,7 @@ export const ContentTxt = style([
     gap: '1rem'
   }),
 ]);
+export const ContentDate = style({whiteSpace: 'nowrap'});
 export const UserSchedule = style({
   background: vars.colors.blue,
   gridColumn: '3 / 5',

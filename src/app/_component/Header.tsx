@@ -17,7 +17,7 @@ export default async function Header() {
         ) : (
           <>
             <Typography size="medium">
-              Hello, welcome <Typography as="strong" size="medium">CSㆍM</Typography>
+              Hello, welcome <Typography as="strong" weight="semiBold" color="pink" size="medium">CSㆍM</Typography>
             </Typography>
           </>
         )}

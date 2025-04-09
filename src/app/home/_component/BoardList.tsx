@@ -8,14 +8,6 @@ import { Typography } from "@/app/_component/Typography";
 
 type Props = { posts: IPost[] };
 export default function BoardList({ posts }: Props) {
-  const [activeTab, setActiveTap] = useState('notice');
-  const notices = posts.filter(item => item.postType === 'notice');
-  const boardPosts = posts.filter(item => item.postType === 'general');
-  const tabs = ['notice', 'board'];
-  const handleTabClick = (tabValue: string) => {
-    setActiveTap(tabValue);
-  };
-
   return (
     <>
       <div className={style.ContTitWrap}>
@@ -23,17 +15,19 @@ export default function BoardList({ posts }: Props) {
         <Link href="/board" className={style.MoreLink}>View All</Link>
       </div>
       <div className={clsx(style.ContWrap, style.BoardContWrap)}>
-        {(activeTab === 'notice' ? notices : boardPosts).length === 0 ? (
-          <div className={style.BoardContEmpty}>게시물이 없습니다.</div>
-        ) : (
-          <ul>
-            {(activeTab === 'notice' ? notices : boardPosts).map((post, idx) => <li key={idx}>
+        {posts.length > 0 ? (
+        <ul>
+          {posts.slice(0, 5).map((post) => 
+            <li key={post._id.toString()}>
               <Link href={`/board/${post._id}`} className={style.BoardItem}>
                 <Typography color="black">{post.title}</Typography>
-                <Typography as="span" color="black">{post.createAt.split(' ')[0]}</Typography>
+                <Typography as="span" color="gray" size="small">{post.createAt.split(' ')[0]}</Typography>
               </Link>
-            </li>)}
-          </ul>
+            </li>
+          )}
+        </ul>
+        ) : (
+          <div className={style.BoardContEmpty}>게시물이 없습니다.</div>
         )}
       </div>
     </>

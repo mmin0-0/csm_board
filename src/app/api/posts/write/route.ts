@@ -22,6 +22,7 @@ export const POST = async(req: NextRequest) => {
     String(now.getSeconds()).padStart(2, '0');
     
     const author = session.user?.name;
+    const authorEmail = session.user?.email;
     const title = (formData.get("title") as string)?.trim();
     const content = (formData.get("content") as string)?.trim();
     const postType = 'general';
@@ -33,7 +34,7 @@ export const POST = async(req: NextRequest) => {
       return NextResponse.json({error: '🚨제목과 내용을 입력해주세요.'}, {status: 400});
     }
 
-    const post = { author, title, content, postType, createAt, likeUser, likeCount };
+    const post = { author, authorEmail, title, content, postType, createAt, likeUser, likeCount };
     await db.collection('post').insertOne(post);
     
     return NextResponse.redirect(new URL('/board', req.url), 302);
