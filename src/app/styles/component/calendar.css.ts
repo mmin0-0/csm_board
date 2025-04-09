@@ -62,7 +62,7 @@ globalStyle(`${CalendarCont} .react-calendar__viewContainer`, {marginTop: '2rem'
 globalStyle(`${CalendarCont} 
   .react-calendar__month-view__days__day,
   .react-calendar__month-view__weekdays__weekday`, {padding: '1.4rem 0'});
-globalStyle(`.react-calendar__month-view__weekdays__weekday--weekend, .react-calendar__month-view__days__day--weekend`, {color: vars.colors.pink});
+globalStyle(`.react-calendar__month-view__weekdays__weekday--weekend, .react-calendar__month-view__days__day--weekend`, {color: `${vars.colors.pink} !important`});
 globalStyle(`.react-calendar__navigation button:enabled:focus, .react-calendar__navigation button:enabled:hover`, {
   backgroundColor: vars.colors.black
 });
