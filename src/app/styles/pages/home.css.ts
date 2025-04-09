@@ -244,7 +244,8 @@ globalStyle(`${LeadsActivityWrap} > canvas`, {
 
 // 알림(Notifications)
 export const NotificationsWrap = style({
-  background: vars.colors.white,
+  background: vars.colors.darkgray,
+  border: `1px solid ${vars.colors.white}`,
   gridColumn: '3 / 5',
   gridRow: '4 / 5'
 });
@@ -253,3 +254,5 @@ globalStyle(`${NotificationsWrap} > a`, {
   alignItems: 'center',
   justifyContent: 'space-between'
 });
+export const NotificationContWrap = style({borderColor: vars.colors.white});
+globalStyle(`${NotificationsWrap} ${MoreLink}`, {color: vars.colors.white});

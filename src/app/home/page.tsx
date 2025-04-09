@@ -6,11 +6,9 @@ import BoardList from "@/app/home/_component/BoardList";
 import Lecture from "@/app/home/_component/Lecture";
 import JobPosting from "@/app/home/_component/JobPosting";
 import LeadsActivity from "@/app/home/_component/LeadsActivity";
+import Notification from "@/app/home/_component/Notification";
 import ScheduleCalendar from "@/app/_component/ScheduleCalendar";
-import { Typography } from "../_component/Typography";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 import Header from "@/app/_component/Header";
 
 export default async function Home() {
@@ -48,15 +46,7 @@ export default async function Home() {
             <JobPosting />
           </div>
           <div className={clsx(style.HomeContent, style.NotificationsWrap)}>
-            <Link href="#">
-              <Typography as="strong" color="black" size="large" weight="bold">
-                Notifications (5)
-              </Typography>
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                style={{ width: '2.4rem' }}
-              />
-            </Link>
+            <Notification posts={posts} />
           </div>
         </div>
         <div className={style.SubContent}>

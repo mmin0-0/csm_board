@@ -1,5 +1,5 @@
 'use client';
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import { ChangeEventHandler, useState } from "react";
 import TextareaAutosize from 'react-textarea-autosize';
 import * as style from '@/app/styles/component/input.css';
@@ -20,6 +20,7 @@ interface InputDefaultProps {
 
 interface TextInputProps extends InputDefaultProps {
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  onClick?: MouseEventHandler<HTMLInputElement>;
 };
 export const TextInput = ({ children, className, id, name, defaultValue, value, onChange, placeholder, required, disabled }: TextInputProps) => {
   return (
@@ -93,7 +94,7 @@ export const PwInput = ({ children, className, id, name, defaultValue, value, on
   )
 };
 
-export const FileInput = ({ children, className, id, name, defaultValue, value, onChange, placeholder, required, disabled }: TextInputProps) => {
+export const FileInput = ({ children, className, id, name, defaultValue, value, onChange, onClick, placeholder, required, disabled }: TextInputProps) => {
   return (
     <div className={style.InputWrap}>
       <label htmlFor={id} className={className}>{children}</label>
@@ -104,6 +105,7 @@ export const FileInput = ({ children, className, id, name, defaultValue, value, 
         defaultValue={defaultValue}
         value={value}
         onChange={onChange}
+        onClick={onClick}
         placeholder={placeholder}
         required={required}
         disabled={disabled}
