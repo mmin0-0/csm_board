@@ -46,17 +46,17 @@ globalStyle(`input[type="date"]`, {
   background: 'url(/images/icon/calendar_icon.png) no-repeat center left 1rem / 2rem',
   padding: '.8rem 1rem .8rem 3.4rem',
 });
-globalStyle(`
-  input[type="date"]::-webkit-datetime-edit-text,
-  input[type="date"]::-webkit-datetime-edit-month-field,
-  input[type="date"]::-webkit-datetime-edit-day-field,
-  input[type="date"]::-webkit-datetime-edit-year-field,`
-  , {
-    WebkitAppearance: 'none',
-    display: 'none',
-    color: 'transparent',
-    textShadow: '0 0 0 transparent'
-  });
+// globalStyle(`
+//   input[type="date"]::-webkit-datetime-edit-text,
+//   input[type="date"]::-webkit-datetime-edit-month-field,
+//   input[type="date"]::-webkit-datetime-edit-day-field,
+//   input[type="date"]::-webkit-datetime-edit-year-field,`
+//   , {
+//     WebkitAppearance: 'none',
+//     display: 'none',
+//     color: 'transparent',
+//     textShadow: '0 0 0 transparent'
+//   });
 globalStyle(`input[type="date"]::before`, {
   content: 'attr(data-placeholder)',
   width: '100%',
