@@ -37,7 +37,8 @@ export const TitleWrap = style([
       [media.lg]: {paddingLeft: '4rem'},
       [media.xs]: {
         flexDirection: 'column',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
+        justifyContent: 'center'
       }
     }
   }
