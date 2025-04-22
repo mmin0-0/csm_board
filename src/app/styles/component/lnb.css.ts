@@ -5,7 +5,12 @@ import { blank, border, flexBox, position, radius, size, transition } from '@/ap
 
 export const LnbWrap = style([
   position('sticky', {top: '0', left: '0'}),
-  {zIndex: 10}
+  {
+    zIndex: 10,
+    '@media': {
+      [media.lg]: {position: 'relative'}
+    }
+  },
 ]);
 export const LnbControls = style([
   position('absolute', {top: '2rem', left: '2rem'}),
