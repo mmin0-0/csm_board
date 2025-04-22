@@ -53,10 +53,9 @@ export const ContactInfo = style([spacing.mt(1)]);
 export const InfoModifyBtn = style([position('absolute', {top: '1rem', right: '1rem'})]);
 export const UserDetails = style({
   marginTop: '2rem',
-  minHeight: 'calc(100vh - 15.5rem)',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr 1fr',
-  gridTemplateRows: '1fr 1fr 1fr 1fr',
+  gridTemplateRows: '1fr 1fr',
   gap: '2rem',
   '@media': {
     [media.sm]: {display: 'block'}
@@ -76,7 +75,7 @@ export const ProfileContent = style([
 export const UserWritePosts = style({
   background: vars.colors.green,
   gridColumn: '1 / 3',
-  gridRow: '1 / 3'
+  gridRow: '1 / 2'
 });
 export const ContentItem = style([
   blank.p('1rem'),
@@ -109,12 +108,12 @@ export const ContentDate = style({whiteSpace: 'nowrap'});
 export const UserSchedule = style({
   background: vars.colors.blue,
   gridColumn: '3 / 5',
-  gridRow: '1 / 3'
+  gridRow: '1 / 2'
 });
 export const RecommendContent = style({
   background: vars.colors.pink,
   gridColumn: '1 / 5',
-  gridRow: '3 / 5'
+  gridRow: '2 / 3'
 });
 export const RecommendList = style({
   display: 'grid',
