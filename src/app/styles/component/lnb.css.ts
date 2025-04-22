@@ -4,7 +4,7 @@ import { media, vars } from '@/app/styles/globals.css';
 import { blank, border, flexBox, position, radius, size, transition } from '@/app/styles/utils.css';
 
 export const LnbWrap = style([
-  position('relative'),
+  position('sticky', {top: '0', left: '0'}),
   {zIndex: 10}
 ]);
 export const LnbControls = style([

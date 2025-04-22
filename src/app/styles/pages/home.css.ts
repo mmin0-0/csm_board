@@ -19,7 +19,7 @@ export const MainContent = style([
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     gridTemplateRows: '4rem auto auto auto',
-    gap: '1rem',
+    gap: '2rem',
     '@media': {
       [media.sm]: {
         width: '100%',
