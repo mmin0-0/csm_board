@@ -8,7 +8,7 @@ export const LnbWrap = style([
   {
     zIndex: 10,
     '@media': {
-      [media.lg]: {position: 'relative'}
+      [media.lg]: {position: 'absolute'}
     }
   },
 ]);
@@ -23,7 +23,7 @@ export const LnbControls = style([
   }
 ]);
 export const NavWrap = style([
-  size({width: '20rem', height: '100%'}),
+  size({width: '20rem', height: '100vh'}),
   blank.p('2.4rem 2rem'),
   border({
     width: '1px',
