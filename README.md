@@ -29,7 +29,7 @@
 |---|---|
 |![Image](https://github.com/user-attachments/assets/d598b761-1143-4ac3-b8a4-23fd669a791d)|![Image](https://github.com/user-attachments/assets/0e3ce88a-37ea-400e-8374-bb8489b540ad)|
 - NextAuth를 이용한 회원가입 및 로그인(github 소셜로그인 가능) 기능 구현
-- 로그인 하지 않은 사용자는 게시글 작성/댓글달기/좋아요 접근 시 로그인 페이지로 리다이렉트함.
+- 로그인 하지 않은 사용자는 게시글 작성/댓글달기/좋아요 페이지 접근 시 로그인 페이지로 리다이렉트함.
 
 #### 2. 캘린더 스케줄 관리
 |메인화면|등록화면|개인스케줄|
@@ -42,4 +42,7 @@
 #### 3. 게시글 관리
 |게시판|작성화면|게시글 상세|
 |---|---|---|
-|
+|![Image](https://github.com/user-attachments/assets/93915669-f57b-4b63-a7d8-274f9cf08c63)|![Image](https://github.com/user-attachments/assets/4b28b194-503c-4a1f-9d2b-99da9115dbd1)|![Image](https://github.com/user-attachments/assets/f3fd1513-3d86-4a85-bd70-61d2e76eeb58)|
+- 게시글의 타입을 notice/
+- 게시글 ***삭제/수정/댓글등록/좋아요*** 기능은 게시글 상세페이지에서 기능 제공
+- 
