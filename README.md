@@ -28,13 +28,18 @@
 |로그인|회원가입|
 |---|---|
 |![Image](https://github.com/user-attachments/assets/d598b761-1143-4ac3-b8a4-23fd669a791d)|![Image](https://github.com/user-attachments/assets/0e3ce88a-37ea-400e-8374-bb8489b540ad)|
-
 - NextAuth를 이용한 회원가입 및 로그인(github 소셜로그인 가능) 기능 구현
 - 로그인 하지 않은 사용자는 게시글 작성/댓글달기/좋아요 접근 시 로그인 페이지로 리다이렉트함.
 
 #### 2. 캘린더 스케줄 관리
 |메인화면|등록화면|개인스케줄|
 |---|---|---|
+|![Image](https://github.com/user-attachments/assets/21518fa6-cd2d-4115-b2bf-fa50ff6ff145)|![Image](https://github.com/user-attachments/assets/04050c28-b5f5-4023-b2eb-54de4a365f75)|![Image](https://github.com/user-attachments/assets/3d2cb317-07c8-4c27-a52f-208a60e860b5)|
+- React Calendar와 DB 연동을 통한 스케줄 관리 기능 구현
+- 로그인한 사용자가 직접 일정을 ***등록/조회/삭제*** 가 가능
+- 관리자가 등록한 스케줄은 전체 사용자에게 공통으로 노출
 
-
-
+#### 3. 게시글 관리
+|게시판|작성화면|게시글 상세|
+|---|---|---|
+|
